@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRCONFI.Projeto.Web", "SRCONFI.Projeto.Web\SRCONFI.Projeto.Web\SRCONFI.Projeto.Web.csproj", "{3715630E-843B-4D17-9317-2AF910F47820}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRCONFI.Projeto.UnitTest", "SRCONFI.Projeto.UnitTest\SRCONFI.Projeto.UnitTest\SRCONFI.Projeto.UnitTest.csproj", "{A3704933-C02C-4781-9CB2-434DE6EBA43B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3715630E-843B-4D17-9317-2AF910F47820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3715630E-843B-4D17-9317-2AF910F47820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3715630E-843B-4D17-9317-2AF910F47820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3715630E-843B-4D17-9317-2AF910F47820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3704933-C02C-4781-9CB2-434DE6EBA43B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3704933-C02C-4781-9CB2-434DE6EBA43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3704933-C02C-4781-9CB2-434DE6EBA43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3704933-C02C-4781-9CB2-434DE6EBA43B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

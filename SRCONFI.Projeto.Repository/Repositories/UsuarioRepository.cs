@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SRCONFI.Projeto.Domain.Dominio.Repositories.Generica
+namespace SRCONFI.Projeto.Repository.Repositories
 {
-    interface IRepository
+    class UsuarioRepository
     {
     }
 }

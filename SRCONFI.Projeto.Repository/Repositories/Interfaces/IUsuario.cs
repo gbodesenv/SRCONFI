@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SRCONFI.Projeto.Domain.Dominio.Repositories
+namespace SRCONFI.Projeto.Repository.Repositories.Interfaces
 {
-    interface IUsuarioRepository
+    interface IUsuario
     {
     }
 }

@@ -7,7 +7,7 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
     {
         public UsuarioConfiguration()
         {
-            Property(c => c.usuarioID)
+            Property(c => c.usuarioID);
                 
         }
     }

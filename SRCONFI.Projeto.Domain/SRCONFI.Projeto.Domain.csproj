@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Entity\Configuration\UsuarioConfiguration.cs" />
     <Compile Include="Entity\Logs.cs" />
+    <Compile Include="Entity\TipoUsuario.cs" />
     <Compile Include="Entity\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

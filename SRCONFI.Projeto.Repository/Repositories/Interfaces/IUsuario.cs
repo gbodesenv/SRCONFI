@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using SRCONFI.Projeto.Domain.Entity;
 
 namespace SRCONFI.Projeto.Repository.Repositories.Interfaces
 {
-    interface IUsuario
+    public interface IUsuarioRepository : IRepository<Usuario>
     {
+       // Author GetAuthorWithCourses(int id);
     }
 }

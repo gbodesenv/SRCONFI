@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SRCONFI.Projeto.Repository.UnitOfWork.Interfaces
+namespace SRCONFI.Projeto.Repository.Repositories
 {
-    interface IUnitOfWork
+    interface Repository
     {
     }
 }

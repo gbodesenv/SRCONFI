@@ -22,7 +22,7 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public int numeroTelefone { get; set; }
 
-        public int inStatus { get; set; }
+        public byte inStatus { get; set; }
 
         public virtual TipoUsuario TipoUsuario { get; set; }
 

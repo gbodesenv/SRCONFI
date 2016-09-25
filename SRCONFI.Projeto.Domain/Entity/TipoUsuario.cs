@@ -11,8 +11,7 @@ namespace SRCONFI.Projeto.Domain.Entity
         
         public int tipoUsuarioID { get; set; }
 
-        public int descricaoUsuario { get; set; }
-
-
+        public string descricaoTipoUsuario { get; set; }
+        
     }
 }

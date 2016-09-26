@@ -1,0 +1,206 @@
+﻿@model IEnumerable<SRCONFI.Projeto.Domain.Entity.Usuario>
+
+
+<script src="~/Scripts/Bootstrap/bootstrap.min.js"></script>
+<link href="~/Content/Css/Bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+
+@{
+    Layout = null;
+}
+
+<style type="text/css">
+  
+/*
+over-ride "Weak" message, show font in dark grey
+*/
+
+.progress-bar {
+    color: #333;
+} 
+
+/*
+Reference:
+http://www.bootstrapzen.com/item/135/simple-login-form-logo/
+*/
+
+* {
+    -webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	outline: none;
+}
+
+    .form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+	  padding: 10px;
+		include box-sizing(border-box);
+
+		&:focus {
+		  z-index: 2;
+		}
+	}
+
+body {
+	background: url(http://i.imgur.com/GHr12sH.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.login-form {
+	margin-top: 60px;
+}
+
+form[role=login] {
+	color: #5d5d5d;
+	background: #f2f2f2;
+	padding: 26px;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+	form[role=login] img {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 35px;
+	}
+	form[role=login] input,
+	form[role=login] button {
+		font-size: 8px;
+		margin: 16px 0;
+	}
+	form[role=login] > div {
+		text-align: center;
+	}
+	
+.form-links {
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 50px;
+}
+	.form-links a {
+		color: #fff;
+	}
+
+    .btn{
+		color: black;
+		margin: 16px 0;
+	}
+</style>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+
+        <div class="row" id="pwd-container">
+            <div class="col-md-4"></div>
+
+            <div class="col-md-4">
+                <section class="login-form">
+                    <form method="post" action="#" role="login">
+                        <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
+                        <input type="email" name="email" placeholder="Usuário" required class="form-control input-lg" value="Usuário" />
+
+                        <input type="password" class="form-control input-lg" id="password" placeholder="Senha" required="" />
+
+
+                        <div class="pwstrength_viewport_progress"></div>
+
+
+                        <button type="submit" name="go" class="btn">Confirmar</button>
+                        <div>
+                            <a href="#">Create account</a> or <a href="#">reset password</a>
+                        </div>
+
+                    </form>
+
+                    <div class="form-links">
+                        <a href="#">www.website.com</a>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-md-4"></div>
+
+
+        </div>
+
+        <p>
+            <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fbootsnipp.com%2Fiframe%2FW00op" target="_blank"><small>HTML</small><sup>5</sup></a>
+            <br>
+            <br>
+
+        </p>
+
+
+    </div>
+</body>
+</html>
+
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.login)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.senha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.numeroTelefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.inStatus)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.senha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.numeroTelefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.inStatus)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.usuarioID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.usuarioID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.usuarioID })
+            </td>
+        </tr>
+    }
+
+    </table>*@

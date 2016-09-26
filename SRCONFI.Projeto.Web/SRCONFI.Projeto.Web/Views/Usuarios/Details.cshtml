@@ -1,0 +1,74 @@
+﻿@model SRCONFI.Projeto.Domain.Entity.Usuario
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Usuario</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nome)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nome)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.login)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.login)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.senha)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.senha)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.numeroTelefone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.numeroTelefone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.inStatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.inStatus)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.usuarioID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

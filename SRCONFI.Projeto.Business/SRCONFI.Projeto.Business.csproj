@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A530D483-2454-422C-80C5-C0477D8A5900}</ProjectGuid>
+    <ProjectGuid>{ABEB9018-33B3-41FE-9D46-CC3D1C75C156}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SRCONFI.Projeto.Domain</RootNamespace>
-    <AssemblyName>SRCONFI.Projeto.Domain</AssemblyName>
+    <RootNamespace>SRCONFI.Projeto.Business</RootNamespace>
+    <AssemblyName>SRCONFI.Projeto.Business</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,16 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,20 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BancoContext.cs" />
-    <Compile Include="Entity\Configuration\LogsConfiguration.cs" />
-    <Compile Include="Entity\Configuration\TipoUsuarioConfiguration.cs" />
-    <Compile Include="Entity\Configuration\UsuarioConfiguration.cs" />
-    <Compile Include="Entity\Logs.cs" />
-    <Compile Include="Entity\TipoUsuario.cs" />
-    <Compile Include="Entity\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <ProjectReference Include="..\SRCONFI.Projeto.Repository\SRCONFI.Projeto.Repository.csproj">
+      <Project>{bf1cfbb3-3f4c-46c1-8a1e-985c635a3613}</Project>
+      <Name>SRCONFI.Projeto.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SRCONFI.Projeto.Web\SRCONFI.Projeto.Web\SRCONFI.Projeto.Web.csproj">
+      <Project>{3715630e-843b-4d17-9317-2af910f47820}</Project>
+      <Name>SRCONFI.Projeto.Web</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

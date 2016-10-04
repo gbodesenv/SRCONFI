@@ -43,10 +43,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SRCONFI.Projeto.Repository\SRCONFI.Projeto.Repository.csproj">
-      <Project>{bf1cfbb3-3f4c-46c1-8a1e-985c635a3613}</Project>
-      <Name>SRCONFI.Projeto.Repository</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SRCONFI.Projeto.Web\SRCONFI.Projeto.Web\SRCONFI.Projeto.Web.csproj">
       <Project>{3715630e-843b-4d17-9317-2af910f47820}</Project>
       <Name>SRCONFI.Projeto.Web</Name>

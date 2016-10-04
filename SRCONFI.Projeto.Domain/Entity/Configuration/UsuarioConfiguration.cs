@@ -8,9 +8,12 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
         public UsuarioConfiguration()
         {
             //Primary Key, relação obrigatória com a tabela TipoUsuario
-            this.HasKey(u => u.usuarioID)
-                .HasRequired(u => u.TipoUsuario);
-
+            this.HasKey(u => u.usuarioID);
+            
+            this.HasOptional(u => u.TipoUsuario)
+                 .WithMany()
+                .HasForeignKey(u=>u.tipoUsuarioID_FK);
+            
             //Not Null, Nome da coluna, Identity
             Property(u => u.usuarioID)
                 .IsRequired()

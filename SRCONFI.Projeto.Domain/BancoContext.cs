@@ -8,7 +8,7 @@ namespace SRCONFI.Projeto.Domain
     {
         #region Construtor
         public BancoContext()
-            : base("name=DBSRCONFI")
+            : base("DBSRCONFI")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }

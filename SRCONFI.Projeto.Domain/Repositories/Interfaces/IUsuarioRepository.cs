@@ -1,7 +1,6 @@
-﻿
-using SRCONFI.Projeto.Domain.Entity;
+﻿using SRCONFI.Projeto.Domain.Entity;
 
-namespace SRCONFI.Projeto.Repository.Repositories.Interfaces
+namespace SRCONFI.Projeto.Domain.Repositories.Interfaces
 {
     public interface IUsuarioRepository : IRepository<Usuario>
     {

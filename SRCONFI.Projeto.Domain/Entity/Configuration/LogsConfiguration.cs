@@ -10,7 +10,9 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
         {
             //Primary Key, relação obrigatória com a tabela Usuario
             this.HasKey(l => l.logID)
-                .HasRequired(l => l.Usuario);
+                .HasOptional(l => l.Usuario)
+                .WithMany()
+                .HasForeignKey(l => l.usuarioID_FK);
 
             //Not Null, Nome da coluna, Identity
             Property(l => l.logID)

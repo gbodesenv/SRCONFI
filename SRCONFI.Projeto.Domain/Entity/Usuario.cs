@@ -24,6 +24,8 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public byte inStatus { get; set; }
 
+        public int? tipoUsuarioID_FK { get; set; }
+
         public virtual TipoUsuario TipoUsuario { get; set; }
 
     }

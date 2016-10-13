@@ -31,18 +31,18 @@ namespace SRCONFI.Projeto.UnitTest
 
             listaUsuarios.Add(usuarioA);
 
-            Usuario usuarioB = new Usuario();
-            usuarioB.nome = "Gabriel";
-            usuarioB.email = "beube@gmail.com";
-            usuarioB.login = "beu";
-            usuarioB.numeroTelefone = 85092217;
-            usuarioB.senha = "12345";
-            usuarioB.inStatus = 0;
+            //Usuario usuarioB = new Usuario();
+            //usuarioB.nome = "Gabriel";
+            //usuarioB.email = "beube@gmail.com";
+            //usuarioB.login = "beu";
+            //usuarioB.numeroTelefone = 85092217;
+            //usuarioB.senha = "12345";
+            //usuarioB.inStatus = 0;
 
-            //faz vinculação a um "tipoUsuario" já existente no banco
-            usuarioB.tipoUsuarioID_FK = 1;
+            ////faz vinculação a um "tipoUsuario" já existente no banco
+            //usuarioB.tipoUsuarioID_FK = 1;
 
-            listaUsuarios.Add(usuarioB);
+            //listaUsuarios.Add(usuarioB);
 
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {

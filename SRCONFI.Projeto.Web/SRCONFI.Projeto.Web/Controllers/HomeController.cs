@@ -46,5 +46,10 @@ namespace SRCONFI.Projeto.Web.Controllers
             return View("Index");
         }
 
+        public ActionResult Home()
+        {
+            return View();
+        }
+
     }
 }

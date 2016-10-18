@@ -19,7 +19,7 @@
                         <fieldset>
                             <div class="form-group">                                
                                 @Html.TextBoxFor(model => model.Usuario, new { @class = "form-control", @placeholder = "Usuário" })
-
+                               
                                 @if (ViewBag.UsuarioVazio == true)
                                 {
                                     <br />
@@ -39,6 +39,15 @@
                                         Campo <strong>Senha</strong> em branco.
                                     </div>
                                 }
+                                else if (ViewBag.UsuarioInvalido == true)
+                                {
+                                    <br />
+                                    <div class="alert alert-warning alert-dismissible" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <strong>OPS!</strong> Usuário ou senha inválidos.
+                                    </div>
+                                }
+
                             </div>
                             <div class="checkbox">
                                 <label>

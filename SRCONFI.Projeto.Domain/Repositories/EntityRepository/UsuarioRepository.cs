@@ -11,6 +11,13 @@ namespace SRCONFI.Projeto.Domain.Repositories
             : base(context)
         {
         }
+
+        public bool ValidLoginUsuario(string login, string senha)
+        {
+            return BancoContext.Usuario.Where(u=> u.login.Equals(login) && u.senha.Equals(senha)).Any();
+        }
+
+
         public BancoContext BancoContext
         {
             get { return Context as BancoContext; }

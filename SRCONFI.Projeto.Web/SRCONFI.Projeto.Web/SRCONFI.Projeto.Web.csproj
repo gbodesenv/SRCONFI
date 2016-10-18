@@ -203,6 +203,10 @@
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SRCONFI.Projeto.Business\SRCONFI.Projeto.Business.csproj">
+      <Project>{abeb9018-33b3-41fe-9d46-cc3d1c75c156}</Project>
+      <Name>SRCONFI.Projeto.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SRCONFI.Projeto.Domain\SRCONFI.Projeto.Domain.csproj">
       <Project>{a530d483-2454-422c-80c5-c0477d8a5900}</Project>
       <Name>SRCONFI.Projeto.Domain</Name>

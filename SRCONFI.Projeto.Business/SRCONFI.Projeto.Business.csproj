@@ -40,12 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Login\LoginBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SRCONFI.Projeto.Web\SRCONFI.Projeto.Web\SRCONFI.Projeto.Web.csproj">
-      <Project>{3715630e-843b-4d17-9317-2af910f47820}</Project>
-      <Name>SRCONFI.Projeto.Web</Name>
+    <ProjectReference Include="..\SRCONFI.Projeto.Domain\SRCONFI.Projeto.Domain.csproj">
+      <Project>{a530d483-2454-422c-80c5-c0477d8a5900}</Project>
+      <Name>SRCONFI.Projeto.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

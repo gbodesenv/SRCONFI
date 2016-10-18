@@ -16,10 +16,23 @@ namespace SRCONFI.Projeto.Web.Controllers
 
         [HttpPost]
         public ActionResult Login(ViewModel.LoginViewModel loginViewModel)
-        {            
+        {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("Index", "Home");
+                Domain.Entity.Usuario usuario = new Domain.Entity.Usuario();
+                usuario.login = loginViewModel.Usuario;
+                usuario.senha = loginViewModel.Senha;
+                bool passTrue = new Business.Login.LoginBusiness().AutenticarUsuario(usuario);
+
+                if (passTrue)
+                    return RedirectToAction("Home", "Home");
+                else
+                {
+                    ViewBag.UsuarioInvalido = true;
+                    return View("Index");
+                }
+
+
             }
             else
             {

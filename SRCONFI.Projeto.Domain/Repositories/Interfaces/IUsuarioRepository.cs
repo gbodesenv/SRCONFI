@@ -4,6 +4,6 @@ namespace SRCONFI.Projeto.Domain.Repositories.Interfaces
 {
     public interface IUsuarioRepository : IRepository<Usuario>
     {
-       // Author GetAuthorWithCourses(int id);
+       bool ValidLoginUsuario(string login, string senha);
     }
 }

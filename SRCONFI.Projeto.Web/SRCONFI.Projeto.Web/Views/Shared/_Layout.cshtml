@@ -47,12 +47,10 @@
 
 
         footer {
-            position: relative;
-            margin-top: -150px; /* negative value of footer height */
-            height: 150px;
-            clear: both;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
+            position: fixed;
+            height: 30px;
+            bottom: 0;
+            width: 100%;
         }
 
         .copyright {
@@ -61,15 +59,28 @@
             color: #fff;
         }
 
+            .copyright h5 {
+                margin-top: 3px;
+            }
+
+            .copyright small {
+                color: #fff;
+            }
+
             .copyright p {
                 margin: 0;
             }
+
+        .container-full {
+            margin: 0 auto;
+            width: 100%;
+        }
     </style>
 
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
+        <div class="container-full">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -77,12 +88,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Meu Site</a>
+                <a class="navbar-brand" href="#">SRCONFI</a>
             </div>
+
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          
+
+
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li class="dropdown">
+                    <li><a href="#">Usuários</a></li>
+
+
+                    @*DROP DOWN*@
+                    @*<li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Jogos</a></li>
@@ -91,10 +111,10 @@
                             <li class="divider"></li>
                             <li><a href="#">Vídeo aulas</a></li>
                         </ul>
-                    </li>
-                    <li><a href="#">Empresa</a></li>
-                    <li><a href="#">Contato</a></li>
+                    </li>*@
+                    @*<li><a href="#">Contato</a></li>*@
                 </ul>
+
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Pesquisar">
@@ -102,8 +122,14 @@
                     <button type="submit" class="btn btn-default">Pesquisar</button>
                 </form>
             </div>
+
+
+
         </div>
     </nav> <!-- final do navbar -->
+
+
+
     <div class="wrapper" role="main">
         <div class="container">
             <div class="row">
@@ -120,11 +146,7 @@
     </div><!-- div wrapper -->
 
 
-
-
-
-
-    <footer>
+    <footer class="navbar-fixed-bottom">
         @*<!-- Aqui e a area do footer -->
             <div class="container">
                 <div class="row">
@@ -153,8 +175,11 @@
         <div class="copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-8">
                         <p>&copy; Todos os direitos reservados.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5><small>Sistema de Registro de Sócios e Controle Financeiro</small></h5>
                     </div>
                 </div>
             </div>

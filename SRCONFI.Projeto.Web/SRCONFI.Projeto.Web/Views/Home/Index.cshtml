@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SRCONFI</title>
+    <link href="~/Content/Css/Bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            padding-top: 100px;
+        }
+    </style>
+
+</head>
+<body>
+    @model SRCONFI.Projeto.Web.ViewModel.LoginViewModel
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Por favor efetue o Login</h3>
+                    </div>
+                    <div class="panel-body">
+                        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "", @accept_charset = "UTF-8", @role = "form" }))
+                        {
+                            <fieldset>
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.Usuario, new { @class = "form-control", @placeholder = "Usuário" })
+
+                                    @if (ViewBag.UsuarioVazio == true)
+                                    {
+                                        <br />
+                                        <div class="alert alert-warning alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            Campo <strong>Usuário</strong> em branco.
+                                        </div>
+                                    }
+                                </div>
+                                <div class="form-group">
+                                    @Html.PasswordFor(model => model.Senha, new { @class = "form-control", @placeholder = "Senha" })
+                                    @if (ViewBag.SenhaVazio == true)
+                                    {
+                                        <br />
+                                        <div class="alert alert-warning alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            Campo <strong>Senha</strong> em branco.
+                                        </div>
+                                    }
+                                    else if (ViewBag.UsuarioInvalido == true)
+                                    {
+                                        <br />
+                                        <div class="alert alert-warning alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <strong>OPS!</strong> Usuário ou senha inválidos.
+                                        </div>
+                                    }
+
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me"> Lembre-me mais tarde
+                                    </label>
+                                </div>
+                                @* @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "btn btn-lg btn-success btn-block" })*@
+                                <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+                            </fieldset>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/Jquery/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/Bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

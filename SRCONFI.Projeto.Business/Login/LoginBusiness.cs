@@ -1,5 +1,5 @@
 ﻿using SRCONFI.Projeto.Domain.UnitOfWork;
-namespace SRCONFI.Projeto.Business.Login
+namespace SRCONFI.Projeto.Business
 {
     public class LoginBusiness
     {

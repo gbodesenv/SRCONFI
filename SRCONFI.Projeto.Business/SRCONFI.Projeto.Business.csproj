@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Login\LoginBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario\UsuarioBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SRCONFI.Projeto.Domain\SRCONFI.Projeto.Domain.csproj">

@@ -1,0 +1,60 @@
+﻿@model SRCONFI.Projeto.Domain.Entity.Usuario
+
+
+@using (Html.BeginForm("Inserir", "Usuario", FormMethod.Post, new { @class = "form-horizontal", @accept_charset = "UTF-8", @role = "form" }))
+            {
+    <div class="form-group">
+        @Html.Label("Código", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-3">
+            @Html.TextBoxFor(model => model.usuarioID, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Nome", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.nome, new { @class = "form-control", @placeholder = "Nome" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Login", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.login, new { @class = "form-control", @placeholder = "Login" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Senha", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.senha, new { @class = "form-control", @placeholder = "Senha" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("E-mail", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.email, new { @class = "form-control", @placeholder = "E-mail" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Telefone", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.numeroTelefone, new { @class = "form-control", @placeholder = "Telefone" })
+        </div>
+    </div>
+
+
+}
+
+
+
+
+

@@ -22,7 +22,7 @@ namespace SRCONFI.Projeto.Web.Controllers
                 Domain.Entity.Usuario usuario = new Domain.Entity.Usuario();
                 usuario.login = loginViewModel.Usuario;
                 usuario.senha = loginViewModel.Senha;
-                bool passTrue = new Business.Login.LoginBusiness().AutenticarUsuario(usuario);
+                bool passTrue = new Business.LoginBusiness().AutenticarUsuario(usuario);
 
                 if (passTrue)
                     return RedirectToAction("Home", "Home");

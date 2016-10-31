@@ -1,0 +1,29 @@
+﻿@using SRCONFI.Projeto.Web.Enum
+@model SRCONFI.Projeto.Web.ViewModel.ModalViewModel
+
+@{
+    var idModal = String.Format("modal{0}", Model.IdModal);
+}
+    <div class="modal-dialog first">
+
+        @*Modal Content*@
+        <div class="modal-content">
+            <div class="modal-header first">
+                <button type="button" class="close">x</button>
+                <h4 class="modal-title"> @Html.Raw(Model.TituloModal) </h4>
+            </div>
+            <div class="modal-body first">
+              @*  @Html.Partial("")*@
+            </div>
+            <div class="modal-footer first">
+                @if (Model.TipoBotao == (int)ModalEnum.TipoBotaoEnum.Incluir)
+                {
+                    <button type="button" class="btn btn-default" id="@String.Format("btnIncluir{0}",Model.IdModal)">Salvar</button>
+                }
+                else if (Model.TipoBotao == (int)ModalEnum.TipoBotaoEnum.Editar)
+                {
+                    <button type="button" class="btn btn-default" id="@String.Format("btnEditar{0}",Model.IdModal)">Salvar</button>
+                }
+            </div>
+        </div>
+    </div>

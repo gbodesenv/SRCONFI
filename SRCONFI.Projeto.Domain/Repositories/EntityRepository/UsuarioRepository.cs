@@ -1,6 +1,7 @@
 ﻿using SRCONFI.Projeto.Domain.Entity;
 using SRCONFI.Projeto.Domain.Repositories.Interfaces;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace SRCONFI.Projeto.Domain.Repositories
@@ -11,7 +12,7 @@ namespace SRCONFI.Projeto.Domain.Repositories
             : base(context)
         {
         }
-
+        
         public IEnumerable<Usuario> GetAllAndRelation()
         {
             return BancoContext.Usuario.Include("TipoUsuario");

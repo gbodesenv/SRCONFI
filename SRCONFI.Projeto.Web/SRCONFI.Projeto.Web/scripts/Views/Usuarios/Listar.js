@@ -7,7 +7,7 @@
         });
 
         $('#btnIncluir').click(function () {
-            var urlModal = $("#hdnCaminhoModalUsuario").val();
+            var urlModal = $("#hdnCaminhoModalInserirUsuario").val();
             var urlInserir = $("#hdnCaminhoInserirUsuario").val();
 
             abrirModal(urlModal, urlInserir);
@@ -24,4 +24,3 @@
     }
 
 })();
-var modal;

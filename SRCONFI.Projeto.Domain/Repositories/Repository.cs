@@ -56,6 +56,11 @@ namespace SRCONFI.Projeto.Domain.Repositories
             Context.Set<TEntity>().Add(entity);
         }
 
+        public void Edit(TEntity entity)
+        {
+            Context.Entry(entity).State = EntityState.Modified;
+        }
+
         public void AddRange(IEnumerable<TEntity> entities)
         {
             Context.Set<TEntity>().AddRange(entities);

@@ -171,6 +171,7 @@
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Css\Bootstrap\bootstrap.min.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Views\Usuarios\Editar.js" />
     <Content Include="Scripts\Views\Usuarios\Inserir.js" />
     <Content Include="Scripts\Views\Usuarios\Listar.js" />
     <Content Include="Web.config" />
@@ -200,6 +201,8 @@
     <Content Include="Views\Usuario\Listar.cshtml" />
     <Content Include="Views\Usuario\Inserir.cshtml" />
     <Content Include="Views\Modal\Modal.cshtml" />
+    <Content Include="Views\Usuario\Editar.cshtml" />
+    <Content Include="Views\Usuario\_TableListarUsuario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

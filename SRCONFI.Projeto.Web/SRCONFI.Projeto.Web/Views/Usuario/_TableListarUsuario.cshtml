@@ -1,0 +1,34 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<Usuario>
+
+<table class="table table-hover" id="tableUsuarios">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Login</th>
+            <th>Tipo de Usuário</th>
+            <th>E-mail</th>
+            <th>Status</th>
+    </thead>
+    <tbody>
+
+        @foreach (Usuario usu in Model)
+            {
+            <tr class="clickable-row" data-row-id="@usu.usuarioID">
+                <td>@usu.nome</td>
+                <td>@usu.login</td>
+                <td>@usu.TipoUsuario.descricaoTipoUsuario</td>
+                <td>@usu.email</td>
+                <td>
+                    @if (usu.inStatus == 0)
+                    { @Html.Raw("Inativo") }
+                    else
+                    { @Html.Raw("Ativo") }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

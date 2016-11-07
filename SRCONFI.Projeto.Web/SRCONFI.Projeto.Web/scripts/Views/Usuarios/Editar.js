@@ -1,29 +1,15 @@
 ﻿$(document).ready(function () {
-    $("#btnIncluirUsuario").click(function () {
-        inserirUsuario();
+    $("#btnEditarUsuario").click(function () {
+        editarUsuario();
     });
 });
 
-function abrirModal(urlModal, urlBodyModal) {
-    $("#modal").load(urlModal, function () {
-        $("#modal .modal-body.first").load(urlBodyModal, function () {
-            $("#modal").modal();
-        });
-    });
-}
 
-function abrirModalEditar(id) {
-    var urlModal = $("#hdnCaminhoModalEditarUsuario").val();
-    var urlEditar = $("#hdnCaminhoEditarUsuario").val() + '?id=' + id;
-    console.log(urlEditar);
-    abrirModal(urlModal, urlEditar);
-}
+function editarUsuario() {
 
-function inserirUsuario() {
-
-    var form = $('#formInserirUsuario').serializeObject();
+    var form = $('#formEditarUsuario').serializeObject();
     $.ajax({
-        url: $('#hdnCaminhoInserirUsuario').val(),
+        url: $('#hdnCaminhoSalvarEditarUsuario').val(),
         type: "POST",
         data: JSON.stringify({ usu: form }),
         contentType: 'application/json; charset=utf-8',
@@ -35,7 +21,6 @@ function inserirUsuario() {
                 var urlListar = $("#hdnCaminhoAtualizarTableUsuario").val();
                 $("#ConteudoTableListarUsuario").load(urlListar);
 
-                abrirModalEditar(data.id);
                 alert(data.mensagem);
             }
             else {

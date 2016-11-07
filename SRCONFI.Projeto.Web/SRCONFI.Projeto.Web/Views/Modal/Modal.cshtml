@@ -18,11 +18,11 @@
             <div class="modal-footer first">
                 @if (Model.TipoBotao == (int)ModalEnum.TipoBotaoEnum.Incluir)
                 {
-                    <button type="button" class="btn btn-default" id="@String.Format("btnIncluir{0}",Model.IdModal)">Salvar</button>
+                    <button type="submit" class="btn btn-default" id="@String.Format("btnIncluir{0}",Model.IdModal)">Salvar</button>
                 }
                 else if (Model.TipoBotao == (int)ModalEnum.TipoBotaoEnum.Editar)
                 {
-                    <button type="button" class="btn btn-default" id="@String.Format("btnEditar{0}",Model.IdModal)">Salvar</button>
+                    <button type="submit" class="btn btn-default" id="@String.Format("btnEditar{0}",Model.IdModal)">Salvar</button>
                 }
             </div>
         </div>

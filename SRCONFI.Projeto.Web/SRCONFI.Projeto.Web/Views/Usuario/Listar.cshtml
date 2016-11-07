@@ -23,45 +23,16 @@
             <button type="button" class="btn btn-primary">Imprimir</button>
         </div>
     </div>
+    <div id="ConteudoTableListarUsuario">
+        @Html.Partial("_TableListarUsuario", Model)
+    </div>
 
-    @*<div class="panel-body">
-            <p>...</p>
-        </div>*@
-
-    <!-- Table -->
-    @*<div class="container">
-        <h2>Hover Rows</h2>
-        <p>The .table-hover class enables a hover state on table rows:</p>*@
-    <table class="table table-hover" id="tableUsuarios">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Login</th>
-                <th>Tipo de Usuário</th>
-                <th>E-mail</th>
-                <th>Status</th>
-        </thead>
-        <tbody>
-
-            @foreach (Usuario usu in Model)
-            {
-                <tr class="clickable-row">
-                    <td>@usu.nome</td>
-                    <td>@usu.login</td>
-                    <td>@usu.TipoUsuario.descricaoTipoUsuario</td>
-                    <td>@usu.email</td>
-                    <td>
-                        @if (usu.inStatus == 0)
-                        { @Html.Raw("Inativo") }
-                        else
-                        { @Html.Raw("Ativo") }
-                    </td>
-                </tr>
-            }    
-        </tbody>
-    </table>
-    @*</div>*@
 </div>
 
+@Html.Hidden("hdnCaminhoAtualizarTableUsuario", @Url.Action("_TableListarUsuario", "Usuario"))
+
 @Html.Hidden("hdnCaminhoInserirUsuario", @Url.Action("Inserir", "Usuario"))
-@Html.Hidden("hdnCaminhoModalUsuario", @Url.Action("Modal", "Usuario"))
+@Html.Hidden("hdnCaminhoModalInserirUsuario", @Url.Action("ModalInserir", "Usuario"))
+
+@Html.Hidden("hdnCaminhoEditarUsuario", @Url.Action("Editar", "Usuario"))
+@Html.Hidden("hdnCaminhoModalEditarUsuario", @Url.Action("ModalEditar", "Usuario"))

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Login\LoginBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TipoUsuario\TipoUsuarioBusiness.cs" />
     <Compile Include="Usuario\UsuarioBusiness.cs" />
   </ItemGroup>
   <ItemGroup>

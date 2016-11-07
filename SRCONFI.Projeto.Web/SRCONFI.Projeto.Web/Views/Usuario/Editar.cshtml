@@ -1,20 +1,22 @@
-﻿@model SRCONFI.Projeto.Domain.Entity.Usuario
+﻿@{
+    Layout = null;
+}
+
+@model SRCONFI.Projeto.Domain.Entity.Usuario
 @using System.Collections.Generic;
 @using System.Web.Mvc;
 
-<script src="~/Scripts/Views/Usuarios/Inserir.js"></script>
+<script src="~/Scripts/Views/Usuarios/Editar.js"></script>
 
-@Html.Hidden("hdnCaminhoInserirUsuario", @Url.Action("Inserir", "Usuario"))
+@Html.Hidden("hdnCaminhoSalvarEditarUsuario", @Url.Action("Editar", "Usuario"))
 
-@using (Html.BeginForm("Inserir", "Usuario", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formInserirUsuario" }))
+@using (Html.BeginForm("Editar", "Usuario", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formEditarUsuario" }))
 {
-    @Html.Hidden("usuarioID", 0)
-
     <div class="form-group">
         @Html.Label("Código", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-3">
-            @Html.TextBox("codigo", "", new { @class = "form-control", @readonly = "readonly", required = "true" })
+            @Html.TextBoxFor(model => model.usuarioID, new { @class = "form-control", @readonly = "readonly", required = "true" })
         </div>
     </div>
 

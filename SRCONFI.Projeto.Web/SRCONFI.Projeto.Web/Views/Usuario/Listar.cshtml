@@ -17,15 +17,19 @@
     <div class="panel-heading clearfix">
         <span><strong>Listagem de Usuários</strong></span>
         <div class="btn-group pull-right">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="btnIncluir">Incluir</button>
-            <button type="button" class="btn btn-primary">Editar</button>
-            <button type="button" class="btn btn-primary">Excluir</button>
+            <button type="button" class="btn btn-primary" id="btnAbrirModalIncluir">Incluir</button>
+            <button type="button" class="btn btn-primary" id="btnAbrirModalEditar">Editar</button>
+            <button type="button" class="btn btn-primary" id="btnExcluirUsuario">Excluir</button>
             <button type="button" class="btn btn-primary">Imprimir</button>
         </div>
     </div>
     <div id="ConteudoTableListarUsuario">
         @Html.Partial("_TableListarUsuario", Model)
     </div>
+
+    @*<div id="dialog-confirm" title="Excluir Usuário!">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Você tem certeza de que deseja excluir este registro?</p>
+    </div>*@
 
 </div>
 
@@ -36,3 +40,6 @@
 
 @Html.Hidden("hdnCaminhoEditarUsuario", @Url.Action("Editar", "Usuario"))
 @Html.Hidden("hdnCaminhoModalEditarUsuario", @Url.Action("ModalEditar", "Usuario"))
+
+@Html.Hidden("hdnCaminhoExcluirUsuario", @Url.Action("Excluir", "Usuario"))
+

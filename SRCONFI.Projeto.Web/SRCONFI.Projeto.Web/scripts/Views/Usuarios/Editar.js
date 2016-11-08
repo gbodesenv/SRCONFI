@@ -14,13 +14,8 @@ function editarUsuario() {
         data: JSON.stringify({ usu: form }),
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
-            debugger;
-            console.log(data);
-
             if (!data.erro) {
-                var urlListar = $("#hdnCaminhoAtualizarTableUsuario").val();
-                $("#ConteudoTableListarUsuario").load(urlListar);
-
+                atualizarTableUsuarios();
                 alert(data.mensagem);
             }
             else {

@@ -110,6 +110,35 @@ namespace SRCONFI.Projeto.Web.Controllers
         #endregion Fim Editar 
 
         #region Excluir 
+
+        [HttpPost]
+        public ActionResult Excluir(int id)
+        {
+            try
+            {
+                new Business.UsuarioBusiness().DeleteUsuario(id);
+
+                var retorno = new
+                {
+                    mensagem = "Usuário Excluido com Sucesso!",
+                    erro = false                    
+                };
+
+                return Json(retorno, JsonRequestBehavior.AllowGet);
+            }
+            catch (System.Exception e)
+            {
+                var retorno = new
+                {
+                    mensagem = e.Message.ToString(),//"Ocorreu algum erro ao editar Usuário!",
+                    erro = true
+                };
+
+                return Json(retorno, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
         #endregion Fim Excluir 
 
         #region Imprimir 

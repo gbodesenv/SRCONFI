@@ -37,6 +37,18 @@ namespace SRCONFI.Projeto.Business
             }
         }
 
+        public void DeleteUsuario(int id)
+        {
+            using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
+            {
+                var usu = unitOfWork.Usuario.Get(id);
+                unitOfWork.Usuario.Remove(usu);
+                unitOfWork.Complete();
+                unitOfWork.Dispose();
+            }
+        }
+
+
         public Domain.Entity.Usuario GetUsuario(int idUsu)
         {
             Domain.Entity.Usuario usuario;

@@ -7,9 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link href="~/Content/Css/Bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
 
     <script src="~/Scripts/Jquery/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/Bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
 
     <style>
         html, body {
@@ -116,11 +118,11 @@
                 </ul>
 
                 @*<form class="navbar-form navbar-right" role="search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Pesquisar">
-                    </div>
-                    <button type="submit" class="btn btn-default">Pesquisar</button>
-                </form>*@
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Pesquisar">
+                        </div>
+                        <button type="submit" class="btn btn-default">Pesquisar</button>
+                    </form>*@
             </div>
 
 
@@ -192,23 +194,57 @@
 
 
     <script>
+
+        $.fn.serializeObject = function () {
+            var o = {};
+            var a = this.serializeArray();
+            $.each(a, function () {
+                if (o[this.name] !== undefined) {
+                    if (!o[this.name].push) {
+                        o[this.name] = [o[this.name]];
+                    }
+                    o[this.name].push(this.value || '');
+                } else {
+                    o[this.name] = this.value || '';
+                }
+            });
+            return o;
+        };
+
+        function confirmDialog(titulo, mensagem, callback, parametro) {
+            var element = ' <div id="dialog-confirm" title="' + titulo + '">' +
+                          '<p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>' + mensagem + '</p>' +
+                          '</div>';
+
+            $(element).dialog({
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Sim": function () {
+                        callback(parametro);
+                        $(this).dialog("close");
+                    },
+                    "Não": function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+
+        function abrirModal(urlModal, urlBodyModal) {
+            $("#modal").load(urlModal, function () {
+                $("#modal .modal-body.first").load(urlBodyModal, function () {
+                    $("#modal").modal();
+                });
+            });
+        }
+
+
         $(document).ready(function () {
 
-            $.fn.serializeObject = function () {
-                var o = {};
-                var a = this.serializeArray();
-                $.each(a, function () {
-                    if (o[this.name] !== undefined) {
-                        if (!o[this.name].push) {
-                            o[this.name] = [o[this.name]];
-                        }
-                        o[this.name].push(this.value || '');
-                    } else {
-                        o[this.name] = this.value || '';
-                    }
-                });
-                return o;
-            };
+
 
 
             //$(".modal-dialog.first button.close").on("click", function () {

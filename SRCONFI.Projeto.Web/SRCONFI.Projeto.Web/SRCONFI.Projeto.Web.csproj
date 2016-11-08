@@ -218,6 +218,9 @@
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Css\Bootstrap\bootstrap.min.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Views\TipoUsuario\Editar.js" />
+    <Content Include="Scripts\Views\TipoUsuario\Inserir.js" />
+    <Content Include="Scripts\Views\TipoUsuario\Listar.js" />
     <Content Include="Scripts\Views\Usuarios\Editar.js" />
     <Content Include="Scripts\Views\Usuarios\Inserir.js" />
     <Content Include="Scripts\Views\Usuarios\Listar.js" />
@@ -227,6 +230,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bundles\BundleConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TipoUsuarioController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Enum\ModalEnum.cs" />
     <Compile Include="Global.asax.cs">
@@ -250,6 +254,10 @@
     <Content Include="Views\Modal\Modal.cshtml" />
     <Content Include="Views\Usuario\Editar.cshtml" />
     <Content Include="Views\Usuario\_TableListarUsuario.cshtml" />
+    <Content Include="Views\TipoUsuario\Listar.cshtml" />
+    <Content Include="Views\TipoUsuario\_TableListarTipoUsuario.cshtml" />
+    <Content Include="Views\TipoUsuario\Inserir.cshtml" />
+    <Content Include="Views\TipoUsuario\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

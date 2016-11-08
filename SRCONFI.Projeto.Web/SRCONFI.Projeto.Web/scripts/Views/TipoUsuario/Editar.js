@@ -1,21 +1,21 @@
 ﻿$(document).ready(function () {
-    $("#btnEditarUsuario").click(function () {
-        editarUsuario();
+    $("#btnEditarTipoUsuario").click(function () {
+        editarTipoUsuario();
     });
 });
 
 
-function editarUsuario() {
+function editarTipoUsuario() {
 
-    var form = $('#formEditarUsuario').serializeObject();
+    var form = $('#formEditarTipoUsuario').serializeObject();
     $.ajax({
-        url: $('#hdnCaminhoSalvarEditarUsuario').val(),
+        url: $('#hdnCaminhoSalvarEditarTipoUsuario').val(),
         type: "POST",
-        data: JSON.stringify({ usu: form }),
+        data: JSON.stringify({ obj: form }),
         contentType: 'application/json; charset=utf-8',
         success: function (data) {
             if (!data.erro) {
-                atualizarTableUsuarios();
+                atualizarTableTipoUsuario();
                 alertSistema(1, data.mensagem);
             }
             else {

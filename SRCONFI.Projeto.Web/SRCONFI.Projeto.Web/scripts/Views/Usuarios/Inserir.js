@@ -25,10 +25,10 @@ function inserirUsuario() {
             if (!data.erro) {                
                 atualizarTableUsuarios();
                 abrirModalEditar(data.id);
-                alert(data.mensagem);
+                alertSistema(1, data.mensagem);
             }
             else {
-                alert(data.mensagem);
+                alertSistema(2, data.mensagem);
             }
 
         },

@@ -9,6 +9,7 @@
 @*CABEÇALHO*@
 <ol class="breadcrumb">
     <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
+    <li>Usuários</li>
     <li>@Html.ActionLink("Usuários", "Listar", "Usuario", null, null)</li>
 </ol>
 
@@ -26,10 +27,6 @@
     <div id="ConteudoTableListarUsuario">
         @Html.Partial("_TableListarUsuario", Model)
     </div>
-
-    @*<div id="dialog-confirm" title="Excluir Usuário!">
-        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Você tem certeza de que deseja excluir este registro?</p>
-    </div>*@
 
 </div>
 

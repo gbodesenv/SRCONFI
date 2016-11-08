@@ -8,11 +8,11 @@ namespace SRCONFI.Projeto.Domain.Repositories
 {
     public class UsuarioRepository : Repository<Usuario>, IUsuarioRepository
     {
-        public UsuarioRepository(BancoContext context) 
+        public UsuarioRepository(BancoContext context)
             : base(context)
         {
         }
-        
+
         public IEnumerable<Usuario> GetAllAndRelation()
         {
             return BancoContext.Usuario.Include("TipoUsuario");
@@ -20,7 +20,7 @@ namespace SRCONFI.Projeto.Domain.Repositories
 
         public bool ValidLoginUsuario(string login, string senha)
         {
-            return BancoContext.Usuario.Where(u=> u.login.Equals(login) && u.senha.Equals(senha)).Any();
+            return BancoContext.Usuario.Where(u => u.login.Equals(login) && u.senha.Equals(senha)).Any();
         }
 
 
@@ -28,6 +28,6 @@ namespace SRCONFI.Projeto.Domain.Repositories
         {
             get { return Context as BancoContext; }
         }
-  
+
     }
 }

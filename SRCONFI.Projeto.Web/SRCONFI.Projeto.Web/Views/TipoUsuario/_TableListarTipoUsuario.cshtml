@@ -1,0 +1,29 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<TipoUsuario>
+
+<table class="table table-hover" id="tableTipoUsuario">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Descrição</th>           
+    </thead>
+    <tbody>
+
+        @foreach (TipoUsuario tpUsu in Model)
+            {
+            <tr class="clickable-row" data-row-id="@tpUsu.tipoUsuarioID">
+                <td>@tpUsu.tipoUsuarioID</td>
+                <td>@tpUsu.descricaoTipoUsuario</td>                
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $("#tableTipoUsuario").on("click", ".clickable-row", function (event) {
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+</script>
+
+
+

@@ -16,7 +16,6 @@ namespace SRCONFI.Projeto.Business
             }
             return lstUsuarios;
         }
-
         public void AddUsuario(Domain.Entity.Usuario usu)
         {
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
@@ -26,7 +25,6 @@ namespace SRCONFI.Projeto.Business
                 unitOfWork.Dispose();
             }
         }
-
         public void EditUsuario(Domain.Entity.Usuario usu)
         {
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
@@ -36,7 +34,6 @@ namespace SRCONFI.Projeto.Business
                 unitOfWork.Dispose();
             }
         }
-
         public void DeleteUsuario(int id)
         {
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
@@ -47,14 +44,12 @@ namespace SRCONFI.Projeto.Business
                 unitOfWork.Dispose();
             }
         }
-
-
         public Domain.Entity.Usuario GetUsuario(int idUsu)
         {
             Domain.Entity.Usuario usuario;
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {
-                usuario = unitOfWork.Usuario.Get(idUsu);                
+                usuario = unitOfWork.Usuario.Get(idUsu);
                 unitOfWork.Dispose();
             }
 

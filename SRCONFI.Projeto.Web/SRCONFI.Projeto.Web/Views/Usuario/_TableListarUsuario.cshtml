@@ -4,6 +4,7 @@
 <table class="table table-hover" id="tableUsuarios">
     <thead>
         <tr>
+            <th>Código</th>
             <th>Nome</th>
             <th>Login</th>
             <th>Tipo de Usuário</th>
@@ -15,6 +16,7 @@
         @foreach (Usuario usu in Model)
             {
             <tr class="clickable-row" data-row-id="@usu.usuarioID">
+                <td>@usu.usuarioID</td>
                 <td>@usu.nome</td>
                 <td>@usu.login</td>
                 <td>@usu.TipoUsuario.descricaoTipoUsuario</td>

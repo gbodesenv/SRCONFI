@@ -14,7 +14,7 @@
             if (parseInt(id) > 0)
                 btnAbrirModalEditar_click(id);
             else
-                alert('Por favor, selecione uma linha da tabela!');
+                alertSistema(3, "Por favor, selecione uma linha da tabela!");                
 
         });
 
@@ -25,7 +25,7 @@
             if (parseInt(id) > 0)
                 btnExcluirUsuario_click(id);
             else
-                alert('Por favor, selecione uma linha da tabela!');
+                alertSistema(3, 'Por favor, selecione uma linha da tabela!');
 
         });
 
@@ -47,7 +47,7 @@
 
             } else {
                 atualizarTableUsuarios();
-                alert(data.mensagem);
+                alertSistema(1, data.mensagem);
             }
         });
     }
@@ -66,9 +66,11 @@
         abrirModal(urlModal, urlInserir);
     }
 
-    function atualizarTableUsuarios() {
-        var urlListar = $("#hdnCaminhoAtualizarTableUsuario").val();
-        $("#ConteudoTableListarUsuario").load(urlListar);
-    }
+    
 
 })();
+
+function atualizarTableUsuarios() {
+    var urlListar = $("#hdnCaminhoAtualizarTableUsuario").val();
+    $("#ConteudoTableListarUsuario").load(urlListar);
+}

@@ -1,30 +1,34 @@
 ﻿using SRCONFI.Projeto.Domain.Entity;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace SRCONFI.Projeto.Web.Controllers
 {
-    public class UsuarioController : Controller
+    public class TipoUsuarioController : Controller
     {
+        // GET: 
 
         #region Listar 
 
-        // GET: Usuario
+        // GET: TipoUsuario
         public ActionResult Listar()
         {
-            return View(new Business.UsuarioBusiness().ListUsuarios());
+            return View(new Business.TipoUsuarioBusiness().ListTipoUsuario());
         }
 
-        public PartialViewResult _TableListarUsuario(int? id = null)
+        public PartialViewResult _TableListarTipoUsuario(int? id = null)
         {
-            var listaDeUsuarios = new List<Usuario>();
+            var listaDeTipoUsuarios = new List<TipoUsuario>();
 
             if (id.HasValue)
-                listaDeUsuarios.Add(new Business.UsuarioBusiness().GetUsuario((int)id));
+                listaDeTipoUsuarios.Add(new Business.TipoUsuarioBusiness().GetTipoUsuario((int)id));
             else
-                listaDeUsuarios = new Business.UsuarioBusiness().ListUsuarios();
+                listaDeTipoUsuarios = new Business.TipoUsuarioBusiness().ListTipoUsuario();
 
-            return PartialView(listaDeUsuarios);
+            return PartialView(listaDeTipoUsuarios);
         }
 
         #endregion Fim Listar 
@@ -33,22 +37,21 @@ namespace SRCONFI.Projeto.Web.Controllers
 
         public ActionResult Inserir()
         {
-            Combos();
             return PartialView();
         }
 
         [HttpPost]
-        public ActionResult Inserir(Usuario usu)
+        public ActionResult Inserir(TipoUsuario obj)
         {
             try
             {
-                new Business.UsuarioBusiness().AddUsuario(usu);
+                new Business.TipoUsuarioBusiness().AddTipoUsuario(obj);
 
                 var retorno = new
                 {
-                    mensagem = "Usuário Inserido com Sucesso!",
+                    mensagem = "Tipo de Usuário Inserido com Sucesso!",
                     erro = false,
-                    id = usu.usuarioID
+                    id = obj.tipoUsuarioID
                 };
 
                 return Json(retorno, JsonRequestBehavior.AllowGet);
@@ -72,25 +75,23 @@ namespace SRCONFI.Projeto.Web.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            var usuario = new Business.UsuarioBusiness().GetUsuario(id);
+            var tpUsuario = new Business.TipoUsuarioBusiness().GetTipoUsuario(id);
 
-            Combos(usuario.inStatus, usuario.tipoUsuarioID_FK);
-
-            return View(usuario);
+            return View(tpUsuario);
         }
 
         [HttpPost]
-        public ActionResult Editar(Usuario usu)
+        public ActionResult Editar(TipoUsuario obj)
         {
             try
             {
-                new Business.UsuarioBusiness().EditUsuario(usu);
+                new Business.TipoUsuarioBusiness().EditTipoUsuario(obj);
 
                 var retorno = new
                 {
-                    mensagem = "Usuário Atualizado com Sucesso!",
+                    mensagem = "Tipo de Usuário Atualizado com Sucesso!",
                     erro = false,
-                    id = usu.usuarioID
+                    id = obj.tipoUsuarioID
                 };
 
                 return Json(retorno, JsonRequestBehavior.AllowGet);
@@ -116,11 +117,11 @@ namespace SRCONFI.Projeto.Web.Controllers
         {
             try
             {
-                new Business.UsuarioBusiness().DeleteUsuario(id);
+                new Business.TipoUsuarioBusiness().DeleteTipoUsuario(id);
 
                 var retorno = new
                 {
-                    mensagem = "Usuário Excluido com Sucesso!",
+                    mensagem = "Tipo de Usuário Excluido com Sucesso!",
                     erro = false
                 };
 
@@ -146,50 +147,6 @@ namespace SRCONFI.Projeto.Web.Controllers
 
         #region Métodos Auxiliares 
 
-        public void Combos(int? idSituacao = null, int? idTipoUsuario = null)
-        {
-            List<SelectListItem> lstSituacao = new List<SelectListItem>();
-
-            lstSituacao.Add(new SelectListItem()
-            {
-                Text = "",
-                Value = "",
-                Selected = (idSituacao == null) ? true : false
-            });
-
-
-            lstSituacao.Add(new SelectListItem()
-            {
-                Text = "Ativo",
-                Value = "1",
-                Selected = (idSituacao == 1) ? true : false
-            });
-
-            lstSituacao.Add(new SelectListItem()
-            {
-                Text = "Inativo",
-                Value = "0",
-                Selected = (idSituacao == 0) ? true : false
-            });
-
-
-            ViewBag.listSituacao = lstSituacao;
-
-            List<SelectListItem> selectListTipoUsuario = new List<SelectListItem>();
-            var lstTipoUsuario = new Business.TipoUsuarioBusiness().ListTipoUsuario();
-
-            foreach (var item in lstTipoUsuario)
-            {
-                selectListTipoUsuario.Add(new SelectListItem()
-                {
-                    Text = item.descricaoTipoUsuario,
-                    Value = item.tipoUsuarioID.ToString(),
-                    Selected = (idTipoUsuario == item.tipoUsuarioID) ? true : false
-                });
-            }
-
-            ViewBag.listTipoUsuario = selectListTipoUsuario;
-        }
 
         #endregion Fim Métodos Auxiliares 
 
@@ -198,10 +155,10 @@ namespace SRCONFI.Projeto.Web.Controllers
         public ActionResult ModalInserir()
         {
             ViewModel.ModalViewModel modal = new ViewModel.ModalViewModel();
-            modal.IdModal = "Usuario";
+            modal.IdModal = "TipoUsuario";
             modal.TipoBotao = (int)Enum.ModalEnum.TipoBotaoEnum.Incluir;
-            modal.TituloModal = "Inserir Usuário";
-            modal.CaminhoBodyModal = Url.Action("Inserir", "Usuario");
+            modal.TituloModal = "Inserir Tipo de Usuário";
+            modal.CaminhoBodyModal = Url.Action("Inserir", "TipoUsuario");
 
             return PartialView("~/Views/Modal/Modal.cshtml", modal);
         }
@@ -209,15 +166,16 @@ namespace SRCONFI.Projeto.Web.Controllers
         public ActionResult ModalEditar()
         {
             ViewModel.ModalViewModel modal = new ViewModel.ModalViewModel();
-            modal.IdModal = "Usuario";
+            modal.IdModal = "TipoUsuario";
             modal.TipoBotao = (int)Enum.ModalEnum.TipoBotaoEnum.Editar;
-            modal.TituloModal = "Editar Usuário";
-            modal.CaminhoBodyModal = Url.Action("Editar", "Usuario");
+            modal.TituloModal = "Editar Tipo de Usuário";
+            modal.CaminhoBodyModal = Url.Action("Editar", "TipoUsuario");
 
             return PartialView("~/Views/Modal/Modal.cshtml", modal);
         }
 
         #endregion Fim Modais 
+
 
     }
 }

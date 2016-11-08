@@ -5,10 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - SRCONFI</title>
+
+
+    @*CSS*@
     <link href="~/Content/Css/Bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
 
+    @*JAVASCRIPT*@
     <script src="~/Scripts/Jquery/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/Bootstrap/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
@@ -100,20 +104,15 @@
 
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
-                    <li>@Html.ActionLink("Usuários", "Listar", "Usuario", null, null)</li>
-
-
                     @*DROP DOWN*@
-                    @*<li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categorias <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Jogos</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Tutoriais</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Vídeo aulas</a></li>
-                            </ul>
-                        </li>*@
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuários<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Tipo", "Listar", "TipoUsuario", null, null)</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Usuários", "Listar", "Usuario", null, null)</li>
+                        </ul>
+                    </li>
                     @*<li><a href="#">Contato</a></li>*@
                 </ul>
 
@@ -191,7 +190,11 @@
     <div class="modal fade" role="dialog" id="modal">
     </div>
 
-
+    <style>
+        .ui-dialog {
+            z-index: 9999999 !important;
+        }
+    </style>
 
     <script>
 
@@ -227,6 +230,46 @@
                         $(this).dialog("close");
                     },
                     "Não": function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+        //1 - sucesso
+        //2 - erro
+        //3 - alerta
+        function alertSistema(tipo, mensagem, callback, parametro) {
+            var titulo = '';
+            var icon = '';
+
+            if (tipo == 1) {
+                titulo = "Sucesso!!";
+                mensagem = (mensagem == "") ? "Operação efetuada com sucesso!" : mensagem;
+                icon = "glyphicon glyphicon-thumbs-up";
+            } else if (tipo == 2) {
+                titulo = "Erro";
+                mensagem = (mensagem == "") ? "A operação gerou um erro!" : mensagem;
+                icon = "glyphicon glyphicon-thumbs-down";
+            } else if (tipo == 3) {
+                titulo = "Alerta";
+                mensagem = (mensagem == "") ? "Essa operação gerou um alerta" : mensagem;
+                icon = "glyphicon glyphicon-thumbs-down";
+            }
+
+
+            var element = ' <div id="dialog-confirm" title="' + titulo + '">' +
+                          '<p><span class="' + icon + '" style="float:left; margin:12px 12px 20px 0;"></span>' + mensagem + '</p>' +
+                          '</div>';
+
+            $(element).dialog({
+                resizable: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Ok": function () {
+                        if (callback != undefined && callback != null)
+                            callback(parametro);
                         $(this).dialog("close");
                     }
                 }

@@ -1,0 +1,42 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<TipoUsuario>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<script src="~/Scripts/Views/TipoUsuario/Listar.js"></script>
+
+@*CABEÇALHO*@
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
+    <li>Usuários</li>
+    <li>@Html.ActionLink("Tipo", "Listar", "TipoUsuario", null, null)</li>
+</ol>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <span><strong>Listagem de Tipos de Usuários</strong></span>
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" id="btnAbrirModalIncluir">Incluir</button>
+            <button type="button" class="btn btn-primary" id="btnAbrirModalEditar">Editar</button>
+            <button type="button" class="btn btn-primary" id="btnExcluirTipoUsuario">Excluir</button>
+            <button type="button" class="btn btn-primary">Imprimir</button>
+        </div>
+    </div>
+    <div id="ConteudoTableListarTipoUsuario">
+        @Html.Partial("_TableListarTipoUsuario", Model)
+    </div>
+
+</div>
+
+@Html.Hidden("hdnCaminhoAtualizarTableTipoUsuario", @Url.Action("_TableListarTipoUsuario", "TipoUsuario"))
+
+@Html.Hidden("hdnCaminhoInserirTipoUsuario", @Url.Action("Inserir", "TipoUsuario"))
+@Html.Hidden("hdnCaminhoModalInserirTipoUsuario", @Url.Action("ModalInserir", "TipoUsuario"))
+
+@Html.Hidden("hdnCaminhoEditarTipoUsuario", @Url.Action("Editar", "TipoUsuario"))
+@Html.Hidden("hdnCaminhoModalEditarTipoUsuario", @Url.Action("ModalEditar", "TipoUsuario"))
+
+@Html.Hidden("hdnCaminhoExcluirTipoUsuario", @Url.Action("Excluir", "TipoUsuario"))
+

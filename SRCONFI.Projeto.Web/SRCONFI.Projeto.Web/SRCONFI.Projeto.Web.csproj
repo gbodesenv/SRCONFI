@@ -147,6 +147,7 @@
     <Content Include="Content\Css\Bootstrap\css\bootstrap.css" />
     <Content Include="Content\Css\Bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Css\Parsley\parsley.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -236,6 +237,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CamposHtmlHelper.cs" />
     <Compile Include="Models\SRCONFIProjetoWebContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -258,6 +260,7 @@
     <Content Include="Views\TipoUsuario\_TableListarTipoUsuario.cshtml" />
     <Content Include="Views\TipoUsuario\Inserir.cshtml" />
     <Content Include="Views\TipoUsuario\Editar.cshtml" />
+    <Content Include="Scripts\parsley-2.6.0.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

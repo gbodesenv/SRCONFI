@@ -2,6 +2,7 @@
 @using System.Collections.Generic;
 @using System.Web.Mvc;
 
+
 <script src="~/Scripts/Views/Usuarios/Inserir.js"></script>
 
 @Html.Hidden("hdnCaminhoInserirUsuario", @Url.Action("Inserir", "Usuario"))
@@ -22,7 +23,7 @@
         @Html.Label("Tipo Usuário", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-10">
-            @Html.DropDownListFor(model => model.tipoUsuarioID_FK, (List<SelectListItem>)ViewBag.listTipoUsuario, new { @class = "form-control", @placeholder = "Tipo de Usuário", @required = "required" })
+            @Html.DropDownListFor(model => model.tipoUsuarioID_FK, (List<SelectListItem>)ViewBag.listTipoUsuario, new { @class = "form-control", @placeholder = "Tipo de Usuário",  @data_parsley_error_message = "O campo 'Tipo Usuário' é obrigatório" })
         </div>
     </div>
 
@@ -30,7 +31,8 @@
         @Html.Label("Nome", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-10">
-            @Html.TextBoxFor(model => model.nome, new { @class = "form-control", @placeholder = "Nome", @required = "required" })
+            @Html.TextBoxFor(model => model.nome, new { @class = "form-control", @placeholder = "Nome", @data_parsley_error_message = "O campo 'Tipo Usuário' é obrigatório" })
+            @Html.ValidationMessageFor(m => m.nome)
         </div>
     </div>
 
@@ -38,7 +40,7 @@
         @Html.Label("Login", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-10">
-            @Html.TextBoxFor(model => model.login, new { @class = "form-control", @placeholder = "Login", @required = "required" })
+            @Html.TextBoxFor(model => model.login, new { @class = "form-control", @placeholder = "Login", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Login' é obrigatório" })
         </div>
     </div>
 
@@ -46,7 +48,7 @@
         @Html.Label("Senha", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-10">
-            @Html.PasswordFor(model => model.senha, new { @class = "form-control", @placeholder = "Senha", @required = "required" })
+            @Html.PasswordFor(model => model.senha, new { @class = "form-control", @placeholder = "Senha", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Senha' é obrigatório" })
         </div>
     </div>
 
@@ -54,7 +56,7 @@
         @Html.Label("E-mail", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-10">
-            @Html.TextBoxFor(model => model.email, new { @class = "form-control", @placeholder = "E-mail", @required = "required" })
+            @Html.TextBoxFor(model => model.email, new { @class = "form-control", @placeholder = "E-mail", @type="email", @data_parsley_type = "email", @data_parsley_required = "", @data_parsley_error_message = "O campo 'E-mail' é obrigatório" })
         </div>
     </div>
 
@@ -62,7 +64,7 @@
         @Html.Label("Telefone", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-10">
-            @Html.TextBoxFor(model => model.numeroTelefone, new { @class = "form-control", @placeholder = "Telefone", @required = "required" })
+            @Html.TextBoxFor(model => model.numeroTelefone, new { @class = "form-control", @placeholder = "Telefone", @type = "number", @data_parsley_type = "integer", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Telefone' é obrigatório" })
         </div>
     </div>
 
@@ -70,7 +72,7 @@
         @Html.Label("Situação", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-10">
-            @Html.DropDownListFor(model => model.inStatus, (List<SelectListItem>)ViewBag.listSituacao, new { @class = "form-control", @placeholder = "Situação", @required = "required" })
+            @Html.DropDownListFor(model => model.inStatus, (List<SelectListItem>)ViewBag.listSituacao, new { @class = "form-control", @placeholder = "Situação", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Situação' é obrigatório" })
         </div>
     </div>
 }

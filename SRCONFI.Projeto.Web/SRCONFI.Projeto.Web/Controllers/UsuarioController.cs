@@ -42,8 +42,12 @@ namespace SRCONFI.Projeto.Web.Controllers
         {
             try
             {
-                new Business.UsuarioBusiness().AddUsuario(usu);
 
+                //if (ModelState.IsValid)
+                //{
+                    new Business.UsuarioBusiness().AddUsuario(usu);
+
+                //}
                 var retorno = new
                 {
                     mensagem = "Usuário Inserido com Sucesso!",

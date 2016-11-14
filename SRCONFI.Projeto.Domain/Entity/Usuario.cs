@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.DataAnnotations;
+
 namespace SRCONFI.Projeto.Domain.Entity
 {
 
@@ -7,7 +9,7 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public int usuarioID { get; set; }
 
-
+        [Required(ErrorMessage = "Campo Nome é obrigatório")]
         public string nome { get; set; }
 
 

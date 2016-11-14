@@ -50,12 +50,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BancoContext.cs" />
+    <Compile Include="Entity\Atividades.cs" />
+    <Compile Include="Entity\Autores.cs" />
+    <Compile Include="Entity\Categoria.cs" />
+    <Compile Include="Entity\Configuration\AtividadesConfiguration.cs" />
     <Compile Include="Entity\Configuration\LogsConfiguration.cs" />
     <Compile Include="Entity\Configuration\TipoUsuarioConfiguration.cs" />
     <Compile Include="Entity\Configuration\UsuarioConfiguration.cs" />
+    <Compile Include="Entity\DadosComplementares.cs" />
+    <Compile Include="Entity\DiasSemana.cs" />
+    <Compile Include="Entity\Doacoes.cs" />
+    <Compile Include="Entity\Editoras.cs" />
+    <Compile Include="Entity\Endereco.cs" />
+    <Compile Include="Entity\EntradasLivros.cs" />
+    <Compile Include="Entity\Escolaridade.cs" />
+    <Compile Include="Entity\Estado.cs" />
+    <Compile Include="Entity\EstadoCivil.cs" />
+    <Compile Include="Entity\Estoque.cs" />
+    <Compile Include="Entity\Livros.cs" />
+    <Compile Include="Entity\LocalAtividade.cs" />
     <Compile Include="Entity\Logs.cs" />
+    <Compile Include="Entity\Mes.cs" />
+    <Compile Include="Entity\Pagamentos.cs" />
+    <Compile Include="Entity\Participantes.cs" />
+    <Compile Include="Entity\PeriodoAtividade.cs" />
+    <Compile Include="Entity\Socios.cs" />
     <Compile Include="Entity\TipoUsuario.cs" />
     <Compile Include="Entity\Usuario.cs" />
+    <Compile Include="Entity\VendasLivros.cs" />
     <Compile Include="Migrations\201610040214435_CreateDB.cs" />
     <Compile Include="Migrations\201610040214435_CreateDB.Designer.cs">
       <DependentUpon>201610040214435_CreateDB.cs</DependentUpon>

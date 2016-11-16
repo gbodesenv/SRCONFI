@@ -24,6 +24,10 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public string profissaoSocio { get; set; }
 
-       
+
+
+        public virtual Escolaridade Escolaridade { get; set; }
+
+        public virtual EstadoCivil EstadoCivil { get; set; }
     }
 }

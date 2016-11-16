@@ -18,9 +18,17 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public int telefoneSocio { get; set; }
 
-        public Boolean inStatus { get; set; }
+        public bool inStatus { get; set; }
 
         public DateTime dataIngressoSocio { get; set; }
 
+
+
+
+        public virtual Categoria Categoria { get; set; }
+
+        public virtual Endereco Endereco { get; set; }
+        
+        public virtual DadosComplementares DadosComplementares { get; set; }
     }
 }

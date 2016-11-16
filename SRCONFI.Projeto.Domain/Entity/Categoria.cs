@@ -1,7 +1,7 @@
 ﻿
 namespace SRCONFI.Projeto.Domain.Entity
 {
-    class Categoria
+    public class Categoria
     {
         public int categoriaID { get; set; }
 

@@ -8,11 +8,14 @@ namespace SRCONFI.Projeto.Domain.Entity
 {
     public class Participantes
     {
-       public int participanteID { get; set; }
+        public int participanteID { get; set; }
 
-       public int? socioID { get; set; }
+        public int? socioID { get; set; }
 
-    
-       public int? atividadeID { get; set; }
+        public int? atividadeID { get; set; }
+
+        public virtual IEnumerable<Atividades> Atividades { get; set; }
+        public virtual IEnumerable<Socios> Socios { get; set; }
+
     }
 }

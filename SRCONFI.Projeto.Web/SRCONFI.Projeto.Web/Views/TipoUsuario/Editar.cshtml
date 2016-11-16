@@ -24,7 +24,7 @@
         @Html.Label("Descrição", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-10">
-            @Html.TextBoxFor(model => model.descricaoTipoUsuario,  new { @class = "form-control", @placeholder = "Descrição tipo usuário", @required = "required" })
+            @Html.TextBoxFor(model => model.descricaoTipoUsuario, new { @class = "form-control", @placeholder = "Tipo de Usuário", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Descrição' é obrigatório" })
         </div>
     </div>
     

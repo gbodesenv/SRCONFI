@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SRCONFI.Projeto.Domain.Entity
 {
@@ -13,5 +14,7 @@ namespace SRCONFI.Projeto.Domain.Entity
         public int nrLotacao { get; set; }
 
         public bool inAtivo { get; set; }
+
+        public virtual IEnumerable<PeriodoAtividade> PeriodoAtividade { get; set; }
     }
 }

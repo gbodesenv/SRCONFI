@@ -55,6 +55,7 @@
     <Compile Include="Entity\Categoria.cs" />
     <Compile Include="Entity\Configuration\AtividadesConfiguration.cs" />
     <Compile Include="Entity\Configuration\LogsConfiguration.cs" />
+    <Compile Include="Entity\Configuration\SociosConfiguration.cs" />
     <Compile Include="Entity\Configuration\TipoUsuarioConfiguration.cs" />
     <Compile Include="Entity\Configuration\UsuarioConfiguration.cs" />
     <Compile Include="Entity\DadosComplementares.cs" />

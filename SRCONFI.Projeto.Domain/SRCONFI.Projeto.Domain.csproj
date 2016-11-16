@@ -54,6 +54,7 @@
     <Compile Include="Entity\Autores.cs" />
     <Compile Include="Entity\Categoria.cs" />
     <Compile Include="Entity\Configuration\AtividadesConfiguration.cs" />
+    <Compile Include="Entity\Configuration\DiasSemanaConfiguration.cs" />
     <Compile Include="Entity\Configuration\LogsConfiguration.cs" />
     <Compile Include="Entity\Configuration\TipoUsuarioConfiguration.cs" />
     <Compile Include="Entity\Configuration\UsuarioConfiguration.cs" />

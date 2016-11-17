@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login\LoginBusiness.cs" />
+    <Compile Include="LoginBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoUsuario\TipoUsuarioBusiness.cs" />
-    <Compile Include="Usuario\UsuarioBusiness.cs" />
+    <Compile Include="SociosBusiness.cs" />
+    <Compile Include="TipoUsuarioBusiness.cs" />
+    <Compile Include="UsuarioBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SRCONFI.Projeto.Domain\SRCONFI.Projeto.Domain.csproj">

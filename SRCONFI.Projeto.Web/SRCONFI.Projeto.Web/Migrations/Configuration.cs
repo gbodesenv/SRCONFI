@@ -1,18 +1,18 @@
-namespace SRCONFI.Projeto.Domain.Migrations
+namespace SRCONFI.Projeto.Web.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SRCONFI.Projeto.Domain.BancoContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SRCONFI.Projeto.Web.Models.SRCONFIProjetoWebContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SRCONFI.Projeto.Domain.BancoContext context)
+        protected override void Seed(SRCONFI.Projeto.Web.Models.SRCONFIProjetoWebContext context)
         {
             //  This method will be called after migrating to the latest version.
 

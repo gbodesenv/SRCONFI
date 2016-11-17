@@ -1,0 +1,41 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<Socios>
+@{
+    ViewBag.Title = "Listar Sócios";
+}
+
+<script src="~/Scripts/Views/Socios/Listar.js"></script>
+
+@*CABEÇALHO*@
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>    
+    <li>@Html.ActionLink("Sócios", "Listar", "Socios", null, null)</li>
+</ol>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <span><strong>Listagem de Sócios</strong></span>
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" id="btnAbrirModalIncluir">Incluir</button>
+            <button type="button" class="btn btn-primary" id="btnAbrirModalEditar">Editar</button>
+            <button type="button" class="btn btn-primary" id="btnExcluirSocios">Excluir</button>
+            <button type="button" class="btn btn-primary">Imprimir</button>
+        </div>
+    </div>
+    <div id="ConteudoTableListarSocios">
+        @Html.Partial("_TableListarSocios", Model)
+    </div>
+
+</div>
+
+@Html.Hidden("hdnCaminhoAtualizarTableSocios", @Url.Action("_TableListarSocios", "Socios"))
+
+@Html.Hidden("hdnCaminhoInserirSocios", @Url.Action("Inserir", "Socios"))
+@Html.Hidden("hdnCaminhoModalInserirSocios", @Url.Action("ModalInserir", "Socios"))
+
+@Html.Hidden("hdnCaminhoEditarSocios", @Url.Action("Editar", "Socios"))
+@Html.Hidden("hdnCaminhoModalEditarSocios", @Url.Action("ModalEditar", "Socios"))
+
+@Html.Hidden("hdnCaminhoExcluirSocios", @Url.Action("Excluir", "Socios"))
+

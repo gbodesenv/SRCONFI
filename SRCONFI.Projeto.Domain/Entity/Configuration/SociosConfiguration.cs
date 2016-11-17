@@ -19,8 +19,7 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
                .HasForeignKey(u => u.dadoComplementarID_FK);
 
             this.HasOptional(s => s.Categoria)
-               .WithMany()
-              .HasForeignKey(u => u.categoriaID_FK);
+                .WithRequired(s => s.Socios);
 
             //Not Null, Nome da coluna, Identity
             Property(u => u.socioID)

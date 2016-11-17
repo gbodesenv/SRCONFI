@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SRCONFI.Projeto.Domain.Entity
 {
@@ -6,6 +7,7 @@ namespace SRCONFI.Projeto.Domain.Entity
     {
         public int socioID { get; set; }
 
+        [ForeignKey("Categoria")]
         public int? categoriaID_FK { get; set; }
 
         public int? enderecoID_FK { get; set; }

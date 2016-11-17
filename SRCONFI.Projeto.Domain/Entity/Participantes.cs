@@ -14,8 +14,8 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public int? atividadeID { get; set; }
 
-        public virtual IEnumerable<Atividades> Atividades { get; set; }
-        public virtual IEnumerable<Socios> Socios { get; set; }
+        public virtual ICollection<Atividades> Atividades { get; set; }
+        public virtual ICollection<Socios> Socios { get; set; }
 
     }
 }

@@ -2,10 +2,10 @@
 {
     public class Estado
     {
-        public int ufId { get; set; }
+        public int estadoID { get; set; }
 
-        public string ufNome { get; set; }
+        public string Nome { get; set; }
 
-        public string ufSIGLA { get; set; }
+        public string Sigla { get; set; }
     }
 }

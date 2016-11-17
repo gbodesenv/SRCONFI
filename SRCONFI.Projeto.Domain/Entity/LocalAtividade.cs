@@ -15,6 +15,6 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public bool inAtivo { get; set; }
 
-        public virtual IEnumerable<PeriodoAtividade> PeriodoAtividade { get; set; }
+        public virtual ICollection<PeriodoAtividade> PeriodoAtividade { get; set; }
     }
 }

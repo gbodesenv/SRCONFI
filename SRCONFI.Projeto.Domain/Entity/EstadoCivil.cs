@@ -5,6 +5,6 @@ namespace SRCONFI.Projeto.Domain.Entity
     {
         public int EstadoCivilID { get; set; }
 
-        public string DescricaoEstCiv { get; set; }
+        public string DescricaoEstadoCivil { get; set; }
     }
 }

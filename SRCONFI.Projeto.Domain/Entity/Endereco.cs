@@ -5,18 +5,20 @@ namespace SRCONFI.Projeto.Domain.Entity
     {
         public int enderecoID { get; set; }
 
-        public int? ufID_FK { get; set; }
+        public int? estadoID_FK { get; set; }
 
         public string cidade { get; set; }
 
-        public string nrCep { get; set; }
+        public int numeroCEP { get; set; }
 
         public string endereco { get; set; }
 
-        public int nrNumero { get; set; }
+        public int numero { get; set; }
 
         public string complemento { get; set; }
 
         public string bairro { get; set; }
+
+        public virtual Estado Estado { get; set; }
     }
 }

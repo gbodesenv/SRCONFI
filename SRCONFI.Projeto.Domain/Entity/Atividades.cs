@@ -5,12 +5,16 @@ namespace SRCONFI.Projeto.Domain.Entity
 {
     public class Atividades
     {
+        public Atividades()
+        {
+            PeriodoAtividade = new List<PeriodoAtividade>();
+            LocalAtividade = new LocalAtividade();
+        }
+
         public int atividadeID { get; set; }
 
         public int? localID_FK { get; set; }
-
-        public int? periodoID_FK { get; set; }
-
+        
         public string nomeAtividade { get; set; }
 
         public string descricaoAtividade { get; set; }
@@ -23,7 +27,7 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public virtual LocalAtividade LocalAtividade { get; set; }
 
-        public virtual IEnumerable<PeriodoAtividade> PeriodoAtividade { get; set; }
+        public virtual ICollection<PeriodoAtividade> PeriodoAtividade { get; set; }
 
     }
 }

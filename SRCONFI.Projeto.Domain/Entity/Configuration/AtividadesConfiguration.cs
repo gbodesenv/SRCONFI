@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace SRCONFI.Projeto.Domain.Entity.Configuration
@@ -17,9 +16,7 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
                 .WithMany()
                 .HasForeignKey(a => a.localID_FK);
 
-            this.HasOptional(a => a.PeriodoAtividade)
-                .WithMany()
-                .HasForeignKey(a => a.periodoID_FK);
+         
 
 
             //Not Null, Nome da coluna, Identity
@@ -27,7 +24,7 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
                 .IsRequired()
                 .HasColumnName("ID_ATIVIDADE")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
+            
             Property(a => a.nomeAtividade)
                .IsRequired()
                .HasMaxLength(250)

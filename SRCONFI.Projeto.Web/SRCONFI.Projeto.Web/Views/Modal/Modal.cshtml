@@ -4,12 +4,15 @@
 @{
     var idModal = String.Format("modal{0}", Model.IdModal);
 }
-    <div class="modal-dialog first">
+
+
+
+    <div class="modal-dialog first" style="width:98%; height:98%;">
 
         @*Modal Content*@
         <div class="modal-content">
             <div class="modal-header first">
-                <button type="button" class="close">x</button>
+                <button type="button" class="close" id="btnCloseModalFirst">x</button>
                 <h4 class="modal-title"> @Html.Raw(Model.TituloModal) </h4>
             </div>
             <div class="modal-body first">
@@ -24,6 +27,10 @@
                 {
                     <button type="submit" class="btn btn-default" id="@String.Format("btnEditar{0}",Model.IdModal)">Salvar</button>
                 }
+                <button type="button" class="btn btn-default" id="btnFooterCloseModalFirst">Fechar</button>
             </div>
         </div>
     </div>
+
+<script src="~/Scripts/Views/Modal/Modal.js"></script>
+

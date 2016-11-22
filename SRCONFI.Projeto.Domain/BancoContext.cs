@@ -20,9 +20,21 @@ namespace SRCONFI.Projeto.Domain
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<TipoUsuario> TipoUsuario { get; set; }
         public DbSet<Logs> Log { get; set; }
+        public DbSet<Atividades> Atividades { get; set; }
+        public DbSet<Categoria> Categoria { get; set; }
+        public DbSet<DadosComplementares> DadosComplementares { get; set; }
+        public DbSet<DiasSemana> DiasSemana { get; set; }
+        public DbSet<Endereco> Endereco { get; set; }
+        public DbSet<Escolaridade> Escolaridade { get; set; }
+        public DbSet<EstadoCivil> EstadoCivil { get; set; }
+        public DbSet<Estado> Estado { get; set; }
+        public DbSet<LocalAtividade> LocalAtividade { get; set; }
+        public DbSet<Participantes> Participantes { get; set; }
+        public DbSet<PeriodoAtividade> PeriodoAtividade { get; set; }
+        public DbSet<Socios> Socios { get; set; }
 
         #endregion Inclusão
-        
+
         #region Configurações 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -30,12 +42,36 @@ namespace SRCONFI.Projeto.Domain
             modelBuilder.Configurations
                 .Add(new UsuarioConfiguration())
                 .Add(new TipoUsuarioConfiguration())
-                .Add(new LogsConfiguration()
-            );
+                .Add(new LogsConfiguration())
+                .Add(new AtividadesConfiguration())
+                .Add(new CategoriaConfiguration())
+                .Add(new DadosComplementaresConfiguration())
+                .Add(new DiasSemanaConfiguration())
+                .Add(new EnderecoConfiguration())
+                .Add(new EscolaridadeConfiguration())
+                .Add(new EstadoCivilConfiguration())
+                .Add(new EstadoConfiguration())
+                .Add(new LocalAtividadeConfiguration())
+                .Add(new ParticipantesConfiguration())
+                .Add(new PeriodoAtividadeConfiguration())
+                .Add(new SociosConfiguration());
 
             modelBuilder.Entity<Usuario>().ToTable("TB_USUARIOS");
             modelBuilder.Entity<TipoUsuario>().ToTable("TB_TIPO_USUARIOS");
             modelBuilder.Entity<Logs>().ToTable("TB_LOGS");
+            modelBuilder.Entity<Atividades>().ToTable("TB_ATIVIDADES");
+            modelBuilder.Entity<Categoria>().ToTable("TB_CATEGORIA");
+            modelBuilder.Entity<DadosComplementares>().ToTable("TB_DADOS_COMPLEMENTARES");
+            modelBuilder.Entity<DiasSemana>().ToTable("TB_DIAS_SEMANA");
+            modelBuilder.Entity<Endereco>().ToTable("TB_ENDERECO");
+            modelBuilder.Entity<Escolaridade>().ToTable("TB_ESCOLARIDADE");
+            modelBuilder.Entity<EstadoCivil>().ToTable("TB_ESTADO_CIVIL");
+            modelBuilder.Entity<Estado>().ToTable("TB_UF");
+            modelBuilder.Entity<LocalAtividade>().ToTable("TB_LOCAL_ATIVIDADE");
+            modelBuilder.Entity<Participantes>().ToTable("TB_PARTICIPANTES");
+            modelBuilder.Entity<PeriodoAtividade>().ToTable("TB_PERIODO_ATIVIDADE");
+            modelBuilder.Entity<Socios>().ToTable("TB_SOCIOS");
+
 
         }
         #endregion Configurações 

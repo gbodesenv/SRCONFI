@@ -5,6 +5,6 @@ namespace SRCONFI.Projeto.Domain.Entity
     {
         public int escolaridadeID { get; set; }
 
-        public string descEscol { get; set; }
+        public string descricaoEscolaridade { get; set; }
     }
 }

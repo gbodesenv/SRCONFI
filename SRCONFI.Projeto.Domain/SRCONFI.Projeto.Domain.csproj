@@ -54,8 +54,15 @@
     <Compile Include="Entity\Autores.cs" />
     <Compile Include="Entity\Categoria.cs" />
     <Compile Include="Entity\Configuration\AtividadesConfiguration.cs" />
+    <Compile Include="Entity\Configuration\CategoriaConfiguration.cs" />
+    <Compile Include="Entity\Configuration\DadosComplementaresConfiguration.cs" />
     <Compile Include="Entity\Configuration\AutoresConfiguration.cs" />
     <Compile Include="Entity\Configuration\DiasSemanaConfiguration.cs" />
+    <Compile Include="Entity\Configuration\EnderecoConfiguration.cs" />
+    <Compile Include="Entity\Configuration\EscolaridadeConfiguration.cs" />
+    <Compile Include="Entity\Configuration\EstadoCivilConfiguration.cs" />
+    <Compile Include="Entity\Configuration\EstadoConfiguration.cs" />
+    <Compile Include="Entity\Configuration\LocalAtividadeConfiguration.cs" />
     <Compile Include="Entity\Configuration\DoacoesConfiguration.cs" />
     <Compile Include="Entity\Configuration\EditorasConfiguration.cs" />
     <Compile Include="Entity\Configuration\EntradasLivrosConfiguration.cs" />
@@ -64,6 +71,9 @@
     <Compile Include="Entity\Configuration\LogsConfiguration.cs" />
     <Compile Include="Entity\Configuration\MesConfiguration.cs" />
     <Compile Include="Entity\Configuration\PagamentosConfiguration.cs" />
+    <Compile Include="Entity\Configuration\ParticipantesConfiguration.cs" />
+    <Compile Include="Entity\Configuration\PeriodoAtividadeConfiguration.cs" />
+    <Compile Include="Entity\Configuration\SociosConfiguration.cs" />
     <Compile Include="Entity\Configuration\TipoUsuarioConfiguration.cs" />
     <Compile Include="Entity\Configuration\UsuarioConfiguration.cs" />
     <Compile Include="Entity\Configuration\VendasLivrosConfiguration.cs" />
@@ -96,12 +106,24 @@
     <Compile Include="Migrations\201610040220548_AlterRelacaoLogComUsuarioEUsuarioTipoUsuario.Designer.cs">
       <DependentUpon>201610040220548_AlterRelacaoLogComUsuarioEUsuarioTipoUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611170312263_InclusaoTabelasRelacionaisSocios.cs" />
+    <Compile Include="Migrations\201611170312263_InclusaoTabelasRelacionaisSocios.Designer.cs">
+      <DependentUpon>201611170312263_InclusaoTabelasRelacionaisSocios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611192238263_ModificandoinStatusSocios.cs" />
+    <Compile Include="Migrations\201611192238263_ModificandoinStatusSocios.Designer.cs">
+      <DependentUpon>201611192238263_ModificandoinStatusSocios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EntityRepository\CategoriaRepository.cs" />
     <Compile Include="Repositories\EntityRepository\LogRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\SociosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\TipoUsuarioRepository.cs" />
     <Compile Include="Repositories\EntityRepository\UsuarioRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICategoriaRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILogRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISociosRepository.cs" />
     <Compile Include="Repositories\Interfaces\ITipoUsuarioRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -121,6 +143,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610040220548_AlterRelacaoLogComUsuarioEUsuarioTipoUsuario.resx">
       <DependentUpon>201610040220548_AlterRelacaoLogComUsuarioEUsuarioTipoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611170312263_InclusaoTabelasRelacionaisSocios.resx">
+      <DependentUpon>201611170312263_InclusaoTabelasRelacionaisSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611192238263_ModificandoinStatusSocios.resx">
+      <DependentUpon>201611192238263_ModificandoinStatusSocios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

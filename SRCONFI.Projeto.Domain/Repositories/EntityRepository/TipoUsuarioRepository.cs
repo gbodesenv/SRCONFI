@@ -4,7 +4,7 @@ using SRCONFI.Projeto.Domain.Repositories.Interfaces;
 
 namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
 {
-    class TipoUsuarioRepository : Repository<TipoUsuario>, ITipoUsuarioRepository
+    public class TipoUsuarioRepository : Repository<TipoUsuario>, ITipoUsuarioRepository
     {
         public TipoUsuarioRepository(BancoContext context) 
             : base(context)

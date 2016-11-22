@@ -31,8 +31,7 @@
         @Html.Label("Nome", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-10">
-            @Html.TextBoxFor(model => model.nome, new { @class = "form-control", @placeholder = "Nome", @data_parsley_error_message = "O campo 'Tipo Usuário' é obrigatório" })
-            @Html.ValidationMessageFor(m => m.nome)
+            @Html.TextBoxFor(model => model.nome, new { @class = "form-control", @placeholder = "Nome", @data_parsley_error_message = "O campo 'Nome' é obrigatório" })            
         </div>
     </div>
 

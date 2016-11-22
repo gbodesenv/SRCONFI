@@ -66,5 +66,18 @@ namespace SRCONFI.Projeto.UnitTest
 
             Assert.AreEqual(0, listaUsuarios.Count());
         }
+
+        [TestMethod]
+        public void ListarTodosOsUsuariosERelacionadosDoBanco()
+        {
+            List<Usuario> listaUsuarios = new List<Usuario>();
+            using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
+            {
+                listaUsuarios = unitOfWork.Usuario.GetAllAndRelation().ToList();
+                unitOfWork.Dispose();
+            }
+
+            Assert.AreEqual(0, listaUsuarios.Count());
+        }
     }
 }

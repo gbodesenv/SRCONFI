@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SRCONFI.Projeto.Domain.Entity
 {
@@ -6,6 +7,7 @@ namespace SRCONFI.Projeto.Domain.Entity
     {
         public int socioID { get; set; }
 
+        [ForeignKey("Categoria")]
         public int? categoriaID_FK { get; set; }
 
         public int? enderecoID_FK { get; set; }
@@ -18,9 +20,17 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public int telefoneSocio { get; set; }
 
-        public Boolean inStatus { get; set; }
+        public byte? inStatus { get; set; }
 
         public DateTime dataIngressoSocio { get; set; }
 
+
+
+
+        public virtual Categoria Categoria { get; set; }
+
+        public virtual Endereco Endereco { get; set; }
+        
+        public virtual DadosComplementares DadosComplementares { get; set; }
     }
 }

@@ -307,37 +307,13 @@
         }
 
         function abrirModal(urlModal, urlBodyModal) {
-            $("#modal").load(urlModal, function () {
+            $("#modal.first").load(urlModal, function () {
                 $("#modal .modal-body.first").load(urlBodyModal, function () {
-                    $("#modal").modal();
+                    $("#modal.first").modal();
                 });
             });
         }
 
-
-        $(document).ready(function () {
-
-
-
-
-            //$(".modal-dialog.first button.close").on("click", function () {
-            //    console.logo('a');
-            //    $('#modalFirst').modal('hide');
-            //});
-
-            //$(".nav a").on("click", function () {
-            //    $(".nav").find(".active").removeClass("active");
-            //    $(this).parent().addClass("active");
-            //});
-
-            //$("button.close").click(function () {
-            //    alert('teste');
-            //});
-
-
-
-
-        });
     </script>
 </body>
 </html>

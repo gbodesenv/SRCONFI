@@ -220,6 +220,10 @@
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Css\Bootstrap\bootstrap.min.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Views\Modal\Modal.js" />
+    <Content Include="Scripts\Views\Socios\Editar.js" />
+    <Content Include="Scripts\Views\Socios\Inserir.js" />
+    <Content Include="Scripts\Views\Socios\Listar.js" />
     <Content Include="Scripts\Views\TipoUsuario\Editar.js" />
     <Content Include="Scripts\Views\TipoUsuario\Inserir.js" />
     <Content Include="Scripts\Views\TipoUsuario\Listar.js" />
@@ -232,6 +236,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bundles\BundleConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SociosController.cs" />
     <Compile Include="Controllers\TipoUsuarioController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Enum\ModalEnum.cs" />
@@ -262,6 +267,11 @@
     <Content Include="Views\TipoUsuario\Inserir.cshtml" />
     <Content Include="Views\TipoUsuario\Editar.cshtml" />
     <Content Include="Scripts\parsley-2.6.0.js" />
+    <Content Include="Views\Socios\Inserir.cshtml" />
+    <Content Include="Views\Socios\Listar.cshtml" />
+    <Content Include="Views\Socios\Editar.cshtml" />
+    <Content Include="Views\Socios\_TableListarSocios.cshtml" />
+    <Content Include="Views\Socios\_DadosComplementares.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

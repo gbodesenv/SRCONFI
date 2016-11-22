@@ -101,12 +101,20 @@
     <Compile Include="Migrations\201611170312263_InclusaoTabelasRelacionaisSocios.Designer.cs">
       <DependentUpon>201611170312263_InclusaoTabelasRelacionaisSocios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611192238263_ModificandoinStatusSocios.cs" />
+    <Compile Include="Migrations\201611192238263_ModificandoinStatusSocios.Designer.cs">
+      <DependentUpon>201611192238263_ModificandoinStatusSocios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EntityRepository\CategoriaRepository.cs" />
     <Compile Include="Repositories\EntityRepository\LogRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\SociosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\TipoUsuarioRepository.cs" />
     <Compile Include="Repositories\EntityRepository\UsuarioRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICategoriaRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILogRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISociosRepository.cs" />
     <Compile Include="Repositories\Interfaces\ITipoUsuarioRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUsuarioRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
@@ -129,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611170312263_InclusaoTabelasRelacionaisSocios.resx">
       <DependentUpon>201611170312263_InclusaoTabelasRelacionaisSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611192238263_ModificandoinStatusSocios.resx">
+      <DependentUpon>201611192238263_ModificandoinStatusSocios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

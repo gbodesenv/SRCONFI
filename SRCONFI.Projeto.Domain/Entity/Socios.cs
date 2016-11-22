@@ -20,7 +20,7 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public int telefoneSocio { get; set; }
 
-        public bool inStatus { get; set; }
+        public byte? inStatus { get; set; }
 
         public DateTime dataIngressoSocio { get; set; }
 

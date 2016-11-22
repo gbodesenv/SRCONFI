@@ -6,13 +6,15 @@ namespace SRCONFI.Projeto.Domain.Entity
     {
         public int vendaID { get; set; }
 
-        public int? estoqueID { get; set; }
+        public int? estoqueID_FK { get; set; }
 
         public DateTime dataVenda { get; set; }
 
         public decimal valorDesconto { get; set; }
 
         public decimal totalVenda { get; set; }
+
+        public virtual Estoque Estoque { get; set; }
 
 
     }

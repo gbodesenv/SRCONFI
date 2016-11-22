@@ -14,5 +14,9 @@ namespace SRCONFI.Projeto.Domain.Entity
         public int nrQuantidade { get; set; }
 
         public decimal vlUnitarioLivro { get; set; }
+
+        public virtual Livros Livros { get; set; }
+
+        public virtual EntradasLivros EntradasLivros { get; set; }
     }
 }

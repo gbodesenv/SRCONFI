@@ -1,0 +1,61 @@
+﻿@model SRCONFI.Projeto.Domain.Entity.Socios
+@using System.Collections.Generic;
+@using System.Web.Mvc;
+
+
+<script src="~/Scripts/Views/Socios/Inserir.js"></script>
+
+@Html.Hidden("hdnCaminhoInserirSocios", @Url.Action("Inserir", "Socios"))
+
+@using (Html.BeginForm("Inserir", "Socios", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formInserirSocios" }))
+{
+    @Html.Hidden("usuarioID", 0)
+
+    <div class="form-group">
+        @Html.Label("Matrícula", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-3">
+            @Html.TextBox("matricula", "", new { @class = "form-control", @readonly = "readonly" })
+        </div>
+    </div>
+    
+
+    <div class="form-group">
+        @Html.Label("Categoria", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.DropDownListFor(model => model.categoriaID_FK, (List<SelectListItem>)ViewBag.listCategoria, new { @class = "form-control", @placeholder = "Categoria", @data_parsley_error_message = "O campo 'Categoria' é obrigatório" })
+            @*@Html.TextBoxFor(model => model.categoriaID_FK, new { @class = "form-control", @placeholder = "Categoria", @data_parsley_error_message = "O campo 'Categoria' é obrigatório" })*@
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Status", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.inStatus, new { @class = "form-control", @placeholder = "Status", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Status' é obrigatório" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Nome", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.PasswordFor(model => model.nomeSocio, new { @class = "form-control", @placeholder = "Nome", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Nome' é obrigatório" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Data Ingresso", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.dataIngressoSocio, new { @class = "form-control", @placeholder = "Data Ingresso", @data_parsley_type = "email", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Data Ingresso' é obrigatório" })
+        </div>
+    </div>
+    
+}
+
+
+
+
+

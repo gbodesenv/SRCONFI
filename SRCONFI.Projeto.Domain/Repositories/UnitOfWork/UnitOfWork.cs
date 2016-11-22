@@ -16,13 +16,14 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
             TipoUsuario = new TipoUsuarioRepository(_context);
             Log = new LogRepository(_context);
             Socios = new SociosRepository(_context);
+            Categoria = new CategoriaRepository(_context);
         }
 
         public IUsuarioRepository Usuario { get; private set; }
         public ITipoUsuarioRepository TipoUsuario { get; private set; }
         public ILogRepository Log { get; private set; }
         public ISociosRepository Socios { get; private set; }
-
+        public ICategoriaRepository Categoria { get; private set; }
 
         public int Complete()
         {

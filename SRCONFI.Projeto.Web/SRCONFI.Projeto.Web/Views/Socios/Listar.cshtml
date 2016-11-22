@@ -1,7 +1,7 @@
 ﻿@using SRCONFI.Projeto.Domain.Entity
 @model List<Socios>
 @{
-    ViewBag.Title = "Listar Sócios";
+    ViewBag.Title = "Listar";
 }
 
 <script src="~/Scripts/Views/Socios/Listar.js"></script>
@@ -29,13 +29,13 @@
 
 </div>
 
-@Html.Hidden("hdnCaminhoAtualizarTableSocios", @Url.Action("_TableListarSocios", "Socios"))
+@Html.Hidden("hdnCaminhoAtualizarTableSocio", @Url.Action("_TableListarSocios", "Socios"))
 
-@Html.Hidden("hdnCaminhoInserirSocios", @Url.Action("Inserir", "Socios"))
-@Html.Hidden("hdnCaminhoModalInserirSocios", @Url.Action("ModalInserir", "Socios"))
+@Html.Hidden("hdnCaminhoInserirSocio", @Url.Action("Inserir", "Socios"))
+@Html.Hidden("hdnCaminhoModalInserirSocio", @Url.Action("ModalInserir", "Socios"))
 
-@Html.Hidden("hdnCaminhoEditarSocios", @Url.Action("Editar", "Socios"))
-@Html.Hidden("hdnCaminhoModalEditarSocios", @Url.Action("ModalEditar", "Socios"))
+@Html.Hidden("hdnCaminhoEditarSocio", @Url.Action("Editar", "Socios"))
+@Html.Hidden("hdnCaminhoModalEditarSocio", @Url.Action("ModalEditar", "Socios"))
 
-@Html.Hidden("hdnCaminhoExcluirSocios", @Url.Action("Excluir", "Socios"))
+@Html.Hidden("hdnCaminhoExcluirSocio", @Url.Action("Excluir", "Socios"))
 

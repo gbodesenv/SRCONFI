@@ -5,54 +5,71 @@
 
 <script src="~/Scripts/Views/Socios/Inserir.js"></script>
 
-@Html.Hidden("hdnCaminhoInserirSocios", @Url.Action("Inserir", "Socios"))
 
-@using (Html.BeginForm("Inserir", "Socios", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formInserirSocios" }))
+
+@Html.Hidden("hdnCaminhoInserirSocio", @Url.Action("Inserir", "Socios"))
+
+@using (Html.BeginForm("Inserir", "Socios", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formInserirSocio" }))
 {
-    @Html.Hidden("usuarioID", 0)
+    @Html.Hidden("socioID", 0)
 
-    <div class="form-group">
-        @Html.Label("Matrícula", new { @class = "col-sm-2 control-label" })
-
-        <div class="col-sm-3">
-            @Html.TextBox("matricula", "", new { @class = "form-control", @readonly = "readonly" })
+    <div class="row">
+        <div class="col-xs-2">
+            @Html.Label("Matrícula", new { @class = "col-sm-2 control-label-sm" })
+            @Html.TextBox("matricula", "", new { @class = "form-control input-sm", @readonly = "readonly" })
         </div>
-    </div>
-    
-
-    <div class="form-group">
-        @Html.Label("Categoria", new { @class = "col-sm-2 control-label" })
-
-        <div class="col-sm-10">
-            @Html.DropDownListFor(model => model.categoriaID_FK, (List<SelectListItem>)ViewBag.listCategoria, new { @class = "form-control", @placeholder = "Categoria", @data_parsley_error_message = "O campo 'Categoria' é obrigatório" })
-            @*@Html.TextBoxFor(model => model.categoriaID_FK, new { @class = "form-control", @placeholder = "Categoria", @data_parsley_error_message = "O campo 'Categoria' é obrigatório" })*@
+        <div class="col-xs-7">
+            @Html.Label("Categoria", new { @class = "col-sm-2 control-label-sm" })
+            @Html.DropDownListFor(model => model.categoriaID_FK, (List<SelectListItem>)ViewBag.listCategoria, new { @class = "form-control input-sm", @placeholder = "Categoria", @data_parsley_error_message = "O campo 'Categoria' é obrigatório" })
+        </div>
+        <div class="col-xs-3">
+            @Html.Label("Status", new { @class = "col-sm-2 control-label-sm" })
+            @Html.DropDownListFor(model => model.inStatus, (List<SelectListItem>)ViewBag.listStatus, new { @class = "form-control input-sm", @placeholder = "Status", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Status' é obrigatório" })
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.Label("Status", new { @class = "col-sm-2 control-label" })
-
-        <div class="col-sm-10">
-            @Html.TextBoxFor(model => model.inStatus, new { @class = "form-control", @placeholder = "Status", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Status' é obrigatório" })
+    <div class="row">
+        <div class="col-xs-9">
+            @Html.Label("Nome", new { @class = "col-sm-2 control-label-sm" })
+            @Html.TextBoxFor(model => model.nomeSocio, new { @class = "form-control input-sm", @placeholder = "Nome", @data_parsley_error_message = "O campo 'Nome' é obrigatório" })
+        </div>
+        <div class="col-xs-3">
+            @Html.Label("Data", new { @class = "col-sm-2 control-label-sm" })
+            @Html.TextBoxFor(model => model.dataIngressoSocio, new { @class = "form-control input-sm", @placeholder = "Data de Ingresso", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Data de Ingresso' é obrigatório" })
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.Label("Nome", new { @class = "col-sm-2 control-label" })
 
-        <div class="col-sm-10">
-            @Html.PasswordFor(model => model.nomeSocio, new { @class = "form-control", @placeholder = "Nome", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Nome' é obrigatório" })
+    <div class="row top10">
+        <div class="col-xs-12">            
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#tabDadosComplementares">Dados Complementares</a></li>
+                <li><a data-toggle="tab" href="#tabEndereco">Endereço </a></li>
+                <li><a data-toggle="tab" href="#tabUltimosPagamentos">Últimos Pagamentos </a></li>
+                <li><a data-toggle="tab" href="#tabAtividades">Atividades </a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="tabDadosComplementares" class="tab-pane fade in active">
+                    <h3>Dados Complementares</h3>
+                    @Html.Partial("_DadosComplementares", Model.DadosComplementares)
+                </div>
+                <div id="tabEndereco" class="tab-pane fade">
+                    <h3>Endereço</h3>
+                    @Html.Partial("_Endereco", Model.Endereco)
+                </div>
+                <div id="tabUltimosPagamentos" class="tab-pane fade">
+                    <h3>Último Pagamento</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                </div>
+                <div id="tabAtividades" class="tab-pane fade">
+                    <h3>Atividades</h3>
+                    <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.Label("Data Ingresso", new { @class = "col-sm-2 control-label" })
-
-        <div class="col-sm-10">
-            @Html.TextBoxFor(model => model.dataIngressoSocio, new { @class = "form-control", @placeholder = "Data Ingresso", @data_parsley_type = "email", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Data Ingresso' é obrigatório" })
-        </div>
-    </div>
-    
 }
 
 

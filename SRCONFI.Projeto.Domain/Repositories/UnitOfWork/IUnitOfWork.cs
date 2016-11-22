@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SRCONFI.Projeto.Domain.Repositories.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,12 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {
-        //ICourseRepository Courses { get; }
-        //IAuthorRepository Authors { get; }
+        ICategoriaRepository Categoria { get; }
+        ILogRepository Log { get; }
+        ISociosRepository Socios { get; }
+        ITipoUsuarioRepository TipoUsuario { get; }
+        IUsuarioRepository Usuario { get; }
+
         int Complete();
     }
 }

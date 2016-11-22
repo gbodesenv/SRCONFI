@@ -46,14 +46,14 @@ namespace SRCONFI.Projeto.Business
         }
         public Domain.Entity.Categoria GetCategoria(int idCategoria)
         {
-            Domain.Entity.Categoria tpUsuario;
+            Domain.Entity.Categoria categoria;
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {
-                tpUsuario = unitOfWork.Categoria.Get(idCategoria);
+                categoria = unitOfWork.Categoria.Get(idCategoria);
                 unitOfWork.Dispose();
             }
 
-            return tpUsuario;
+            return categoria;
         }
 
     }

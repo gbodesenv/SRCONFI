@@ -2,11 +2,7 @@
     $("#btnIncluirSocio").click(function () {
         inserirSocio();
     });
-
-
 });
-
-
 
 function abrirModalEditar(id) {
     var urlModal = $("#hdnCaminhoModalEditarSocio").val();

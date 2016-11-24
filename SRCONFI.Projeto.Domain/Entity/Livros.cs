@@ -11,5 +11,9 @@ namespace SRCONFI.Projeto.Domain.Entity
         public int? autorID_FK { get; set; }
 
         public string nomeAutor { get; set; }
+
+        public virtual Editoras Editoras { get; set; }
+
+        public virtual Autores Autores { get; set; }
     }
 }

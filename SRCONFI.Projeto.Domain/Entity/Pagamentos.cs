@@ -26,5 +26,7 @@ namespace SRCONFI.Projeto.Domain.Entity
         public string dataRetificacao { get; set; }
 
         public Boolean inCancelado { get; set; }
+
+        public virtual Mes Mes { get; set; }
     }
 }

@@ -108,11 +108,17 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EntityRepository\CategoriaRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\DadosComplementaresRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\EscolaridadeRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\EstadoCivilRepository.cs" />
     <Compile Include="Repositories\EntityRepository\LogRepository.cs" />
     <Compile Include="Repositories\EntityRepository\SociosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\TipoUsuarioRepository.cs" />
     <Compile Include="Repositories\EntityRepository\UsuarioRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICategoriaRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IDadosComplementaresRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEscolaridadeRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEstadoCivilRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILogRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISociosRepository.cs" />
     <Compile Include="Repositories\Interfaces\ITipoUsuarioRepository.cs" />

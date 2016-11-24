@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    $("#btnIncluirSocio").click(function () {
+    $("#btnIncluirSocios").click(function () {
         inserirSocio();
     });
 });

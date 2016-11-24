@@ -3,10 +3,15 @@ namespace SRCONFI.Projeto.Domain.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InclusaoTabelasRelacionaisSocios : DbMigration
+    public partial class RecriandoBaseERelacionamentos : DbMigration
     {
         public override void Up()
         {
+            DropForeignKey("dbo.TB_LOGS", "Usuario_usuarioID", "dbo.TB_USUARIOS");
+            DropIndex("dbo.TB_LOGS", new[] { "Usuario_usuarioID" });
+            RenameColumn(table: "dbo.TB_LOGS", name: "Usuario_usuarioID", newName: "usuarioID_FK");
+            RenameColumn(table: "dbo.TB_USUARIOS", name: "tipoUsuarioID", newName: "tipoUsuarioID_FK");
+            RenameIndex(table: "dbo.TB_USUARIOS", name: "IX_tipoUsuarioID", newName: "IX_tipoUsuarioID_FK");
             CreateTable(
                 "dbo.TB_ATIVIDADES",
                 c => new
@@ -69,29 +74,7 @@ namespace SRCONFI.Projeto.Domain.Migrations
                         ID_CATEGORIA = c.Int(nullable: false, identity: true),
                         TX_DESCRICAO = c.String(nullable: false, maxLength: 150),
                     })
-                .PrimaryKey(t => t.ID_CATEGORIA)
-                .ForeignKey("dbo.TB_SOCIOS", t => t.ID_CATEGORIA)
-                .Index(t => t.ID_CATEGORIA);
-            
-            CreateTable(
-                "dbo.TB_SOCIOS",
-                c => new
-                    {
-                        ID_SOCIO = c.Int(nullable: false, identity: true),
-                        ID_DADO_COMPLEMENTAR = c.Int(nullable: false),
-                        enderecoID_FK = c.Int(),
-                        dadoComplementarID_FK = c.Int(),
-                        TX_NOME_SOCIO = c.String(nullable: false, maxLength: 100),
-                        TX_EMAIL_SOCIO = c.String(nullable: false, maxLength: 250),
-                        NR_TELEFONE_SOCIO = c.Int(nullable: false),
-                        IN_STATUS = c.Boolean(nullable: false),
-                        DT_DATA_INGRESSO_SOCIO = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.ID_SOCIO)
-                .ForeignKey("dbo.TB_DADOS_COMPLEMENTARES", t => t.dadoComplementarID_FK)
-                .ForeignKey("dbo.TB_ENDERECO", t => t.enderecoID_FK)
-                .Index(t => t.enderecoID_FK)
-                .Index(t => t.dadoComplementarID_FK);
+                .PrimaryKey(t => t.ID_CATEGORIA);
             
             CreateTable(
                 "dbo.TB_DADOS_COMPLEMENTARES",
@@ -173,45 +156,78 @@ namespace SRCONFI.Projeto.Domain.Migrations
                 .Index(t => t.socioID)
                 .Index(t => t.atividadeID);
             
+            CreateTable(
+                "dbo.TB_SOCIOS",
+                c => new
+                    {
+                        ID_SOCIO = c.Int(nullable: false, identity: true),
+                        TX_NOME_SOCIO = c.String(nullable: false, maxLength: 100),
+                        TX_EMAIL_SOCIO = c.String(nullable: false, maxLength: 250),
+                        NR_TELEFONE_SOCIO = c.Int(nullable: false),
+                        IN_STATUS = c.Byte(nullable: false),
+                        DT_DATA_INGRESSO_SOCIO = c.DateTime(nullable: false),
+                        ID_CATEGORIA = c.Int(nullable: false),
+                        ID_ENDERECO = c.Int(nullable: false),
+                        ID_DADO_COMPLEMENTAR = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID_SOCIO)
+                .ForeignKey("dbo.TB_CATEGORIA", t => t.ID_CATEGORIA, cascadeDelete: true)
+                .ForeignKey("dbo.TB_DADOS_COMPLEMENTARES", t => t.ID_DADO_COMPLEMENTAR, cascadeDelete: true)
+                .ForeignKey("dbo.TB_ENDERECO", t => t.ID_ENDERECO, cascadeDelete: true)
+                .Index(t => t.ID_CATEGORIA)
+                .Index(t => t.ID_ENDERECO)
+                .Index(t => t.ID_DADO_COMPLEMENTAR);
+            
+            AlterColumn("dbo.TB_LOGS", "usuarioID_FK", c => c.Int());
+            CreateIndex("dbo.TB_LOGS", "usuarioID_FK");
+            AddForeignKey("dbo.TB_LOGS", "usuarioID_FK", "dbo.TB_USUARIOS", "ID_USUARIO");
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.TB_LOGS", "usuarioID_FK", "dbo.TB_USUARIOS");
             DropForeignKey("dbo.TB_PARTICIPANTES", "socioID", "dbo.TB_SOCIOS");
+            DropForeignKey("dbo.TB_SOCIOS", "ID_ENDERECO", "dbo.TB_ENDERECO");
+            DropForeignKey("dbo.TB_SOCIOS", "ID_DADO_COMPLEMENTAR", "dbo.TB_DADOS_COMPLEMENTARES");
+            DropForeignKey("dbo.TB_SOCIOS", "ID_CATEGORIA", "dbo.TB_CATEGORIA");
             DropForeignKey("dbo.TB_PARTICIPANTES", "atividadeID", "dbo.TB_ATIVIDADES");
-            DropForeignKey("dbo.TB_SOCIOS", "enderecoID_FK", "dbo.TB_ENDERECO");
             DropForeignKey("dbo.TB_ENDERECO", "estadoID_FK", "dbo.TB_UF");
-            DropForeignKey("dbo.TB_SOCIOS", "dadoComplementarID_FK", "dbo.TB_DADOS_COMPLEMENTARES");
             DropForeignKey("dbo.TB_DADOS_COMPLEMENTARES", "EstadoCivilID_FK", "dbo.TB_ESTADO_CIVIL");
             DropForeignKey("dbo.TB_DADOS_COMPLEMENTARES", "escolaridadeID_FK", "dbo.TB_ESCOLARIDADE");
-            DropForeignKey("dbo.TB_CATEGORIA", "ID_CATEGORIA", "dbo.TB_SOCIOS");
             DropForeignKey("dbo.TB_ATIVIDADES", "localID_FK", "dbo.TB_LOCAL_ATIVIDADE");
             DropForeignKey("dbo.TB_PERIODO_ATIVIDADE", "atividadesID_FK", "dbo.TB_LOCAL_ATIVIDADE");
             DropForeignKey("dbo.TB_PERIODO_ATIVIDADE", "diasSemanaID_FK", "dbo.TB_DIAS_SEMANA");
             DropForeignKey("dbo.TB_PERIODO_ATIVIDADE", "atividadesID_FK", "dbo.TB_ATIVIDADES");
+            DropIndex("dbo.TB_SOCIOS", new[] { "ID_DADO_COMPLEMENTAR" });
+            DropIndex("dbo.TB_SOCIOS", new[] { "ID_ENDERECO" });
+            DropIndex("dbo.TB_SOCIOS", new[] { "ID_CATEGORIA" });
             DropIndex("dbo.TB_PARTICIPANTES", new[] { "atividadeID" });
             DropIndex("dbo.TB_PARTICIPANTES", new[] { "socioID" });
+            DropIndex("dbo.TB_LOGS", new[] { "usuarioID_FK" });
             DropIndex("dbo.TB_ENDERECO", new[] { "estadoID_FK" });
             DropIndex("dbo.TB_DADOS_COMPLEMENTARES", new[] { "EstadoCivilID_FK" });
             DropIndex("dbo.TB_DADOS_COMPLEMENTARES", new[] { "escolaridadeID_FK" });
-            DropIndex("dbo.TB_SOCIOS", new[] { "dadoComplementarID_FK" });
-            DropIndex("dbo.TB_SOCIOS", new[] { "enderecoID_FK" });
-            DropIndex("dbo.TB_CATEGORIA", new[] { "ID_CATEGORIA" });
             DropIndex("dbo.TB_PERIODO_ATIVIDADE", new[] { "atividadesID_FK" });
             DropIndex("dbo.TB_PERIODO_ATIVIDADE", new[] { "diasSemanaID_FK" });
             DropIndex("dbo.TB_ATIVIDADES", new[] { "localID_FK" });
+            AlterColumn("dbo.TB_LOGS", "usuarioID_FK", c => c.Int(nullable: false));
+            DropTable("dbo.TB_SOCIOS");
             DropTable("dbo.TB_PARTICIPANTES");
             DropTable("dbo.TB_UF");
             DropTable("dbo.TB_ENDERECO");
             DropTable("dbo.TB_ESTADO_CIVIL");
             DropTable("dbo.TB_ESCOLARIDADE");
             DropTable("dbo.TB_DADOS_COMPLEMENTARES");
-            DropTable("dbo.TB_SOCIOS");
             DropTable("dbo.TB_CATEGORIA");
             DropTable("dbo.TB_DIAS_SEMANA");
             DropTable("dbo.TB_PERIODO_ATIVIDADE");
             DropTable("dbo.TB_LOCAL_ATIVIDADE");
             DropTable("dbo.TB_ATIVIDADES");
+            RenameIndex(table: "dbo.TB_USUARIOS", name: "IX_tipoUsuarioID_FK", newName: "IX_tipoUsuarioID");
+            RenameColumn(table: "dbo.TB_USUARIOS", name: "tipoUsuarioID_FK", newName: "tipoUsuarioID");
+            RenameColumn(table: "dbo.TB_LOGS", name: "usuarioID_FK", newName: "Usuario_usuarioID");
+            CreateIndex("dbo.TB_LOGS", "Usuario_usuarioID");
+            AddForeignKey("dbo.TB_LOGS", "Usuario_usuarioID", "dbo.TB_USUARIOS", "ID_USUARIO", cascadeDelete: true);
         }
     }
 }

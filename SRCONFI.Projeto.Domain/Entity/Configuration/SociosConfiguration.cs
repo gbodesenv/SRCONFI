@@ -10,16 +10,17 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
             //Primary Key, relação obrigatória com a tabela TipoUsuario
             this.HasKey(s => s.socioID);
 
-            this.HasOptional(s => s.Endereco)
+            this.HasRequired(s => s.Endereco)
                 .WithMany()
                .HasForeignKey(u => u.enderecoID_FK);
 
-            this.HasOptional(s => s.DadosComplementares)
+            this.HasRequired(s => s.DadosComplementares)
                 .WithMany()
                .HasForeignKey(u => u.dadoComplementarID_FK);
 
-            this.HasOptional(s => s.Categoria)
-                .WithRequired(s => s.Socios);
+            this.HasRequired(u => u.Categoria)
+                .WithMany()
+                .HasForeignKey(u => u.categoriaID_FK);
 
             //Not Null, Nome da coluna, Identity
             Property(u => u.socioID)
@@ -31,11 +32,11 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
                 .IsRequired()
                 .HasColumnName("ID_CATEGORIA");
 
-            Property(s => s.categoriaID_FK)
+            Property(s => s.enderecoID_FK)
              .IsRequired()
              .HasColumnName("ID_ENDERECO");
 
-            Property(s => s.categoriaID_FK)
+            Property(s => s.dadoComplementarID_FK)
              .IsRequired()
              .HasColumnName("ID_DADO_COMPLEMENTAR");
 

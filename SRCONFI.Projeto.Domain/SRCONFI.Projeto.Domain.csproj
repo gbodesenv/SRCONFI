@@ -102,17 +102,9 @@
     <Compile Include="Migrations\201610040214435_CreateDB.Designer.cs">
       <DependentUpon>201610040214435_CreateDB.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610040220548_AlterRelacaoLogComUsuarioEUsuarioTipoUsuario.cs" />
-    <Compile Include="Migrations\201610040220548_AlterRelacaoLogComUsuarioEUsuarioTipoUsuario.Designer.cs">
-      <DependentUpon>201610040220548_AlterRelacaoLogComUsuarioEUsuarioTipoUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611170312263_InclusaoTabelasRelacionaisSocios.cs" />
-    <Compile Include="Migrations\201611170312263_InclusaoTabelasRelacionaisSocios.Designer.cs">
-      <DependentUpon>201611170312263_InclusaoTabelasRelacionaisSocios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611192238263_ModificandoinStatusSocios.cs" />
-    <Compile Include="Migrations\201611192238263_ModificandoinStatusSocios.Designer.cs">
-      <DependentUpon>201611192238263_ModificandoinStatusSocios.cs</DependentUpon>
+    <Compile Include="Migrations\201611241534515_RecriandoBaseERelacionamentos.cs" />
+    <Compile Include="Migrations\201611241534515_RecriandoBaseERelacionamentos.Designer.cs">
+      <DependentUpon>201611241534515_RecriandoBaseERelacionamentos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,14 +139,8 @@
     <EmbeddedResource Include="Migrations\201610040214435_CreateDB.resx">
       <DependentUpon>201610040214435_CreateDB.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610040220548_AlterRelacaoLogComUsuarioEUsuarioTipoUsuario.resx">
-      <DependentUpon>201610040220548_AlterRelacaoLogComUsuarioEUsuarioTipoUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611170312263_InclusaoTabelasRelacionaisSocios.resx">
-      <DependentUpon>201611170312263_InclusaoTabelasRelacionaisSocios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611192238263_ModificandoinStatusSocios.resx">
-      <DependentUpon>201611192238263_ModificandoinStatusSocios.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611241534515_RecriandoBaseERelacionamentos.resx">
+      <DependentUpon>201611241534515_RecriandoBaseERelacionamentos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

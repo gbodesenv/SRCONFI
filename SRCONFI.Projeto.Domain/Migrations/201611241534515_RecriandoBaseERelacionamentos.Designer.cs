@@ -7,13 +7,13 @@ namespace SRCONFI.Projeto.Domain.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InclusaoTabelasRelacionaisSocios : IMigrationMetadata
+    public sealed partial class RecriandoBaseERelacionamentos : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InclusaoTabelasRelacionaisSocios));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RecriandoBaseERelacionamentos));
         
         string IMigrationMetadata.Id
         {
-            get { return "201611170312263_InclusaoTabelasRelacionaisSocios"; }
+            get { return "201611241534515_RecriandoBaseERelacionamentos"; }
         }
         
         string IMigrationMetadata.Source

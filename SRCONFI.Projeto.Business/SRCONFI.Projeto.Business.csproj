@@ -43,6 +43,7 @@
     <Compile Include="CategoriaBusiness.cs" />
     <Compile Include="DadosComplementaresBusiness.cs" />
     <Compile Include="EscolaridadeBusiness.cs" />
+    <Compile Include="EstadoBusiness.cs" />
     <Compile Include="EstadoCivilBusiness.cs" />
     <Compile Include="LoginBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

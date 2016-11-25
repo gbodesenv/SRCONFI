@@ -16,12 +16,21 @@ namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
         {
         }
 
+        public Socios GetAndRelation(int id)
+        {
+            return BancoContext.Socios.Include("DadosComplementares")
+                                      .Include("Categoria")
+                                      .Include("Endereco")                                      
+                                      .FirstOrDefault(s => s.socioID == id);
+        }
+
         public IEnumerable<Socios> GetAllAndRelation()
         {
             return BancoContext.Socios.Include("Categoria")
                                       .Include("DadosComplementares")
                                       .Include("DadosComplementares.Escolaridade")
-                                      .Include("DadosComplementares.EstadoCivil");
+                                      .Include("DadosComplementares.EstadoCivil")
+                                      .Include("Endereco");
         }
 
         public BancoContext BancoContext

@@ -1,19 +1,22 @@
 ﻿$(document).ready(function () {
-    $("#btnEditarSocio").click(function () {
+    $("#btnEditarSocios").click(function () {
         editarSocio();
     });
 });
 
 
 function editarSocio() {
+    
     var validForm = $('#formEditarSocio').parsley();
     var form = $('#formEditarSocio').serializeObject();
 
+    console.log(form);
+
     if (validForm.validate()) {
         $.ajax({
-            url: $('#hdnCaminhoSalvarEditarSocio').val(),
+            url: $('#hdnCaminhoEditarSocio').val(),
             type: "POST",
-            data: JSON.stringify({ usu: form }),
+            data: JSON.stringify({ socios: form }),
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 if (!data.erro) {

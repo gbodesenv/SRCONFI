@@ -116,10 +116,12 @@
     <Compile Include="Repositories\EntityRepository\SociosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\TipoUsuarioRepository.cs" />
     <Compile Include="Repositories\EntityRepository\UsuarioRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\EstadoRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICategoriaRepository.cs" />
     <Compile Include="Repositories\Interfaces\IDadosComplementaresRepository.cs" />
     <Compile Include="Repositories\Interfaces\IEscolaridadeRepository.cs" />
     <Compile Include="Repositories\Interfaces\IEstadoCivilRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEstadoRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILogRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISociosRepository.cs" />
     <Compile Include="Repositories\Interfaces\ITipoUsuarioRepository.cs" />

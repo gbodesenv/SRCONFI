@@ -19,7 +19,7 @@ function inserirSocio() {
         $.ajax({
             url: $('#hdnCaminhoInserirSocio').val(),
             type: "POST",
-            data: JSON.stringify({ usu: form }),
+            data: JSON.stringify({ socios: form }),
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 if (!data.erro) {

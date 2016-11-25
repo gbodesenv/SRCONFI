@@ -19,6 +19,8 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         IEscolaridadeRepository Escolaridade { get; }
         IEstadoCivilRepository EstadoCivil { get; }
 
+        IEstadoRepository Estado { get; }
+
         int Complete();
     }
 }

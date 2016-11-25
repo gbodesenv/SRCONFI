@@ -56,6 +56,17 @@ namespace SRCONFI.Projeto.Business
             return socios;
         }
 
+        public Domain.Entity.Socios GetAndRelation(int idSocio)
+        {
+            Domain.Entity.Socios socios;
+            using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
+            {
+                socios = unitOfWork.Socios.GetAndRelation(idSocio);
+                unitOfWork.Dispose();
+            }
 
+            return socios;
+        }
+      
     }
 }

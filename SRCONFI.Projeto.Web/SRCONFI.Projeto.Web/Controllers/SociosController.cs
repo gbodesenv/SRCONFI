@@ -79,7 +79,7 @@ namespace SRCONFI.Projeto.Web.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            var socios = new Business.SociosBusiness().GetSocios(id);
+            var socios = new Business.SociosBusiness().GetAndRelation(id);
 
             Combos(socios.inStatus, socios.categoriaID_FK);
 
@@ -155,7 +155,7 @@ namespace SRCONFI.Projeto.Web.Controllers
 
         public void Combos(int? idStatus = null, int? idCategoria = null,
                            string sexo = null, int? idEstadoCivil = null,
-                           int? idEscolaridade = null)
+                           int? idEscolaridade = null, int? idEstado = null)
         {
             List<SelectListItem> lstStatus = new List<SelectListItem>();
 
@@ -255,6 +255,21 @@ namespace SRCONFI.Projeto.Web.Controllers
             }
 
             ViewBag.listEscolaridade = selectListEscolaridade;
+
+            List<SelectListItem> selectListEstado = new List<SelectListItem>();
+            var lstEstado = new Business.EstadoBusiness().ListEstado();
+
+            foreach (var item in lstEstado)
+            {
+                selectListEstado.Add(new SelectListItem()
+                {
+                    Text = item.Sigla,
+                    Value = item.estadoID.ToString(),
+                    Selected = (idEstado == item.estadoID) ? true : false
+                });
+            }
+
+            ViewBag.listEstado = selectListEstado;
 
         }
 

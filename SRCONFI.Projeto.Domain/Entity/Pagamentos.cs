@@ -7,9 +7,9 @@ namespace SRCONFI.Projeto.Domain.Entity
     {
         public int pagamentoID { get; set; }
 
-        public int? socioID { get; set; }
+        public int? socioID_FK { get; set; }
 
-        public int? mesID { get; set; }
+        public int? mesID_FK { get; set; }
 
         public DateTime dataPag { get; set; }
 
@@ -21,12 +21,14 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public DateTime dataCanc { get; set; }
 
-        public string justificativaretificacao { get; set; }
+        public string justificativaRetificacao { get; set; }
 
         public string dataRetificacao { get; set; }
 
-        public Boolean inCancelado { get; set; }
+        public byte? inCancelado { get; set; }
 
         public virtual Mes Mes { get; set; }
+
+        public virtual Socios Socios { get; set; }
     }
 }

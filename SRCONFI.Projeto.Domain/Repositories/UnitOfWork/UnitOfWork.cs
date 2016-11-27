@@ -15,7 +15,7 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
             Usuario = new UsuarioRepository(_context);
             TipoUsuario = new TipoUsuarioRepository(_context);
             Log = new LogRepository(_context);
-            Socios = new SociosRepository(_context);
+           
             Categoria = new CategoriaRepository(_context);
         }
 

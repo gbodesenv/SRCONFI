@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+
+@model SRCONFI.Projeto.Domain.Entity.Livros
+@using System.Collections.Generic;
+@using System.Web.Mvc;
+
+<script src="~/Scripts/Views/Livros/Editar.js"></script>
+
+@Html.Hidden("hdnCaminhoSalvarEditarLivro", @Url.Action("Editar", "Livros"))
+
+@using (Html.BeginForm("Editar", "Livros", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formEditarLivro" }))
+{
+
+
+    <div class="form-group">
+        @Html.Label("Código", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-3">
+            @Html.TextBoxFor(model => model.livroID, new { @class = "form-control", @readonly = "readonly", required = "true" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Título", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.nomeAutor, new { @class = "form-control", @placeholder = "Título", @data_parsley_error_message = "O campo 'Título' é obrigatório" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Autor", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.DropDownListFor(model => model.autorID_FK, (List<SelectListItem>)ViewBag.listAutores, new { @class = "form-control", @placeholder = "Autor", @data_parsley_error_message = "O campo 'Autor' é obrigatório" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Editora", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.DropDownListFor(model => model.editoraID_FK, (List<SelectListItem>)ViewBag.listEditoras, new { @class = "form-control", @placeholder = "Editora", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Editora' é obrigatório" })
+        </div>
+    </div>
+}

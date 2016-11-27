@@ -40,11 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoresBusiness.cs" />
     <Compile Include="CategoriaBusiness.cs" />
     <Compile Include="DadosComplementaresBusiness.cs" />
+    <Compile Include="EditorasBusiness.cs" />
     <Compile Include="EscolaridadeBusiness.cs" />
     <Compile Include="EstadoBusiness.cs" />
     <Compile Include="EstadoCivilBusiness.cs" />
+    <Compile Include="LivrosBusiness.cs" />
     <Compile Include="LoginBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SociosBusiness.cs" />

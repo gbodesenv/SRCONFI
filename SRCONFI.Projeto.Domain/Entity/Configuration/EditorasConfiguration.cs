@@ -9,9 +9,9 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
         public  EditorasConfiguration()
         {
 
-            this.HasKey(e => e.EditoraID);
+            this.HasKey(e => e.editoraID);
 
-            Property(e => e.EditoraID)
+            Property(e => e.editoraID)
               .IsRequired()
               .HasColumnName("ID_EDITORA")
               .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
@@ -21,9 +21,9 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
               .HasMaxLength(150)
               .HasColumnName("TX_NOME_EDITORA");
 
-            Property(e => e.siglaEditroa)
+            Property(e => e.siglaEditora)
               .IsRequired()
-              .HasMaxLength(150)
+              .HasMaxLength(50)
               .HasColumnName("TX_SIGLA_EDITORA");
 
 

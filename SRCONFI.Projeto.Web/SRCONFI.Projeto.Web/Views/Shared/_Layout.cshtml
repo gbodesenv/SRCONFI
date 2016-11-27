@@ -18,6 +18,7 @@
     <script src="~/Scripts/Bootstrap/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
     <script src="~/Scripts/parsley-2.6.0.js"></script>
+    <script src="~/Scripts/Formatter/jquery.formatter-0.1.5.js"></script>
 
     <style>
         html, body {
@@ -116,22 +117,22 @@
 
                             <li>@Html.ActionLink("Tipo Usuários", "Listar", "TipoUsuario", null, null)</li>
                             <li>@Html.ActionLink("Usuários", "Listar", "Usuario", null, null)</li>
-                            
-                            <li class="divider"></li>                            
-                            <li style="text-align: center;"><strong>Livros</strong></li>                            
+
                             <li class="divider"></li>
-                            
+                            <li style="text-align: center;"><strong>Livros</strong></li>
+                            <li class="divider"></li>
+
                             <li>@Html.ActionLink("Autores", "Listar", "Autor", null, null)</li>
                             <li>@Html.ActionLink("Editoras", "Listar", "Editora", null, null)</li>
-                            <li>@Html.ActionLink("Livros", "Listar", "Livro", null, null)</li>
+                            <li>@Html.ActionLink("Livros", "Listar", "Livros", null, null)</li>
                             @*<li class="dropdown-submenu">
-                                <a tabindex="-1" href="#">Livros</a>
-                                <ul class="dropdown-menu">
-                                    <li>@Html.ActionLink("Autores", "Listar", "Autor", null, null)</li>
-                                    <li>@Html.ActionLink("Editoras", "Listar", "Editora", null, null)</li>                                    
-                                    <li>@Html.ActionLink("Livros", "Listar", "Livro", null, null)</li>
-                                </ul>
-                            </li>*@
+                                    <a tabindex="-1" href="#">Livros</a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Autores", "Listar", "Autor", null, null)</li>
+                                        <li>@Html.ActionLink("Editoras", "Listar", "Editora", null, null)</li>
+                                        <li>@Html.ActionLink("Livros", "Listar", "Livro", null, null)</li>
+                                    </ul>
+                                </li>*@
                         </ul>
                     </li>
 
@@ -141,7 +142,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vendas e Pagamentos<b class="caret"></b></a>
 
-                        <ul class="dropdown-menu">                            
+                        <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Vendas de Livros", "Listar", "Usuario", null, null)</li>
                             <li class="divider"></li>
                         </ul>
@@ -258,6 +259,37 @@
     </style>
 
     <script>
+
+
+        function maskFormat() {
+            $("input.date-mask").datepicker();
+
+            $("input.cep-mask").formatter({
+                'pattern': '{{99999}}-{{999}}',
+                'persistent': true
+            });
+
+            $("input.cpf-mask").formatter({
+                'pattern': '{{999}}.{{999}}.{{999}}-{{99}}',
+                'persistent': true
+            });
+
+            $("input.rg-mask").formatter({
+                'pattern': '{{9999999999}}',
+                'persistent': true
+            });
+
+            $("input.cellphone-mask").formatter({
+                'pattern': '({{999}}) {{99999}}-{{9999}}',
+                'persistent': true
+            });
+
+            $("input.phone-mask").formatter({
+                'pattern': '({{999}}) {{9999}}-{{9999}}',
+                'persistent': true
+            });
+        }
+
 
         /* Brazilian initialisation for the jQuery UI date picker plugin. */
         /* Written by Leonildo Costa Silva (leocsilva@gmail.com). */

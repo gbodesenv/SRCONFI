@@ -14,12 +14,14 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         ISociosRepository Socios { get; }
         ITipoUsuarioRepository TipoUsuario { get; }
         IUsuarioRepository Usuario { get; }
-
         IDadosComplementaresRepository DadosComplementares { get; }
         IEscolaridadeRepository Escolaridade { get; }
         IEstadoCivilRepository EstadoCivil { get; }
-
         IEstadoRepository Estado { get; }
+
+        ILivrosRepository Livros { get; }
+        IEditorasRepository Editoras { get; }
+        IAutoresRepository Autores { get; }
 
         int Complete();
     }

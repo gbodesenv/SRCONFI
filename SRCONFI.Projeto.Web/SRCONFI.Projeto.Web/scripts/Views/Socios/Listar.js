@@ -70,5 +70,5 @@
 
 function atualizarTableSocios() {
     var urlListar = $("#hdnCaminhoAtualizarTableSocio").val();
-    $("#ConteudoTableListarSocio").load(urlListar);
+    $("#ConteudoTableListarSocios").load(urlListar);
 }

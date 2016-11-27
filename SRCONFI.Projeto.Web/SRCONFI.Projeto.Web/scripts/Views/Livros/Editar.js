@@ -1,37 +1,23 @@
 ﻿$(document).ready(function () {
-    $("#btnIncluirSocios").click(function () {
-        inserirSocio();
-    });
-
-    maskFormat();
-
-    $("#Endereco_numero").formatter({
-        'pattern': '{{9999}}',
-        'persistent': true
+    $("#btnEditarLivros").click(function () {
+        editarLivro();
     });
 });
 
-function abrirModalEditar(id) {
-    var urlModal = $("#hdnCaminhoModalEditarSocio").val();
-    var urlEditar = $("#hdnCaminhoEditarSocio").val() + '?id=' + id;
 
-    abrirModal(urlModal, urlEditar);
-}
-
-function inserirSocio() {
-    var validForm = $('#formInserirSocio').parsley();
-    var form = $('#formInserirSocio').serializeObject();
+function editarLivro() {
+    var validForm = $('#formEditarLivro').parsley();
+    var form = $('#formEditarLivro').serializeObject();
 
     if (validForm.validate()) {
         $.ajax({
-            url: $('#hdnCaminhoInserirSocio').val(),
+            url: $('#hdnCaminhoSalvarEditarLivro').val(),
             type: "POST",
-            data: JSON.stringify({ socios: form }),
+            data: JSON.stringify({ livros: form }),
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 if (!data.erro) {
-                    atualizarTableSocios();
-                    abrirModalEditar(data.id);
+                    atualizarTableLivros();
                     alertSistema(1, data.mensagem);
                 }
                 else {

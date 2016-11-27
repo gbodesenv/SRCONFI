@@ -201,6 +201,7 @@
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\Formatter\jquery.formatter-0.1.5.js" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -220,6 +221,9 @@
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Css\Bootstrap\bootstrap.min.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Views\Livros\Editar.js" />
+    <Content Include="Scripts\Views\Livros\Inserir.js" />
+    <Content Include="Scripts\Views\Livros\Listar.js" />
     <Content Include="Scripts\Views\Modal\Modal.js" />
     <Content Include="Scripts\Views\Socios\Editar.js" />
     <Content Include="Scripts\Views\Socios\Inserir.js" />
@@ -236,6 +240,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bundles\BundleConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LivrosController.cs" />
     <Compile Include="Controllers\SociosController.cs" />
     <Compile Include="Controllers\TipoUsuarioController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -274,6 +279,10 @@
     <Content Include="Views\Socios\_DadosComplementares.cshtml" />
     <Content Include="Views\Socios\_Endereco.cshtml" />
     <Content Include="Views\Socios\_TableUltimosPagamentos.cshtml" />
+    <Content Include="Views\Livros\Inserir.cshtml" />
+    <Content Include="Views\Livros\Editar.cshtml" />
+    <Content Include="Views\Livros\Listar.cshtml" />
+    <Content Include="Views\Livros\_TableListarLivros.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

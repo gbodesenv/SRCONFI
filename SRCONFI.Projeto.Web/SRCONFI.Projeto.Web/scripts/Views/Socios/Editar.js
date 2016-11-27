@@ -2,6 +2,14 @@
     $("#btnEditarSocios").click(function () {
         editarSocio();
     });
+
+    maskFormat();
+
+    $("#Endereco_numero").formatter({
+        'pattern': '{{9999}}',
+        'persistent': true
+    });
+
 });
 
 

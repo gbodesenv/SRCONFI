@@ -32,10 +32,14 @@ namespace SRCONFI.Projeto.Domain
         public DbSet<Participantes> Participantes { get; set; }
         public DbSet<PeriodoAtividade> PeriodoAtividade { get; set; }
         public DbSet<Socios> Socios { get; set; }
+        public DbSet<Editoras> Editoras { get; set; }
+        public DbSet<Livros> Livros { get; set; }
+        public DbSet<Autores> Autores { get; set; }
 
         #endregion Inclusão
 
         #region Configurações 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
@@ -54,7 +58,10 @@ namespace SRCONFI.Projeto.Domain
                 .Add(new LocalAtividadeConfiguration())
                 .Add(new ParticipantesConfiguration())
                 .Add(new PeriodoAtividadeConfiguration())
-                .Add(new SociosConfiguration());
+                .Add(new SociosConfiguration())
+                .Add(new EditorasConfiguration())
+                .Add(new AutoresConfiguration())
+                .Add(new LivrosConfiguration());
 
             modelBuilder.Entity<Usuario>().ToTable("TB_USUARIOS");
             modelBuilder.Entity<TipoUsuario>().ToTable("TB_TIPO_USUARIOS");
@@ -72,8 +79,11 @@ namespace SRCONFI.Projeto.Domain
             modelBuilder.Entity<PeriodoAtividade>().ToTable("TB_PERIODO_ATIVIDADE");
             modelBuilder.Entity<Socios>().ToTable("TB_SOCIOS");
 
-
+            modelBuilder.Entity<Livros>().ToTable("TB_LIVROS");//Em vermelho, nome da tabela que vai ser gerada no banco
+            modelBuilder.Entity<Autores>().ToTable("TB_AUTORES");
+            modelBuilder.Entity<Editoras>().ToTable("TB_EDITORAS");
         }
+
         #endregion Configurações 
 
         #endregion Entidades/Tabelas 

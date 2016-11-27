@@ -2,6 +2,10 @@
     $("#btnIncluirSocios").click(function () {
         inserirSocio();
     });
+
+
+    $("#dataIngressoSocio").datepicker();
+
 });
 
 function abrirModalEditar(id) {

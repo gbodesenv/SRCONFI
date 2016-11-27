@@ -108,14 +108,45 @@
                     <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
                     @*DROP DOWN*@
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuários<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Tipo", "Listar", "TipoUsuario", null, null)</li>
                             <li class="divider"></li>
+                            <li style="text-align: center;"><strong>Usuários</strong></li>
+                            <li class="divider"></li>
+
+                            <li>@Html.ActionLink("Tipo Usuários", "Listar", "TipoUsuario", null, null)</li>
                             <li>@Html.ActionLink("Usuários", "Listar", "Usuario", null, null)</li>
+                            
+                            <li class="divider"></li>                            
+                            <li style="text-align: center;"><strong>Livros</strong></li>                            
+                            <li class="divider"></li>
+                            
+                            <li>@Html.ActionLink("Autores", "Listar", "Autor", null, null)</li>
+                            <li>@Html.ActionLink("Editoras", "Listar", "Editora", null, null)</li>
+                            <li>@Html.ActionLink("Livros", "Listar", "Livro", null, null)</li>
+                            @*<li class="dropdown-submenu">
+                                <a tabindex="-1" href="#">Livros</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Autores", "Listar", "Autor", null, null)</li>
+                                    <li>@Html.ActionLink("Editoras", "Listar", "Editora", null, null)</li>                                    
+                                    <li>@Html.ActionLink("Livros", "Listar", "Livro", null, null)</li>
+                                </ul>
+                            </li>*@
                         </ul>
                     </li>
+
                     <li>@Html.ActionLink("Sócios", "Listar", "Socios", null, null)</li>
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vendas e Pagamentos<b class="caret"></b></a>
+
+                        <ul class="dropdown-menu">                            
+                            <li>@Html.ActionLink("Vendas de Livros", "Listar", "Usuario", null, null)</li>
+                            <li class="divider"></li>
+                        </ul>
+                    </li>
+
                 </ul>
 
                 @*<form class="navbar-form navbar-right" role="search">
@@ -227,6 +258,31 @@
     </style>
 
     <script>
+
+        /* Brazilian initialisation for the jQuery UI date picker plugin. */
+        /* Written by Leonildo Costa Silva (leocsilva@gmail.com). */
+        jQuery(function ($) {
+            $.datepicker.regional['pt-BR'] = {
+                closeText: 'Fechar',
+                prevText: '&#x3c;Anterior',
+                nextText: 'Pr&oacute;ximo&#x3e;',
+                currentText: 'Hoje',
+                monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho',
+                'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+                'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                dayNames: ['Domingo', 'Segunda-feira', 'Ter&ccedil;a-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sabado'],
+                dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 0,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
+            $.datepicker.setDefaults($.datepicker.regional['pt-BR']);
+        });
 
         $.fn.serializeObject = function () {
             var o = {};

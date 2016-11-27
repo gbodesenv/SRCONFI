@@ -273,6 +273,7 @@
     <Content Include="Views\Socios\_TableListarSocios.cshtml" />
     <Content Include="Views\Socios\_DadosComplementares.cshtml" />
     <Content Include="Views\Socios\_Endereco.cshtml" />
+    <Content Include="Views\Socios\_TableUltimosPagamentos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

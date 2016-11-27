@@ -15,6 +15,12 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         ITipoUsuarioRepository TipoUsuario { get; }
         IUsuarioRepository Usuario { get; }
 
+        IDadosComplementaresRepository DadosComplementares { get; }
+        IEscolaridadeRepository Escolaridade { get; }
+        IEstadoCivilRepository EstadoCivil { get; }
+
+        IEstadoRepository Estado { get; }
+
         int Complete();
     }
 }

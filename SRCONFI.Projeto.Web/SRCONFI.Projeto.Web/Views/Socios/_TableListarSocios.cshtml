@@ -1,12 +1,12 @@
-﻿@using SRCONFI.Projeto.Domain.Entity
+@using SRCONFI.Projeto.Domain.Entity
 @model List<Socios>
 
 <table class="table table-hover" id="tableSocios">
     <thead>
         <tr>
-            <th>Matrícula</th>
+            <th>Matr�cula</th>
             <th>Nome</th>
-            <th>Categoria</th>            
+            <th>Categoria</th>
             <th>E-mail</th>
             <th>Telefone</th>
             <th>Status</th>
@@ -18,7 +18,7 @@
             <tr class="clickable-row" data-row-id="@socios.socioID">
                 <td>@socios.socioID</td>
                 <td>@socios.nomeSocio</td>
-                <td>@socios.Categoria.descricao</td>                                
+                <td>@socios.Categoria.descricao</td>
                 <td>@socios.emailsocio</td>
                 <td>@socios.telefoneSocio</td>
                 <td>
@@ -37,6 +37,3 @@
         $(this).addClass('active').siblings().removeClass('active');
     });
 </script>
-
-
-

@@ -17,6 +17,11 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
             Log = new LogRepository(_context);
            
             Categoria = new CategoriaRepository(_context);
+
+            DadosComplementares = new DadosComplementaresRepository(_context);
+            Escolaridade = new EscolaridadeRepository(_context);
+            EstadoCivil = new EstadoCivilRepository(_context);
+            Estado = new EstadoRepository(_context);
         }
 
         public IUsuarioRepository Usuario { get; private set; }
@@ -24,6 +29,11 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         public ILogRepository Log { get; private set; }
         public ISociosRepository Socios { get; private set; }
         public ICategoriaRepository Categoria { get; private set; }
+
+        public IDadosComplementaresRepository DadosComplementares { get; private set; }
+        public IEscolaridadeRepository Escolaridade { get; private set; }
+        public IEstadoCivilRepository EstadoCivil { get; private set; }
+        public IEstadoRepository Estado { get; private set; }
 
         public int Complete()
         {

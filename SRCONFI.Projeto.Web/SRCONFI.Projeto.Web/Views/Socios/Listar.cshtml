@@ -1,31 +1,39 @@
-ï»¿@using SRCONFI.Projeto.Domain.Entity
+@using SRCONFI.Projeto.Domain.Entity
 @model List<Socios>
 @{
     ViewBag.Title = "Listar";
 }
 
+
 <script src="~/Scripts/Views/Socios/Listar.js"></script>
 
-@*CABEÃ‡ALHO*@
+@*CABEÇALHO*@
 <ol class="breadcrumb">
-    <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>    
-    <li>@Html.ActionLink("SÃ³cios", "Listar", "Socios", null, null)</li>
+
+    <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
+
+    <li>@Html.ActionLink("Sócios", "Listar", "Socios", null, null)</li>
+
 </ol>
 
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading clearfix">
-        <span><strong>Listagem de SÃ³cios</strong></span>
+        <span><strong>Listagem de Sócios</strong></span>
         <div class="btn-group pull-right">
             <button type="button" class="btn btn-primary" id="btnAbrirModalIncluir">Incluir</button>
             <button type="button" class="btn btn-primary" id="btnAbrirModalEditar">Editar</button>
-            <button type="button" class="btn btn-primary" id="btnExcluirSocios">Excluir</button>
-            <button type="button" class="btn btn-primary">Imprimir</button>
+            <button type="button" class="btn btn-primary" id="btnExcluirSocio">Excluir</button>
+            <button type="button" class="btn btn-primary" id="btnImprimirSocios">Imprimir</button>
+
         </div>
+
     </div>
     <div id="ConteudoTableListarSocios">
         @Html.Partial("_TableListarSocios", Model)
+
     </div>
+
 
 </div>
 
@@ -38,4 +46,3 @@
 @Html.Hidden("hdnCaminhoModalEditarSocio", @Url.Action("ModalEditar", "Socios"))
 
 @Html.Hidden("hdnCaminhoExcluirSocio", @Url.Action("Excluir", "Socios"))
-

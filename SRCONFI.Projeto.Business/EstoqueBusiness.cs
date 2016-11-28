@@ -56,6 +56,18 @@ namespace SRCONFI.Projeto.Business
             return estoque;
         }
 
+        public Domain.Entity.Estoque GetEstoqueByEntradaID(int idEntrada)
+        {
+            Domain.Entity.Estoque estoque;
+            using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
+            {
+                estoque = unitOfWork.Estoque.GetEstoqueByEntradaID(idEntrada);
+                unitOfWork.Dispose();
+            }
+
+            return estoque;
+        }
+
         public Domain.Entity.Estoque GetAndRelation(int idLivro)
         {
             Domain.Entity.Estoque livro;

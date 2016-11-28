@@ -1,4 +1,5 @@
 ﻿using SRCONFI.Projeto.Domain.UnitOfWork;
+using SRCONFI.Projeto.Domain.Entity;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,9 +7,9 @@ namespace SRCONFI.Projeto.Business
 {
     public class EntradasLivrosBusiness
     {
-        public List<Domain.Entity.EntradasLivros> ListEntradasLivros()
+        public List<EntradasLivros> ListEntradasLivros()
         {
-            List<Domain.Entity.EntradasLivros> listEntradasLivros = new List<Domain.Entity.EntradasLivros>();
+            List<EntradasLivros> listEntradasLivros = new List<EntradasLivros>();
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {
                 listEntradasLivros = unitOfWork.EntradasLivros.GetAll().ToList();
@@ -16,20 +17,23 @@ namespace SRCONFI.Projeto.Business
             return listEntradasLivros;
         }
 
-        public void AddEntradasLivros(Domain.Entity.EntradasLivros entradaLivro)
+        public void AddEntradasLivros(EntradasLivros entradaLivro, int idLivro)
         {
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {
                 unitOfWork.EntradasLivros.Add(entradaLivro);
+                unitOfWork.Estoque.Add(RetornarEstoque(entradaLivro, idLivro));
                 unitOfWork.Complete();
                 unitOfWork.Dispose();
             }
         }
-        public void EditEntradasLivros(Domain.Entity.EntradasLivros entradaLivro)
+
+        public void EditEntradasLivros(EntradasLivros entradaLivro, int idLivro)
         {
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {
                 unitOfWork.EntradasLivros.Edit(entradaLivro);
+                unitOfWork.Estoque.Edit(AlterarEstoque(entradaLivro, idLivro));
                 unitOfWork.Complete();
                 unitOfWork.Dispose();
             }
@@ -44,9 +48,10 @@ namespace SRCONFI.Projeto.Business
                 unitOfWork.Dispose();
             }
         }
-        public Domain.Entity.EntradasLivros GetEntradasLivros(int idEntradasLivros)
+
+        public EntradasLivros GetEntradasLivros(int idEntradasLivros)
         {
-            Domain.Entity.EntradasLivros entradaLivro;
+            EntradasLivros entradaLivro;
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {
                 entradaLivro = unitOfWork.EntradasLivros.Get(idEntradasLivros);
@@ -55,6 +60,30 @@ namespace SRCONFI.Projeto.Business
 
             return entradaLivro;
         }
+
+        #region Métodos Privados
+
+        private Estoque RetornarEstoque(EntradasLivros entLivros, int idLivro)
+        {
+            return new Estoque()
+            {
+                entradaID_FK = entLivros.entradaID,
+                livroID_FK = idLivro,
+                nrQuantidade = (int)(entLivros.ValorTotalEntrada / entLivros.unitarioLivro),
+                vlUnitarioLivro = entLivros.unitarioLivro
+            };
+        }
+
+        private Estoque AlterarEstoque(EntradasLivros entLivros, int idLivro)
+        {
+            var estoque = new Business.EstoqueBusiness().GetEstoqueByEntradaID(entLivros.entradaID);
+            estoque.livroID_FK = idLivro;
+            estoque.nrQuantidade = (int)(entLivros.ValorTotalEntrada / entLivros.unitarioLivro);
+            estoque.vlUnitarioLivro = entLivros.unitarioLivro;
+            return estoque;
+        }
+
+        #endregion Métodos Privados
 
     }
 }

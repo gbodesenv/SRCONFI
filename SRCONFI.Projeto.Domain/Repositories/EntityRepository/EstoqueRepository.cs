@@ -16,6 +16,13 @@ namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
         {
         }
 
+        public Estoque GetEstoqueByEntradaID(int idEntrada)
+        {
+            return BancoContext.Estoque.FirstOrDefault(s => s.entradaID_FK == idEntrada);
+        }
+
+
+
         public Estoque GetAndRelation(int id)
         {
             return BancoContext.Estoque.Include("EntradasLivros")

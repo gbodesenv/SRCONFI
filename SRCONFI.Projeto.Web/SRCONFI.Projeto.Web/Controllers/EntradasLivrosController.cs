@@ -39,14 +39,14 @@ namespace SRCONFI.Projeto.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Inserir(EntradasLivros entradaLivro)
+        public ActionResult Inserir(EntradasLivros entradaLivro, int idLivro)
         {
             try
             {
 
                 //if (ModelState.IsValid)
                 //{
-                new Business.EntradasLivrosBusiness().AddEntradasLivros(entradaLivro);
+                new Business.EntradasLivrosBusiness().AddEntradasLivros(entradaLivro, idLivro);
 
                 //}
                 var retorno = new
@@ -78,18 +78,18 @@ namespace SRCONFI.Projeto.Web.Controllers
         public ActionResult Editar(int id)
         {
             var entradaLivro = new Business.EntradasLivrosBusiness().GetEntradasLivros(id);
-            var livro = new Business.LivrosBusiness().GetLivroByEntradaID(id);
+            var livro = BuscarLivro(id);
             ViewBag.Livro = livro;
             Combos(livro.editoraID_FK, livro.autorID_FK);
             return View(entradaLivro);
         }
 
         [HttpPost]
-        public ActionResult Editar(EntradasLivros entradaLivro)
+        public ActionResult Editar(EntradasLivros entradaLivro, int idLivro)
         {
             try
             {
-                new Business.EntradasLivrosBusiness().EditEntradasLivros(entradaLivro);
+                new Business.EntradasLivrosBusiness().EditEntradasLivros(entradaLivro, idLivro);
 
                 var retorno = new
                 {
@@ -149,12 +149,35 @@ namespace SRCONFI.Projeto.Web.Controllers
         #region Imprimir 
         #endregion Fim Imprimir 
 
+        #region Livros
+
         public ActionResult _PesquisarLivros()
         {
             return View();
         }
 
+        [HttpGet]
+        public ActionResult _Livro(int id)
+        {
+            return PartialView(BuscarLivro(null, id));
+        }
+
+        #endregion Livros
+
+
         #region Métodos Auxiliares 
+
+
+        private Livros BuscarLivro(int? idEntrada = null, int? idLivro = null)
+        {
+            Livros livro;
+            if (idEntrada.HasValue)
+                livro = new Business.LivrosBusiness().GetLivroByEntradaID((int)idEntrada);
+            else
+                livro = new Business.LivrosBusiness().GetAndRelation((int)idLivro);
+
+            return livro;
+        }
 
         public void Combos(int? editoraID = null, int? autorID = null)
         {

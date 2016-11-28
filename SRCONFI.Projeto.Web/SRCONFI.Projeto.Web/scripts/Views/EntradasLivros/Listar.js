@@ -2,19 +2,19 @@
     $("#btnGravarEntradaLivro").click(function () {
         btnGravarEntradaLivro();
     });
-
-    $("#btnSearchLivro").click(function () {
-        abrirModalPesquisarLivro();
-    });
-
-    
-
+       
     maskFormat();
 
-    $(".input-integer").formatter({
-        'pattern': '{{9999}}',
-        'persistent': true
+    $('#unitarioLivro').change(function () {
+        calcularQuantidadeValor();
     });
+
+    $('#txtQuantidade').change(function () {
+        calcularQuantidadeValor();
+    });
+
+    $(".numeric-places").numeric({ decimal: ".", negative: false, scale: 3 });
+        
 });
 
 
@@ -23,10 +23,11 @@ function btnGravarEntradaLivro() {
     var form = $('#formInserirEntradasLivros').serializeObject();
 
     if (validForm.validate()) {
+        var livroID = $("#livroID").val();        
         $.ajax({
             url: $('#hdnGravarEntradaLivro').val(),
             type: "POST",
-            data: JSON.stringify({ entradaLivro: form }),
+            data: JSON.stringify({ entradaLivro: form, idLivro: livroID }),
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 if (!data.erro) {
@@ -53,9 +54,17 @@ function carregarEditar(id) {
     $("#ConteudoListarEntradaLivro").load(urlEditar);
 }
 
-function abrirModalPesquisarLivro() {
-    var urlModal = $("#hdnCaminhoModalPesquisarLivros").val();
-    var urlEditar = $("#hdnCaminhoPesquisarLivros").val();
+function calcularQuantidadeValor() {
+    var unitario = $('#unitarioLivro').val();
+    var quantidade = $('#txtQuantidade').val(); 
+    var total = $('#ValorTotalEntrada');
 
-    abrirModal(urlModal, urlEditar);
+    if (unitario == "")
+        unitario = 0;
+    if (quantidade == "")
+        quantidade = 0;
+
+    var calc = parseFloat(parseFloat(unitario) * parseInt(quantidade));
+
+    total.val(calc);
 }

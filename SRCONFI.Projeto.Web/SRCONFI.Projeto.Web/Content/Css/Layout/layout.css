@@ -1,0 +1,188 @@
+﻿html, body {
+    height: 100%;
+}
+
+#main {
+    overflow: auto;
+    padding-bottom: 150px; /* this needs to be bigger than footer height*/
+}
+
+img {
+    width: 100%;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.wrapper {
+    min-height: 91%;
+    padding: 3px 0 31px 0;
+    background-color: #f5f5f5;
+}
+
+.artigo {
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+}
+
+    .artigo:first-child {
+        padding-top: 0;
+        border-top: 0;
+    }
+
+
+footer {
+    position: fixed;
+    height: 30px;
+    bottom: 0;
+    width: 100%;
+}
+
+.copyright {
+    padding: 5px 0;
+    background-color: #666;
+    color: #fff;
+}
+
+    .copyright h5 {
+        margin-top: 3px;
+    }
+
+    .copyright small {
+        color: #fff;
+    }
+
+    .copyright p {
+        margin: 0;
+    }
+
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid blue;
+    border-bottom: 16px solid blue;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.ui-dialog {
+    z-index: 9999999 !important;
+}
+
+.top5 {
+    margin-top: 5px;
+}
+
+.top7 {
+    margin-top: 7px;
+}
+
+.top10 {
+    margin-top: 10px;
+}
+
+.top15 {
+    margin-top: 15px;
+}
+
+.top17 {
+    margin-top: 17px;
+}
+
+.top20 {
+    margin-top: 20px;
+}
+
+.top30 {
+    margin-top: 30px;
+}
+
+
+.left5 {
+    margin-left: 5px;
+}
+
+.left7 {
+    margin-left: 7px;
+}
+
+.left10 {
+    margin-left: 10px;
+}
+
+.left15 {
+    margin-left: 15px;
+}
+
+.left17 {
+    margin-left: 17px;
+}
+
+.left20 {
+    margin-left: 20px;
+}
+
+.left30 {
+    margin-left: 30px;
+}
+
+.right5 {
+    margin-right: 5px;
+}
+
+.right7 {
+    margin-right: 7px;
+}
+
+.right10 {
+    margin-right: 10px;
+}
+
+.right15 {
+    margin-right: 15px;
+}
+
+.right17 {
+    margin-right: 17px;
+}
+
+.right20 {
+    margin-right: 20px;
+}
+
+.right30 {
+    margin-right: 30px;
+}
+
+.bottom20 {
+    margin-bottom: 20px;
+}

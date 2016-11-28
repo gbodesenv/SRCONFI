@@ -7,5 +7,6 @@ namespace SRCONFI.Projeto.Domain.Repositories.Interfaces
     {
         IEnumerable<Estoque> GetAllAndRelation();
         Estoque GetAndRelation(int id);
+        Estoque GetEstoqueByEntradaID(int idEntrada);
     }
 }

@@ -221,6 +221,10 @@
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Css\Bootstrap\bootstrap.min.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Views\EntradasLivros\Editar.js" />
+    <Content Include="Scripts\Views\EntradasLivros\Inserir.js" />
+    <Content Include="Scripts\Views\EntradasLivros\Listar.js" />
+    <Content Include="Scripts\Views\EntradasLivros\_PesquisarLivros.js" />
     <Content Include="Scripts\Views\Livros\Editar.js" />
     <Content Include="Scripts\Views\Livros\Inserir.js" />
     <Content Include="Scripts\Views\Livros\Listar.js" />
@@ -239,6 +243,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bundles\BundleConfig.cs" />
+    <Compile Include="Controllers\EntradasLivrosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LivrosController.cs" />
     <Compile Include="Controllers\SociosController.cs" />
@@ -283,6 +288,11 @@
     <Content Include="Views\Livros\Editar.cshtml" />
     <Content Include="Views\Livros\Listar.cshtml" />
     <Content Include="Views\Livros\_TableListarLivros.cshtml" />
+    <Content Include="Views\EntradasLivros\Inserir.cshtml" />
+    <Content Include="Views\EntradasLivros\_Livro.cshtml" />
+    <Content Include="Views\EntradasLivros\Listar.cshtml" />
+    <Content Include="Views\EntradasLivros\Editar.cshtml" />
+    <Content Include="Views\EntradasLivros\_PesquisarLivros.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

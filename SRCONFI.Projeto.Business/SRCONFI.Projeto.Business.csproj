@@ -44,9 +44,11 @@
     <Compile Include="CategoriaBusiness.cs" />
     <Compile Include="DadosComplementaresBusiness.cs" />
     <Compile Include="EditorasBusiness.cs" />
+    <Compile Include="EntradasLivrosBusiness.cs" />
     <Compile Include="EscolaridadeBusiness.cs" />
     <Compile Include="EstadoBusiness.cs" />
     <Compile Include="EstadoCivilBusiness.cs" />
+    <Compile Include="EstoqueBusiness.cs" />
     <Compile Include="LivrosBusiness.cs" />
     <Compile Include="LoginBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

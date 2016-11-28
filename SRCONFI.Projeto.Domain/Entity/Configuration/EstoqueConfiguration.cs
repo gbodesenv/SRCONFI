@@ -12,11 +12,11 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
             //Primary Key, relação obrigatória com a tabela TipoUsuario
             this.HasKey(e => e.estoqueID);
 
-            this.HasOptional(e => e.EntradasLivros)
+            this.HasRequired(e => e.EntradasLivros)
                  .WithMany()
                 .HasForeignKey(e => e.entradaID_FK);
 
-            this.HasOptional(e => e.Livros)
+            this.HasRequired(e => e.Livros)
                  .WithMany()
                 .HasForeignKey(e => e.livroID_FK);
 
@@ -25,6 +25,14 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
                 .IsRequired()
                 .HasColumnName("ID_ESTOQUE")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            Property(e => e.entradaID_FK)
+           .IsRequired()
+           .HasColumnName("ID_ENTRADA");
+
+            Property(e => e.livroID_FK)
+           .IsRequired()
+           .HasColumnName("ID_LIVRO");
 
             Property(e => e.nrQuantidade)
                .IsRequired()

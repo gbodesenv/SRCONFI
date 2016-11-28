@@ -24,6 +24,8 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
             Livros = new LivrosRepository(_context);
             Editoras = new EditorasRepository(_context);
             Autores = new AutoresRepository(_context);
+            EntradasLivros = new EntradasLivrosRepository(_context);
+            Estoque = new EstoqueRepository(_context);
         }
 
         public IUsuarioRepository Usuario { get; private set; }
@@ -38,7 +40,8 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         public ILivrosRepository Livros { get; private set; }
         public IEditorasRepository Editoras { get; private set; }
         public IAutoresRepository Autores { get; private set; }
-
+        public IEntradasLivrosRepository EntradasLivros { get; private set; }
+        public IEstoqueRepository Estoque { get; private set; }
 
 
         public int Complete()

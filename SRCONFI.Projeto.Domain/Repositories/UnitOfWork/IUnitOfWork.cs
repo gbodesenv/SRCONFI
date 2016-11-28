@@ -22,6 +22,8 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         ILivrosRepository Livros { get; }
         IEditorasRepository Editoras { get; }
         IAutoresRepository Autores { get; }
+        IEntradasLivrosRepository EntradasLivros { get; }
+        IEstoqueRepository Estoque { get; }
 
         int Complete();
     }

@@ -68,5 +68,17 @@ namespace SRCONFI.Projeto.Business
             return livro;
         }
 
+        public Domain.Entity.Livros GetLivroByEntradaID(int idEntrada)
+        {
+            Domain.Entity.Livros livro;
+            using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
+            {
+                livro = unitOfWork.Livros.GetLivroByEntradaID(idEntrada);
+                unitOfWork.Dispose();
+            }
+
+            return livro;
+        }
+
     }
 }

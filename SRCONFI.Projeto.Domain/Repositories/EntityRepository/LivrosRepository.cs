@@ -15,7 +15,7 @@ namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
         public Livros GetAndRelation(int id)
         {
             return BancoContext.Livros.Include("Editoras")
-                                      .Include("Autores")                                      
+                                      .Include("Autores")
                                       .FirstOrDefault(s => s.livroID == id);
         }
 
@@ -23,6 +23,14 @@ namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
         {
             return BancoContext.Livros.Include("Editoras")
                                       .Include("Autores");
+        }
+
+        public Livros GetLivroByEntradaID(int idEntrada)
+        {
+            return (from l in BancoContext.Livros
+                    join e in BancoContext.Estoque on l.livroID equals e.livroID_FK
+                    where e.entradaID_FK == idEntrada
+                    select l).FirstOrDefault();
         }
 
         public BancoContext BancoContext

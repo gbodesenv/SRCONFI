@@ -1,0 +1,36 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model EntradasLivros
+@{
+    ViewBag.Title = "Listar";
+}
+
+
+<script src="~/Scripts/Views/EntradasLivros/Listar.js"></script>
+
+@*CABEÇALHO*@
+<ol class="breadcrumb">
+
+    <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
+    <li>Estoque de Livros</li>    
+    <li>@Html.ActionLink("Entrada de Livros", "Listar", "EntradasLivros", null, null)</li>
+
+</ol>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <span><strong>Entrada de Livros</strong></span>
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" id="btnGravarEntradaLivro">Gravar</button>           
+        </div>
+
+    </div>
+    <div id="ConteudoListarEntradaLivro">
+        @Html.Partial("Inserir", Model)
+    </div>
+</div>
+
+@Html.Hidden("hdnGravarEntradaLivro", @Url.Action("Inserir", "EntradasLivros"))
+@Html.Hidden("hdnCaminhoEditarEntradasLivros", @Url.Action("Editar", "EntradasLivros"))
+@Html.Hidden("hdnCaminhoModalPesquisarLivros", @Url.Action("ModalPesquisarLivros", "EntradasLivros"))
+@Html.Hidden("hdnCaminhoPesquisarLivros", @Url.Action("_PesquisarLivros", "EntradasLivros"))

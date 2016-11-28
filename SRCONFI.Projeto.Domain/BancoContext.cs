@@ -36,6 +36,10 @@ namespace SRCONFI.Projeto.Domain
         public DbSet<Livros> Livros { get; set; }
         public DbSet<Autores> Autores { get; set; }
 
+        public DbSet<EntradasLivros> EntradasLivros { get; set; }
+        public DbSet<VendasLivros> VendasLivros { get; set; }
+        public DbSet<Estoque> Estoque { get; set; }
+
         #endregion Inclusão
 
         #region Configurações 
@@ -61,7 +65,10 @@ namespace SRCONFI.Projeto.Domain
                 .Add(new SociosConfiguration())
                 .Add(new EditorasConfiguration())
                 .Add(new AutoresConfiguration())
-                .Add(new LivrosConfiguration());
+                .Add(new LivrosConfiguration())
+                .Add(new EntradasLivrosConfiguration())
+                .Add(new EstoqueConfiguration())
+                .Add(new VendasLivrosConfiguration());
 
             modelBuilder.Entity<Usuario>().ToTable("TB_USUARIOS");
             modelBuilder.Entity<TipoUsuario>().ToTable("TB_TIPO_USUARIOS");
@@ -78,10 +85,12 @@ namespace SRCONFI.Projeto.Domain
             modelBuilder.Entity<Participantes>().ToTable("TB_PARTICIPANTES");
             modelBuilder.Entity<PeriodoAtividade>().ToTable("TB_PERIODO_ATIVIDADE");
             modelBuilder.Entity<Socios>().ToTable("TB_SOCIOS");
-
             modelBuilder.Entity<Livros>().ToTable("TB_LIVROS");//Em vermelho, nome da tabela que vai ser gerada no banco
             modelBuilder.Entity<Autores>().ToTable("TB_AUTORES");
             modelBuilder.Entity<Editoras>().ToTable("TB_EDITORAS");
+            modelBuilder.Entity<EntradasLivros>().ToTable("TB_ENTRADA_LIVROS");
+            modelBuilder.Entity<VendasLivros>().ToTable("TB_VENDAS_LIVROS");
+            modelBuilder.Entity<Estoque>().ToTable("TB_ESTOQUE_LIVROS");
         }
 
         #endregion Configurações 

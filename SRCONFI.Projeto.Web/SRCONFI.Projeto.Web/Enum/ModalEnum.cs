@@ -12,7 +12,8 @@ namespace SRCONFI.Projeto.Web.Enum
             Incluir = 0,
             Editar = 1,
             Excluir = 2,
-            Personalizado = 3
+            Personalizado = 3,
+            Confirmar = 4
         }
     }
 }

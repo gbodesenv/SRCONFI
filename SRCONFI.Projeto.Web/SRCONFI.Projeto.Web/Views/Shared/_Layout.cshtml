@@ -138,13 +138,19 @@
 
                     <li>@Html.ActionLink("Sócios", "Listar", "Socios", null, null)</li>
 
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Estoque de Livros<b class="caret"></b></a>
+
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Entrada de Livro", "Listar", "EntradasLivros", null, null)</li>
+                        </ul>
+                    </li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vendas e Pagamentos<b class="caret"></b></a>
 
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Vendas de Livros", "Listar", "Usuario", null, null)</li>
-                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Venda de Livros", "Listar", "Usuario", null, null)</li>
                         </ul>
                     </li>
 
@@ -255,6 +261,72 @@
 
         .top30 {
             margin-top: 30px;
+        }
+
+
+        .left5 {
+            margin-left: 5px;
+        }
+
+        .left7 {
+            margin-left: 7px;
+        }
+
+        .left10 {
+            margin-left: 10px;
+        }
+
+        .left15 {
+            margin-left: 15px;
+        }
+
+        .left17 {
+            margin-left: 17px;
+        }
+
+        .left20 {
+            margin-left: 20px;
+        }
+
+        .left30 {
+            margin-left: 30px;
+        }
+
+
+
+
+
+
+        .right5 {
+            margin-right: 5px;
+        }
+
+        .right7 {
+            margin-right: 7px;
+        }
+
+        .right10 {
+            margin-right: 10px;
+        }
+
+        .right15 {
+            margin-right: 15px;
+        }
+
+        .right17 {
+            margin-right: 17px;
+        }
+
+        .right20 {
+            margin-right: 20px;
+        }
+
+        .right30 {
+            margin-right: 30px;
+        }
+
+         .bottom20 {
+            margin-bottom: 20px;
         }
     </style>
 

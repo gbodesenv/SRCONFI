@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+@model SRCONFI.Projeto.Domain.Entity.Livros
+
+
+@Html.HiddenFor(model => model.livroID)
+
+<div class="top10 left10 right10">
+    <div class="row top5">
+        <div class="col-xs-2">
+            @Html.Label("Código", new { @class = "col-sm-2 control-label-sm" })
+            @Html.TextBoxFor(model => model.livroID, new { @class = "form-control input-sm", @readonly = "readonly" })
+        </div>
+        <div class="col-xs-1">
+            @*@Html.Label("Pesquisar", new { @class = "col-sm-2 control-label-sm" })*@
+            <div class="btn-group pull-right" style="margin-top:23px">
+                <button type="button" class="btn btn-primary" id="btnSearchLivro">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row top5">
+        <div class="col-xs-12">
+            @Html.Label("Título", new { @class = "col-sm-2 control-label-sm" })
+            @Html.TextBoxFor(model => model.nomeAutor, new { @class = "form-control input-sm", @readonly = "readonly" })
+        </div>
+    </div>
+
+    <div class="row top5">
+        <div class="col-xs-12">
+            @Html.Label("Autor", new { @class = "col-sm-2 control-label-sm" })
+            @Html.TextBoxFor(model => model.Autores.nomeAutor, new { @class = "form-control input-sm", @readonly = "readonly" })
+        </div>
+    </div>
+
+    <div class="row top5">
+        <div class="col-xs-12">
+            @Html.Label("Editora", new { @class = "col-sm-2 control-label-sm" })
+            @Html.TextBoxFor(model => model.Editoras.nomeEditora, new { @class = "form-control input-sm", @readonly = "readonly" })
+        </div>
+    </div>
+</div>

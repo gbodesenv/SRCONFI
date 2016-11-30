@@ -1,0 +1,69 @@
+﻿@model SRCONFI.Projeto.Domain.Entity.VendasLivros
+@using System.Web.Mvc;
+
+
+<script src="~/Scripts/Views/VendaLivros/Inserir.js"></script>
+
+
+
+@Html.Hidden("hdnCaminhoInserirVendaLivros", @Url.Action("Inserir", "VendaLivros"))
+
+@using (Html.BeginForm("Inserir", "VendaLivros", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formVendaLivros" }))
+{
+    <div id="Livro_Pesquisa">
+        @Html.Partial("_Livro", new SRCONFI.Projeto.Domain.Entity.Livros())
+    </div>
+
+    <div class="row top10">
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#tabEntradaLivros">Informações de Venda</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="tabEntradaLivros" class="tab-pane fade in active">
+                    @*<h3>Dados Complementares</h3>*@
+                    <div class="top10 left10 right10 bottom20">
+                        @Html.HiddenFor(model => model.vendaID)
+                        @*<div class="row top5">
+                            <div class="col-xs-5">
+                                @Html.Label("Nota Fiscal", new { @class = "col-sm-6 control-label-sm" })
+                                @Html.TextBoxFor(model => model.notaFiscal, new { @class = "form-control input-sm", @placeholder = "Nota Fiscal", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Nota Fiscal' é obrigatório" })
+                            </div>
+
+                            <div class="col-xs-3">
+                                @Html.Label("Data", new { @class = "col-sm-3 control-label-sm" })
+                                @Html.TextBoxFor(model => model.dataEntrada, new { @class = "form-control input-sm date-mask", @placeholder = "Data de Entrada", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Data de Entrada' é obrigatório" })
+                            </div>
+
+                            <div class="col-xs-4">
+                                @Html.Label("Valor", new { @class = "col-sm-4 control-label-sm" })
+                                @Html.TextBoxFor(model => model.unitarioLivro, new { @class = "form-control input-sm numeric-places", @placeholder = "Valor Unitário", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Valor Unitário' é obrigatório" })
+                            </div>
+                        </div>
+
+                        <div class="row top5">
+                            <div class="col-xs-2">
+                                @Html.Label("Quantidade", new { @class = "col-sm-2 control-label-sm" })
+                                @Html.TextBox("txtQuantidade", "", new { @class = "form-control input-integer", @placeholder = "Quantidade", @type = "number", @data_parsley_type = "integer", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Quantidade' é obrigatório" })
+                            </div>
+
+                            <div class="col-xs-3">
+                                @Html.Label("Total", new { @class = "col-sm-4 control-label-sm" })
+                                @Html.TextBoxFor(model => model.ValorTotalEntrada, new { @class = "form-control numeric-places", @data_parsley_type = "number", @readonly = "readonly" })
+                            </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
+
+
+
+

@@ -270,6 +270,7 @@
     <Compile Include="Controllers\SociosController.cs" />
     <Compile Include="Controllers\TipoUsuarioController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\VendaLivrosController.cs" />
     <Compile Include="Enum\ModalEnum.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -314,6 +315,9 @@
     <Content Include="Views\EntradasLivros\Listar.cshtml" />
     <Content Include="Views\EntradasLivros\Editar.cshtml" />
     <Content Include="Views\EntradasLivros\_PesquisarLivros.cshtml" />
+    <Content Include="Views\VendaLivros\Listar.cshtml" />
+    <Content Include="Views\VendaLivros\Inserir.cshtml" />
+    <Content Include="Views\VendaLivros\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -55,6 +55,7 @@
     <Compile Include="SociosBusiness.cs" />
     <Compile Include="TipoUsuarioBusiness.cs" />
     <Compile Include="UsuarioBusiness.cs" />
+    <Compile Include="VendaLivrosBusines.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SRCONFI.Projeto.Domain\SRCONFI.Projeto.Domain.csproj">

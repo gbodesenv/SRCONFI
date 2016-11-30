@@ -1,0 +1,38 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model VendasLivros
+@{
+    ViewBag.Title = "Listar";
+}
+
+
+<script src="~/Scripts/Views/VendaLivros/Listar.js"></script>
+
+@*CABEÇALHO*@
+<ol class="breadcrumb">
+
+    <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
+    <li>Estoque de Livros</li>
+    <li>@Html.ActionLink("Venda de Livros", "Listar", "VendaLivros", null, null)</li>
+
+</ol>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <span><strong>Venda de Livros</strong></span>
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" id="btnGravarEntradaLivro">Gravar</button>
+        </div>
+
+    </div>
+    <div id="ConteudoListarEntradaLivro">
+        @Html.Partial("Inserir", Model)
+    </div>
+</div>
+
+@Html.Hidden("hdnInserirEntradaLivro", @Url.Action("Inserir", "VendaLivros"))
+@Html.Hidden("hdnEditarEntradaLivro", @Url.Action("Editar", "VendaLivros"))
+@Html.Hidden("hdnCaminhoEditarVendaLivros", @Url.Action("Editar", "VendaLivros"))
+@Html.Hidden("hdnCaminhoModalPesquisarLivros", @Url.Action("ModalPesquisarLivros", "VendaLivros"))
+@Html.Hidden("hdnCaminhoPesquisarLivros", @Url.Action("_PesquisarLivros", "VendaLivros"))
+@Html.Hidden("hdnCaminhoBuscarLivro", @Url.Action("_Livro", "VendaLivros"))

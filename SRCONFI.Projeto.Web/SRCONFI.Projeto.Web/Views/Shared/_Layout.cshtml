@@ -20,7 +20,7 @@
     <script src="~/Scripts/Bootstrap/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
     <script src="~/Scripts/parsley-2.6.0.js"></script>
-    <script src="~/Scripts/Formatter/jquery.formatter-0.1.5.js"></script>    
+    <script src="~/Scripts/Formatter/jquery.formatter-0.1.5.js"></script>
     <script src="~/Scripts/Jquery/jquery.mask-1.14.3.js"></script>
     @*<script src="~/Scripts/Bootcards/js/bootcards.js"></script>*@
 
@@ -181,6 +181,19 @@
         .bottom20 {
             margin-bottom: 20px;
         }
+
+        .row-centered {
+            text-align: center;
+        }
+
+        .col-centered {
+            display: inline-block;
+            float: none;
+            /* reset the text-align */
+            text-align: left;
+            /* inline-block space fix */
+            margin-right: -4px;
+        }
     </style>
 
 
@@ -250,6 +263,15 @@
 
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Venda de Livros", "Listar", "Usuario", null, null)</li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consultas<b class="caret"></b></a>
+
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Estoque", "Listar", "Estoque", null, null)</li>
                         </ul>
                     </li>
 

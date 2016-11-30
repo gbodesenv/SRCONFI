@@ -3,8 +3,6 @@
         btnGravarEntradaLivro();
     });
        
-    maskFormat();
-
     $('#unitarioLivro').change(function () {
         calcularQuantidadeValor();
     });
@@ -13,19 +11,36 @@
         calcularQuantidadeValor();
     });
 
-    $(".numeric-places").numeric({ decimal: ".", negative: false, scale: 3 });
-        
+    
+
+    setarMascaras();
 });
 
 
-function btnGravarEntradaLivro() {
-    var validForm = $('#formInserirEntradasLivros').parsley();
-    var form = $('#formInserirEntradasLivros').serializeObject();
+function setarMascaras() {
+    $('.numeric-places').mask("#.##0,00", { reverse: true });
 
+    $('mask-date').mask('00/00/0000');
+
+    maskFormat();
+
+}
+
+function btnGravarEntradaLivro() {
+    var validForm = $('#formEntradasLivros').parsley();
+    var form = $('#formEntradasLivros').serializeObject();
+
+    console.log(form);
     if (validForm.validate()) {
-        var livroID = $("#livroID").val();        
+        var livroID = $("#livroID").val();
+        var caminho = $("#entradaID").val() == "" ? $('#hdnInserirEntradaLivro').val() : $('#hdnEditarEntradaLivro').val();
+        form.unitarioLivro = $('#unitarioLivro').val().replace('.', '');
+        form.ValorTotalEntrada = $('#ValorTotalEntrada').val().replace('.', '');
+        
+        console.log(livroID);
+        console.log(caminho);
         $.ajax({
-            url: $('#hdnGravarEntradaLivro').val(),
+            url: caminho,
             type: "POST",
             data: JSON.stringify({ entradaLivro: form, idLivro: livroID }),
             contentType: 'application/json; charset=utf-8',

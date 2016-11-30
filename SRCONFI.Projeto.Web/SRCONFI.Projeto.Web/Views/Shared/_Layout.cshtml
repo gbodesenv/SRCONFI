@@ -9,7 +9,7 @@
 
 
     @*CSS*@
-    <link href="~/Content/Css/Layout/layout.css" rel="stylesheet" />
+    @*<link href="~/Content/Css/Layout/layout.css" rel="stylesheet" />*@
     <link href="~/Content/Css/Bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
     <link href="~/Content/Css/Parsley/parsley.css" rel="stylesheet" />
@@ -20,11 +20,172 @@
     <script src="~/Scripts/Bootstrap/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
     <script src="~/Scripts/parsley-2.6.0.js"></script>
-    <script src="~/Scripts/Formatter/jquery.formatter-0.1.5.js"></script>
-    <script src="~/Scripts/Jquery/jquery.numeric-1.4.1.js"></script>
+    <script src="~/Scripts/Formatter/jquery.formatter-0.1.5.js"></script>    
+    <script src="~/Scripts/Jquery/jquery.mask-1.14.3.js"></script>
     @*<script src="~/Scripts/Bootcards/js/bootcards.js"></script>*@
-        
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        #main {
+            overflow: auto;
+            padding-bottom: 150px; /* this needs to be bigger than footer height*/
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+        }
+
+        .wrapper {
+            min-height: 91%;
+            padding: 3px 0 31px 0;
+            background-color: #f5f5f5;
+        }
+
+        .artigo {
+            padding: 15px 0;
+            border-top: 1px solid #ddd;
+        }
+
+            .artigo:first-child {
+                padding-top: 0;
+                border-top: 0;
+            }
+
+
+        footer {
+            position: fixed;
+            height: 30px;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .copyright {
+            padding: 5px 0;
+            background-color: #666;
+            color: #fff;
+        }
+
+            .copyright h5 {
+                margin-top: 3px;
+            }
+
+            .copyright small {
+                color: #fff;
+            }
+
+            .copyright p {
+                margin: 0;
+            }
+
+        .container-full {
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .ui-dialog {
+            z-index: 9999999 !important;
+        }
+
+        .top5 {
+            margin-top: 5px;
+        }
+
+        .top7 {
+            margin-top: 7px;
+        }
+
+        .top10 {
+            margin-top: 10px;
+        }
+
+        .top15 {
+            margin-top: 15px;
+        }
+
+        .top17 {
+            margin-top: 17px;
+        }
+
+        .top20 {
+            margin-top: 20px;
+        }
+
+        .top30 {
+            margin-top: 30px;
+        }
+
+
+        .left5 {
+            margin-left: 5px;
+        }
+
+        .left7 {
+            margin-left: 7px;
+        }
+
+        .left10 {
+            margin-left: 10px;
+        }
+
+        .left15 {
+            margin-left: 15px;
+        }
+
+        .left17 {
+            margin-left: 17px;
+        }
+
+        .left20 {
+            margin-left: 20px;
+        }
+
+        .left30 {
+            margin-left: 30px;
+        }
+
+        .right5 {
+            margin-right: 5px;
+        }
+
+        .right7 {
+            margin-right: 7px;
+        }
+
+        .right10 {
+            margin-right: 10px;
+        }
+
+        .right15 {
+            margin-right: 15px;
+        }
+
+        .right17 {
+            margin-right: 17px;
+        }
+
+        .right20 {
+            margin-right: 20px;
+        }
+
+        .right30 {
+            margin-right: 30px;
+        }
+
+        .bottom20 {
+            margin-bottom: 20px;
+        }
+    </style>
+
+
 </head>
+
 <body>
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-full">
@@ -139,7 +300,7 @@
 
     <div class="modal fade first autoModal" role="dialog" id="modal">
     </div>
-       
+
     <script>
 
         //bootcards.init({

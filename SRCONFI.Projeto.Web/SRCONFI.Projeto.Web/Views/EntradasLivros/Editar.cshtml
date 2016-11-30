@@ -1,14 +1,13 @@
-﻿@model SRCONFI.Projeto.Domain.Entity.EntradasLivros
-@using System.Web.Mvc;
+﻿@{
+    Layout = null;
+}
 
+@model SRCONFI.Projeto.Domain.Entity.EntradasLivros
+@using System.Web.Mvc;
 
 <script src="~/Scripts/Views/EntradasLivros/Editar.js"></script>
 
-
-
-@Html.Hidden("hdnCaminhoEditarEntradasLivros", @Url.Action("Editar", "EntradasLivros"))
-
-@using (Html.BeginForm("Editar", "EntradasLivros", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formEditarEntradasLivros" }))
+@using (Html.BeginForm("Editar", "EntradasLivros", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formEntradasLivros" }))
 {
     <div id="Livro_Pesquisa">
         @Html.Partial("_Livro", (SRCONFI.Projeto.Domain.Entity.Livros)ViewBag.Livro)
@@ -24,6 +23,8 @@
                 <div id="tabEntradaLivros" class="tab-pane fade in active">
                     @*<h3>Dados Complementares</h3>*@
                     <div class="top10 left10 right10 bottom20">
+                        @Html.HiddenFor(model=>model.entradaID)
+
                         <div class="row top5">
                             <div class="col-xs-5">
                                 @Html.Label("Nota Fiscal", new { @class = "col-sm-6 control-label-sm" })
@@ -37,19 +38,19 @@
 
                             <div class="col-xs-4">
                                 @Html.Label("Valor", new { @class = "col-sm-4 control-label-sm" })
-                                @Html.TextBoxFor(model => model.unitarioLivro, new { @class = "form-control input-sm ", @data_parsley_type = "number", @type = "number", @placeholder = "Valor Unitário", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Valor Unitário' é obrigatório" })
+                                @Html.TextBoxFor(model => model.unitarioLivro, new { @class = "form-control input-sm numeric-places", @placeholder = "Valor Unitário", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Valor Unitário' é obrigatório" })
                             </div>
                         </div>
 
                         <div class="row top5">
                             <div class="col-xs-2">
                                 @Html.Label("Quantidade", new { @class = "col-sm-2 control-label-sm" })
-                                @Html.TextBox("txtQuantidade", 0, new { @class = "form-control input-integer", @placeholder = "Quantidade", @type = "number", @data_parsley_type = "integer", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Quantidade' é obrigatório" })
+                                @Html.TextBox("txtQuantidade", (int)ViewBag.Quantidade, new { @class = "form-control input-integer", @placeholder = "Quantidade", @type = "number", @data_parsley_type = "integer", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Quantidade' é obrigatório" })
                             </div>
 
                             <div class="col-xs-3">
                                 @Html.Label("Total", new { @class = "col-sm-4 control-label-sm" })
-                                @Html.TextBoxFor(model => model.ValorTotalEntrada, new { @class = "form-control", @data_parsley_type = "number", @readonly = "readonly" })
+                                @Html.TextBoxFor(model => model.ValorTotalEntrada, new { @class = "form-control numeric-places", @readonly = "readonly" })
                             </div>
                         </div>
                     </div>

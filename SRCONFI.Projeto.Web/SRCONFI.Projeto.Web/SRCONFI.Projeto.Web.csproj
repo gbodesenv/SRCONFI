@@ -142,14 +142,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Css\Bootcards\bootcards-android.css" />
+    <Content Include="Content\Css\Bootcards\bootcards-android.min.css" />
+    <Content Include="Content\Css\Bootcards\bootcards-desktop.css" />
+    <Content Include="Content\Css\Bootcards\bootcards-desktop.min.css" />
+    <Content Include="Content\Css\Bootcards\bootcards-ios.css" />
+    <Content Include="Content\Css\Bootcards\bootcards-ios.min.css" />
+    <Content Include="Content\Css\Bootstrap\bootstrap.min.css" />
     <Content Include="Content\Css\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="Content\Css\Bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\Css\Bootstrap\css\bootstrap.css" />
     <Content Include="Content\Css\Bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Css\Layout\layout.css" />
-    <Content Include="Content\Images\background-index.jpg" />
     <Content Include="Content\Css\Parsley\parsley.css" />
+    <Content Include="Content\Images\background-index.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -194,6 +201,18 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Scripts\Bootcards\fonts\icomoon.svg" />
+    <Content Include="Scripts\Bootcards\js\bootcards.js" />
+    <Content Include="Scripts\Bootcards\js\bootcards.min.js" />
+    <Content Include="Scripts\Bootstrap-4.0.0-alphav5\bootstrap.js" />
+    <Content Include="Scripts\Bootstrap-4.0.0-alphav5\bootstrap.min.js" />
+    <Content Include="Scripts\Formatter\jquery.formatter-0.1.5.js" />
+    <Content Include="Scripts\Bootcards\fonts\icomoon.eot" />
+    <Content Include="Scripts\Bootcards\fonts\icomoon.ttf" />
+    <Content Include="Scripts\Bootcards\fonts\icomoon.woff" />
+    <Content Include="Content\Css\Bootcards\bootcards-android.css.map" />
+    <Content Include="Content\Css\Bootcards\bootcards-desktop.css.map" />
+    <Content Include="Content\Css\Bootcards\bootcards-ios.css.map" />
     <Content Include="Content\Css\Bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="Content\Css\Bootstrap\css\bootstrap-theme.min.css.map" />
     <Content Include="Content\Css\Bootstrap\css\bootstrap.css.map" />
@@ -202,22 +221,6 @@
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\Css\Bootcards\bootcards-android.css" />
-    <Content Include="Content\Css\Bootcards\bootcards-android.min.css" />
-    <Content Include="Content\Css\Bootcards\bootcards-desktop.css" />
-    <Content Include="Content\Css\Bootcards\bootcards-desktop.min.css" />
-    <Content Include="Content\Css\Bootcards\bootcards-ios.css" />
-    <Content Include="Content\Css\Bootcards\bootcards-ios.min.css" />
-    <Content Include="Scripts\Bootcards\fonts\icomoon.svg" />
-    <Content Include="Scripts\Bootcards\js\bootcards.js" />
-    <Content Include="Scripts\Bootcards\js\bootcards.min.js" />
-    <Content Include="Scripts\Formatter\jquery.formatter-0.1.5.js" />
-    <Content Include="Content\Css\Bootcards\bootcards-android.css.map" />
-    <Content Include="Content\Css\Bootcards\bootcards-desktop.css.map" />
-    <Content Include="Content\Css\Bootcards\bootcards-ios.css.map" />
-    <Content Include="Scripts\Bootcards\fonts\icomoon.eot" />
-    <Content Include="Scripts\Bootcards\fonts\icomoon.ttf" />
-    <Content Include="Scripts\Bootcards\fonts\icomoon.woff" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -231,12 +234,12 @@
     <Content Include="Scripts\Jquery\jquery-1.10.2.js" />
     <Content Include="Scripts\Jquery\jquery-1.10.2.min.js" />
     <None Include="Scripts\Jquery\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Jquery\jquery.mask-1.14.3.js" />
     <Content Include="Scripts\Jquery\jquery.numeric-1.4.1.js" />
     <Content Include="Scripts\Jquery\jquery.validate.js" />
     <Content Include="Scripts\Jquery\jquery.validate.min.js" />
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Content\Css\Bootstrap\bootstrap.min.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Views\EntradasLivros\Editar.js" />
     <Content Include="Scripts\Views\EntradasLivros\Inserir.js" />
@@ -320,6 +323,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Fonts\bootstrap-material-design\" />
+    <Folder Include="Content\Fonts\Bootstrap\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SRCONFI.Projeto.Business\SRCONFI.Projeto.Business.csproj">

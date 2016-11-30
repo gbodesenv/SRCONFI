@@ -27,8 +27,8 @@ namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
 
         public Livros GetLivroByEntradaID(int idEntrada)
         {
-            return (from l in BancoContext.Livros
-                    join e in BancoContext.Estoque on l.livroID equals e.livroID_FK
+            return (from l in BancoContext.Livros.Include("Editoras").Include("Autores").ToList()
+            join e in BancoContext.Estoque on l.livroID equals e.livroID_FK
                     where e.entradaID_FK == idEntrada
                     select l).FirstOrDefault();
         }

@@ -30,7 +30,8 @@
     </div>
 </div>
 
-@Html.Hidden("hdnGravarEntradaLivro", @Url.Action("Inserir", "EntradasLivros"))
+@Html.Hidden("hdnInserirEntradaLivro", @Url.Action("Inserir", "EntradasLivros"))
+@Html.Hidden("hdnEditarEntradaLivro", @Url.Action("Editar", "EntradasLivros"))
 @Html.Hidden("hdnCaminhoEditarEntradasLivros", @Url.Action("Editar", "EntradasLivros"))
 @Html.Hidden("hdnCaminhoModalPesquisarLivros", @Url.Action("ModalPesquisarLivros", "EntradasLivros"))
 @Html.Hidden("hdnCaminhoPesquisarLivros", @Url.Action("_PesquisarLivros", "EntradasLivros"))

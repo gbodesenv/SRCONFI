@@ -80,6 +80,7 @@ namespace SRCONFI.Projeto.Web.Controllers
             var entradaLivro = new Business.EntradasLivrosBusiness().GetEntradasLivros(id);
             var livro = BuscarLivro(id);
             ViewBag.Livro = livro;
+            ViewBag.Quantidade = (entradaLivro.ValorTotalEntrada / entradaLivro.unitarioLivro);
             Combos(livro.editoraID_FK, livro.autorID_FK);
             return View(entradaLivro);
         }

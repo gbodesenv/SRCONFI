@@ -160,7 +160,7 @@ namespace SRCONFI.Projeto.Web.Controllers
             ViewModel.ModalViewModel modal = new ViewModel.ModalViewModel();
             modal.IdModal = "Autores";
             modal.TipoBotao = (int)Enum.ModalEnum.TipoBotaoEnum.Incluir;
-            modal.TituloModal = "Inserir Autores";
+            modal.TituloModal = "Inserir Autor";
             modal.CaminhoBodyModal = Url.Action("Inserir", "Autores");
 
             return PartialView("~/Views/Modal/Modal.cshtml", modal);

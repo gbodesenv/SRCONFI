@@ -1,0 +1,34 @@
+﻿@model SRCONFI.Projeto.Domain.Entity.Autores
+@using System.Collections.Generic;
+@using System.Web.Mvc;
+
+
+<script src="~/Scripts/Views/Autores/Inserir.js"></script>
+
+@Html.Hidden("hdnCaminhoInserirAutor", @Url.Action("Inserir", "Autores"))
+
+@using (Html.BeginForm("Inserir", "Autores", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formInserirAutor" }))
+{
+
+    <div class="form-group">
+        @Html.Label("Código", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-3">
+            @Html.TextBox("codigo", "", new { @class = "form-control", @readonly = "readonly" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Nome", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.nomeAutor, new { @class = "form-control", @placeholder = "Nome", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Nome' é obrigatório" })
+        </div>
+    </div>
+
+}
+
+
+
+
+

@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EntityRepository\AtividadesRepository.cs" />
     <Compile Include="Repositories\EntityRepository\AutoresRepository.cs" />
     <Compile Include="Repositories\EntityRepository\CategoriaRepository.cs" />
     <Compile Include="Repositories\EntityRepository\DadosComplementaresRepository.cs" />
@@ -125,11 +126,14 @@
     <Compile Include="Repositories\EntityRepository\EstadoCivilRepository.cs" />
     <Compile Include="Repositories\EntityRepository\EstoqueRepository.cs" />
     <Compile Include="Repositories\EntityRepository\LivrosRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\LocalAtividadeRepository.cs" />
     <Compile Include="Repositories\EntityRepository\LogRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\PeriodoAtividadeRepository.cs" />
     <Compile Include="Repositories\EntityRepository\SociosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\TipoUsuarioRepository.cs" />
     <Compile Include="Repositories\EntityRepository\UsuarioRepository.cs" />
     <Compile Include="Repositories\EntityRepository\EstadoRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IAtividadesRepository.cs" />
     <Compile Include="Repositories\Interfaces\IAutoresRepository.cs" />
     <Compile Include="Repositories\Interfaces\ICategoriaRepository.cs" />
     <Compile Include="Repositories\Interfaces\IDadosComplementaresRepository.cs" />
@@ -140,7 +144,9 @@
     <Compile Include="Repositories\Interfaces\IEstadoRepository.cs" />
     <Compile Include="Repositories\Interfaces\IEstoqueRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILivrosRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILocalAtividadeRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILogRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IPeriodoAtividadeRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISociosRepository.cs" />
     <Compile Include="Repositories\Interfaces\ITipoUsuarioRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUsuarioRepository.cs" />

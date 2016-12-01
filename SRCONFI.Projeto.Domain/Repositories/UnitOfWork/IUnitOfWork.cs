@@ -25,6 +25,10 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         IEntradasLivrosRepository EntradasLivros { get; }
         IEstoqueRepository Estoque { get; }
 
+        IAtividadesRepository Atividade { get; }
+        ILocalAtividadeRepository LocalAtividade { get; }
+        IPeriodoAtividadeRepository PeriodoAtividade { get; }
+
         int Complete();
     }
 }

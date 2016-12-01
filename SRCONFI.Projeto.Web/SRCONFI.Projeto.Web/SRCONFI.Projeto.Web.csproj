@@ -238,6 +238,12 @@
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Css\Bootstrap\bootstrap.min.css" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Views\Autores\Editar.js" />
+    <Content Include="Scripts\Views\Autores\Inserir.js" />
+    <Content Include="Scripts\Views\Autores\Listar.js" />
+    <Content Include="Scripts\Views\Editoras\Editar.js" />
+    <Content Include="Scripts\Views\Editoras\Inserir.js" />
+    <Content Include="Scripts\Views\Editoras\Listar.js" />
     <Content Include="Scripts\Views\EntradasLivros\Editar.js" />
     <Content Include="Scripts\Views\EntradasLivros\Inserir.js" />
     <Content Include="Scripts\Views\EntradasLivros\Listar.js" />
@@ -261,9 +267,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Bundles\BundleConfig.cs" />
+    <Compile Include="Controllers\AtividadesController.cs" />
+    <Compile Include="Controllers\AutoresController.cs" />
+    <Compile Include="Controllers\EditoraController.cs" />
     <Compile Include="Controllers\EntradasLivrosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LivrosController.cs" />
+    <Compile Include="Controllers\LocalAtividadeController.cs" />
+    <Compile Include="Controllers\PeriodoAtividadeController.cs" />
     <Compile Include="Controllers\SociosController.cs" />
     <Compile Include="Controllers\TipoUsuarioController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -311,6 +322,16 @@
     <Content Include="Views\EntradasLivros\Listar.cshtml" />
     <Content Include="Views\EntradasLivros\Editar.cshtml" />
     <Content Include="Views\EntradasLivros\_PesquisarLivros.cshtml" />
+    <Content Include="Views\Editoras\Inserir.cshtml" />
+    <Content Include="Views\Editoras\Editar.cshtml" />
+    <Content Include="Views\Editoras\Listar.cshtml" />
+    <Content Include="Views\Editoras\_TableListarEditoras.cshtml" />
+    <Content Include="Views\Autores\Inserir.cshtml" />
+    <Content Include="Views\Autores\Editar.cshtml" />
+    <Content Include="Views\Autores\Listar.cshtml" />
+    <Content Include="Views\Autores\_TableListarAutores.cshtml" />
+    <Content Include="Views\Atividades\Listar.cshtml" />
+    <Content Include="Views\Atividades\Inserir.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -320,6 +341,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Editora\" />
+    <Folder Include="Views\LocalAtividade\" />
+    <Folder Include="Views\PeriodoAtividade\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SRCONFI.Projeto.Business\SRCONFI.Projeto.Business.csproj">

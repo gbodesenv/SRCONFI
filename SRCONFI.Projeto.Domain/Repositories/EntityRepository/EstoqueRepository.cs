@@ -22,6 +22,21 @@ namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
         }
 
 
+        public Estoque GetEstoqueByVendaID(int idVenda)
+        {
+            return (from e in BancoContext.Estoque.Include("Livros").Include("EntradasLivros").ToList()
+                    join v in BancoContext.VendasLivros on e.estoqueID equals v.estoqueID_FK
+                    where v.vendaID == idVenda
+                    select e).FirstOrDefault();
+        }
+
+
+        public Estoque GetEstoqueByLivroLastDate(int idLivro)
+        {
+            return BancoContext.Estoque.Include("EntradasLivros").ToList()
+                                       .Where(e => e.livroID_FK == idLivro)
+                                       .OrderByDescending(es => es.EntradasLivros.dataEntrada).FirstOrDefault();
+        }
 
         public Estoque GetAndRelation(int id)
         {

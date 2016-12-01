@@ -259,6 +259,11 @@
     <Content Include="Scripts\Views\Usuarios\Editar.js" />
     <Content Include="Scripts\Views\Usuarios\Inserir.js" />
     <Content Include="Scripts\Views\Usuarios\Listar.js" />
+    <Content Include="Scripts\Views\VendaLivros\Editar.js" />
+    <Content Include="Scripts\Views\VendaLivros\Inserir.js" />
+    <Content Include="Scripts\Views\VendaLivros\Listar.js" />
+    <Content Include="Scripts\Views\VendaLivros\_Livro.js" />
+    <Content Include="Scripts\Views\VendaLivros\_PesquisarLivros.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -318,6 +323,8 @@
     <Content Include="Views\VendaLivros\Listar.cshtml" />
     <Content Include="Views\VendaLivros\Inserir.cshtml" />
     <Content Include="Views\VendaLivros\Editar.cshtml" />
+    <Content Include="Views\VendaLivros\_Livro.cshtml" />
+    <Content Include="Views\VendaLivros\_PesquisarLivros.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

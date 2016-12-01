@@ -1,5 +1,6 @@
 ﻿using SRCONFI.Projeto.Domain.Entity;
 using SRCONFI.Projeto.Domain.Repositories.Interfaces;
+using System.Linq;
 
 namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
 {

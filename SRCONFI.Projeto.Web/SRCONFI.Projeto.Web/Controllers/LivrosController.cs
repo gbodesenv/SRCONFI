@@ -15,12 +15,14 @@ namespace SRCONFI.Projeto.Web.Controllers
             return View(new Business.LivrosBusiness().ListLivros());
         }
 
-        public PartialViewResult _TableListarLivros(int? id = null)
+        public PartialViewResult _TableListarLivros(int? id = null, string estoque = null)
         {
             var listaDeLivross = new List<Livros>();
 
             if (id.HasValue)
                 listaDeLivross.Add(new Business.LivrosBusiness().GetLivros((int)id));
+            else if (!string.IsNullOrEmpty(estoque))
+                listaDeLivross.AddRange(new Business.LivrosBusiness().GetAllLivroExistInEstoque());
             else
                 listaDeLivross = new Business.LivrosBusiness().ListLivros();
 

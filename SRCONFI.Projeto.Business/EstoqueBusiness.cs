@@ -80,5 +80,17 @@ namespace SRCONFI.Projeto.Business
             return livro;
         }
 
+        public Domain.Entity.Estoque GetEstoqueByLivroLastDate(int idLivro)
+        {
+            Domain.Entity.Estoque estoque;
+            using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
+            {
+                estoque = unitOfWork.Estoque.GetEstoqueByLivroLastDate(idLivro);
+                unitOfWork.Dispose();
+            }
+
+            return estoque;
+        }
+
     }
 }

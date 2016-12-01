@@ -1,61 +1,59 @@
 ﻿using SRCONFI.Projeto.Domain.Entity;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace SRCONFI.Projeto.Web.Controllers
 {
-    public class LivrosController : Controller
+    public class VendaLivrosController : Controller
     {
 
         #region Listar 
 
-        // GET: Livros
+        // GET: VendaLivros
         public ActionResult Listar()
         {
-            return View(new Business.LivrosBusiness().ListLivros());
+            return View();
         }
 
-        public PartialViewResult _TableListarLivros(int? id = null, string estoque = null)
+        public PartialViewResult _TableListarVendaLivros(int? id = null)
         {
-            var listaDeLivross = new List<Livros>();
+            var listaDeVendaLivross = new List<VendasLivros>();
 
             if (id.HasValue)
-                listaDeLivross.Add(new Business.LivrosBusiness().GetLivros((int)id));
-            else if (!string.IsNullOrEmpty(estoque))
-                listaDeLivross.AddRange(new Business.LivrosBusiness().GetAllLivroExistInEstoque());
+                listaDeVendaLivross.Add(new Business.VendaLivrosBusiness().GetVendaLivros((int)id));
             else
-                listaDeLivross = new Business.LivrosBusiness().ListLivros();
+                listaDeVendaLivross = new Business.VendaLivrosBusiness().ListVendaLivros();
 
-            return PartialView(listaDeLivross);
+            return PartialView(listaDeVendaLivross);
         }
 
         #endregion Fim Listar 
 
         #region Inserir 
-
         [HttpGet]
         public ActionResult Inserir()
         {
-            Combos();
+            ViewBag.Estoque = new Estoque();
             return PartialView();
         }
 
         [HttpPost]
-        public ActionResult Inserir(Livros livros)
+        public ActionResult Inserir(VendasLivros vendaLivro, int idEstoque, int quantidadeVendida)
         {
             try
             {
 
                 //if (ModelState.IsValid)
                 //{
-                new Business.LivrosBusiness().AddLivros(livros);
+                new Business.VendaLivrosBusiness().AddVendaLivros(vendaLivro, idEstoque, quantidadeVendida);
 
                 //}
                 var retorno = new
                 {
-                    mensagem = "Livros Inserido com Sucesso!",
+                    mensagem = "Venda Inserida com Sucesso!",
                     erro = false,
-                    id = livros.livroID
+                    id = vendaLivro.vendaID
                 };
 
                 return Json(retorno, JsonRequestBehavior.AllowGet);
@@ -64,7 +62,7 @@ namespace SRCONFI.Projeto.Web.Controllers
             {
                 var retorno = new
                 {
-                    mensagem = e.Message.ToString(),//"Ocorreu algum erro ao inserir Livros!",
+                    mensagem = e.Message.ToString(),//"Ocorreu algum erro ao inserir Usuário!",
                     erro = true
                 };
 
@@ -79,25 +77,27 @@ namespace SRCONFI.Projeto.Web.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            var livros = new Business.LivrosBusiness().GetLivros(id);
-
-            Combos(livros.editoraID_FK, livros.autorID_FK);
-
-            return View(livros);
+            VendasLivros vendaLivro = new Business.VendaLivrosBusiness().GetVendaLivros(id);
+            Estoque Estoque = new Business.EstoqueBusiness().GetAndRelation(vendaLivro.estoqueID_FK);
+            ViewBag.Livro = Estoque.Livros;
+            ViewBag.Estoque = Estoque;
+            ViewBag.Quantidade = (Estoque.EntradasLivros.ValorTotalEntrada / Estoque.EntradasLivros.unitarioLivro);
+            Combos(Estoque.Livros.editoraID_FK, Estoque.Livros.autorID_FK);
+            return View(vendaLivro);
         }
 
         [HttpPost]
-        public ActionResult Editar(Livros livros)
+        public ActionResult Editar(VendasLivros vendaLivro, int idEstoque, int quantidadeVendida)
         {
             try
             {
-                new Business.LivrosBusiness().EditLivros(livros);
+                new Business.VendaLivrosBusiness().EditVendaLivros(vendaLivro, idEstoque, quantidadeVendida);
 
                 var retorno = new
                 {
-                    mensagem = "Livros Atualizado com Sucesso!",
+                    mensagem = "Venda Atualizada com Sucesso!",
                     erro = false,
-                    id = livros.livroID
+                    id = vendaLivro.vendaID
                 };
 
                 return Json(retorno, JsonRequestBehavior.AllowGet);
@@ -106,7 +106,7 @@ namespace SRCONFI.Projeto.Web.Controllers
             {
                 var retorno = new
                 {
-                    mensagem = e.Message.ToString(),//"Ocorreu algum erro ao editar Livros!",
+                    mensagem = e.Message.ToString(),//"Ocorreu algum erro ao editar Usuário!",
                     erro = true
                 };
 
@@ -123,11 +123,11 @@ namespace SRCONFI.Projeto.Web.Controllers
         {
             try
             {
-                new Business.LivrosBusiness().DeleteLivros(id);
+                new Business.VendaLivrosBusiness().DeleteVendaLivros(id);
 
                 var retorno = new
                 {
-                    mensagem = "Livros Excluido com Sucesso!",
+                    mensagem = "Venda Excluida com Sucesso!",
                     erro = false
                 };
 
@@ -137,7 +137,7 @@ namespace SRCONFI.Projeto.Web.Controllers
             {
                 var retorno = new
                 {
-                    mensagem = e.Message.ToString(),//"Ocorreu algum erro ao editar Livros!",
+                    mensagem = e.Message.ToString(),//"Ocorreu algum erro ao editar Usuário!",
                     erro = true
                 };
 
@@ -151,7 +151,27 @@ namespace SRCONFI.Projeto.Web.Controllers
         #region Imprimir 
         #endregion Fim Imprimir 
 
+        #region Livros
+
+        public ActionResult _PesquisarLivros()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult _Livro(int id)
+        {
+            Livros livro;
+            livro = new Business.LivrosBusiness().GetAndRelation(id);
+            ViewBag.Estoque = new Business.EstoqueBusiness().GetEstoqueByLivroLastDate(livro.livroID);
+            return PartialView(livro);
+        }
+
+        #endregion Livros
+
+
         #region Métodos Auxiliares 
+
 
         public void Combos(int? editoraID = null, int? autorID = null)
         {
@@ -192,13 +212,13 @@ namespace SRCONFI.Projeto.Web.Controllers
 
         #region Modais
 
-        public ActionResult ModalInserir()
+        public ActionResult ModalPesquisarLivros()
         {
             ViewModel.ModalViewModel modal = new ViewModel.ModalViewModel();
-            modal.IdModal = "Livros";
-            modal.TipoBotao = (int)Enum.ModalEnum.TipoBotaoEnum.Incluir;
-            modal.TituloModal = "Inserir Livros";
-            modal.CaminhoBodyModal = Url.Action("Inserir", "Livros");
+            modal.IdModal = "VendaLivros";
+            modal.TipoBotao = (int)Enum.ModalEnum.TipoBotaoEnum.Confirmar;
+            modal.TituloModal = "Pesquisar Livros";
+            modal.CaminhoBodyModal = Url.Action("PesquisarLivros", "VendaLivros");
 
             return PartialView("~/Views/Modal/Modal.cshtml", modal);
         }
@@ -206,10 +226,10 @@ namespace SRCONFI.Projeto.Web.Controllers
         public ActionResult ModalEditar()
         {
             ViewModel.ModalViewModel modal = new ViewModel.ModalViewModel();
-            modal.IdModal = "Livros";
+            modal.IdModal = "VendaLivros";
             modal.TipoBotao = (int)Enum.ModalEnum.TipoBotaoEnum.Editar;
-            modal.TituloModal = "Editar Livros";
-            modal.CaminhoBodyModal = Url.Action("Editar", "Livros");
+            modal.TituloModal = "Venda de Livros";
+            modal.CaminhoBodyModal = Url.Action("Editar", "VendaLivros");
 
             return PartialView("~/Views/Modal/Modal.cshtml", modal);
         }

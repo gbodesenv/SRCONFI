@@ -27,11 +27,26 @@ namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
 
         public Livros GetLivroByEntradaID(int idEntrada)
         {
-            return (from l in BancoContext.Livros
+            return (from l in BancoContext.Livros.Include("Editoras").Include("Autores").ToList()
                     join e in BancoContext.Estoque on l.livroID equals e.livroID_FK
                     where e.entradaID_FK == idEntrada
                     select l).FirstOrDefault();
         }
+
+        public List<Livros> GetAllLivroExistInEstoque()
+        {
+            var query1 = (from l in BancoContext.Livros.Include("Editoras").Include("Autores").ToList()
+                          join e in BancoContext.Estoque on l.livroID equals e.livroID_FK
+                          select l).ToList();
+
+
+            var ids = query1.Select(q => q.livroID).Distinct();
+
+            var query2 = BancoContext.Livros.Include("Editoras").Include("Autores").Where(l => ids.Contains(l.livroID)).ToList();
+
+            return query2;
+        }
+
 
         public BancoContext BancoContext
         {

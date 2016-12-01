@@ -79,5 +79,19 @@ namespace SRCONFI.Projeto.UnitTest
 
             Assert.AreEqual(0, listaUsuarios.Count());
         }
+
+
+        [TestMethod]
+        public void TesteBuscarLivrosEmEstoque()
+        {
+            List<Livros> listaUsuarios = new List<Livros>();
+            using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
+            {
+                listaUsuarios = unitOfWork.Livros.GetAllLivroExistInEstoque().ToList();
+                unitOfWork.Dispose();
+            }
+
+            Assert.AreEqual(0, listaUsuarios.Count());
+        }
     }
 }

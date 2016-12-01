@@ -23,6 +23,7 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         IEditorasRepository Editoras { get; }
         IAutoresRepository Autores { get; }
         IEntradasLivrosRepository EntradasLivros { get; }
+        IVendaLivrosRepository VendaLivros { get; }
         IEstoqueRepository Estoque { get; }
 
         IAtividadesRepository Atividade { get; }

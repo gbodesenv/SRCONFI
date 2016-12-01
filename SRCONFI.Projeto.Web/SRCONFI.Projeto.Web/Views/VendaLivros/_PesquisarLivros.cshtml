@@ -1,0 +1,14 @@
+﻿
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/Views/VendaLivros/_PesquisarLivros.js"></script>
+
+<div id="pesquisarLivrosDIV">
+    <div class="alert alert-info" role="alert">
+        Carregando! Por favor, aguarde.
+    </div>
+</div>    
+
+@Html.Hidden("hdnCaminhoTableLivros", @Url.Action("_TableListarLivros", "Livros"))

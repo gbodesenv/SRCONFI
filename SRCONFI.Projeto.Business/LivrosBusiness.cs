@@ -80,5 +80,17 @@ namespace SRCONFI.Projeto.Business
             return livro;
         }
 
+        public List<Domain.Entity.Livros> GetAllLivroExistInEstoque()
+        {
+            List<Domain.Entity.Livros> livros;
+            using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
+            {
+                livros = unitOfWork.Livros.GetAllLivroExistInEstoque();
+                unitOfWork.Dispose();
+            }
+
+            return livros;
+        }
+
     }
 }

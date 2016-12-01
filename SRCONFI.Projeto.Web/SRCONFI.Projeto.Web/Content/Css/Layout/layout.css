@@ -62,7 +62,7 @@ footer {
     width: 100%;
 }
 
-.loader {
+/*.loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
     border-top: 16px solid blue;
@@ -91,7 +91,7 @@ footer {
     100% {
         transform: rotate(360deg);
     }
-}
+}*/
 
 
 .ui-dialog {

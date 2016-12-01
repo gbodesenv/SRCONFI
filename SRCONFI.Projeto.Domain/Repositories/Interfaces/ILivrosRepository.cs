@@ -8,5 +8,6 @@ namespace SRCONFI.Projeto.Domain.Repositories.Interfaces
         IEnumerable<Livros> GetAllAndRelation();
         Livros GetAndRelation(int id);
         Livros GetLivroByEntradaID(int idEntrada);
+        List<Livros> GetAllLivroExistInEstoque();
     }
 }

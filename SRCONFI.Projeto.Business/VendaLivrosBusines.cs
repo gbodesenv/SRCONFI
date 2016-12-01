@@ -17,23 +17,25 @@ namespace SRCONFI.Projeto.Business
             return listVendaLivros;
         }
 
-        public void AddVendaLivros(VendasLivros VendaLivros, int idLivro)
+        public void AddVendaLivros(VendasLivros vendaLivros, int idEstoque, int quantidadeVendida)
         {
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {
-                unitOfWork.VendaLivros.Add(VendaLivros);
-                //unitOfWork.Estoque.Add(RetornarEstoque(VendaLivros, idLivro));
+                vendaLivros.estoqueID_FK = idEstoque;
+                unitOfWork.VendaLivros.Add(vendaLivros);
+                unitOfWork.Estoque.Edit(AlterarEstoque(idEstoque, quantidadeVendida));
                 unitOfWork.Complete();
                 unitOfWork.Dispose();
             }
         }
 
-        public void EditVendaLivros(VendasLivros VendaLivros, int idLivro)
+        public void EditVendaLivros(VendasLivros vendaLivros, int idEstoque, int quantidadeVendida)
         {
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {
-                unitOfWork.VendaLivros.Edit(VendaLivros);
-                //unitOfWork.Estoque.Edit(AlterarEstoque(VendaLivros, idLivro));
+                vendaLivros.estoqueID_FK = idEstoque;
+                unitOfWork.VendaLivros.Edit(vendaLivros);
+                unitOfWork.Estoque.Edit(AlterarEstoque(idEstoque, quantidadeVendida));
                 unitOfWork.Complete();
                 unitOfWork.Dispose();
             }
@@ -74,16 +76,26 @@ namespace SRCONFI.Projeto.Business
         //    };
         //}
 
-        //private Estoque AlterarEstoque(VendasLivros entLivros, int idLivro)
-        //{
-        //    var estoque = new Business.EstoqueBusiness().GetEstoqueByEntradaID(entLivros.entradaID);
-        //    estoque.livroID_FK = idLivro;
-        //    estoque.nrQuantidade = (int)(entLivros.ValorTotalEntrada / entLivros.unitarioLivro);
-        //    estoque.vlUnitarioLivro = entLivros.unitarioLivro;
-        //    return estoque;
-        //}
+        private Estoque AlterarEstoque( int idEstoque, int quantidadeVendida)
+        {
+            var estoque = new EstoqueBusiness().GetEstoque(idEstoque);
 
+            RN_ValidarQUantidadeEmEstoque(estoque.nrQuantidade, quantidadeVendida);
+
+            estoque.nrQuantidade = estoque.nrQuantidade - quantidadeVendida;
+            return estoque;
+        }
         #endregion Métodos Privados
+
+        private void RN_ValidarQUantidadeEmEstoque(int estoque, int vendido)
+        {
+            if (vendido > estoque)
+                throw new System.ArgumentException("A quantidade vendida extrapola a quantidade em estoque!", "limiteEstoque");
+        }
+
+        #region Regra de negócio
+
+        #endregion Regra de negócio
 
     }
 }

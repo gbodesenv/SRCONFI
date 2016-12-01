@@ -39,19 +39,19 @@ namespace SRCONFI.Projeto.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Inserir(VendasLivros vendaLivro, int idLivro)
+        public ActionResult Inserir(VendasLivros vendaLivro, int idEstoque, int quantidadeVendida)
         {
             try
             {
 
                 //if (ModelState.IsValid)
                 //{
-                new Business.VendaLivrosBusiness().AddVendaLivros(vendaLivro, idLivro);
+                new Business.VendaLivrosBusiness().AddVendaLivros(vendaLivro, idEstoque, quantidadeVendida);
 
                 //}
                 var retorno = new
                 {
-                    mensagem = "Entrada Inserida com Sucesso!",
+                    mensagem = "Venda Inserida com Sucesso!",
                     erro = false,
                     id = vendaLivro.vendaID
                 };
@@ -87,15 +87,15 @@ namespace SRCONFI.Projeto.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(VendasLivros vendaLivro, int idLivro)
+        public ActionResult Editar(VendasLivros vendaLivro, int idEstoque, int quantidadeVendida)
         {
             try
             {
-                new Business.VendaLivrosBusiness().EditVendaLivros(vendaLivro, idLivro);
+                new Business.VendaLivrosBusiness().EditVendaLivros(vendaLivro, idEstoque, quantidadeVendida);
 
                 var retorno = new
                 {
-                    mensagem = "Entrada Atualizada com Sucesso!",
+                    mensagem = "Venda Atualizada com Sucesso!",
                     erro = false,
                     id = vendaLivro.vendaID
                 };
@@ -127,7 +127,7 @@ namespace SRCONFI.Projeto.Web.Controllers
 
                 var retorno = new
                 {
-                    mensagem = "Entrada Excluida com Sucesso!",
+                    mensagem = "Venda Excluida com Sucesso!",
                     erro = false
                 };
 
@@ -162,7 +162,7 @@ namespace SRCONFI.Projeto.Web.Controllers
         public ActionResult _Livro(int id)
         {
             Livros livro;
-            livro = new Business.LivrosBusiness().GetAndRelation((int)id);
+            livro = new Business.LivrosBusiness().GetAndRelation(id);
             ViewBag.Estoque = new Business.EstoqueBusiness().GetEstoqueByLivroLastDate(livro.livroID);
             return PartialView(livro);
         }
@@ -171,7 +171,7 @@ namespace SRCONFI.Projeto.Web.Controllers
 
 
         #region Métodos Auxiliares 
-        
+
 
         public void Combos(int? editoraID = null, int? autorID = null)
         {
@@ -228,7 +228,7 @@ namespace SRCONFI.Projeto.Web.Controllers
             ViewModel.ModalViewModel modal = new ViewModel.ModalViewModel();
             modal.IdModal = "VendaLivros";
             modal.TipoBotao = (int)Enum.ModalEnum.TipoBotaoEnum.Editar;
-            modal.TituloModal = "Entrada de Livros";
+            modal.TituloModal = "Venda de Livros";
             modal.CaminhoBodyModal = Url.Action("Editar", "VendaLivros");
 
             return PartialView("~/Views/Modal/Modal.cshtml", modal);

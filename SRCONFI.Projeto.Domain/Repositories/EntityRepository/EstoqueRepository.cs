@@ -42,6 +42,8 @@ namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
         {
             return BancoContext.Estoque.Include("EntradasLivros")
                                       .Include("Livros")
+                                      .Include("Livros.Autores")
+                                      .Include("Livros.Editoras")
                                       .FirstOrDefault(s => s.estoqueID == id);
         }
 

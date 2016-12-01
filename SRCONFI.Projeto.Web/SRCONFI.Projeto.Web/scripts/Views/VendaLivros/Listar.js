@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    $("#btnGravarVendaLivros").click(function () {
+    $("#btnGravarEntradaLivro").click(function () {
         btnGravarVendaLivros();
     });
 
@@ -32,23 +32,32 @@ function setarMascaras() {
 
 }
 
+function validarPesquisaLivro() {
+    var retorno = true;
+    if ($("#livroID").val() == "" || parseInt($("#livroID").val()) < 1) {
+        retorno = false;
+        alertSistema(2, "Por Favor, selecionar um livro para prosseguir na venda!");       
+    }
+
+    return retorno;
+}
+
 function btnGravarVendaLivros() {
     var validForm = $('#formVendaLivros').parsley();
     var form = $('#formVendaLivros').serializeObject();
 
-    console.log(form);
-    if (validForm.validate()) {
-        var livroID = $("#livroID").val();
-        var caminho = $("#vendaID").val() == "" ? $('#hdnInserirVendaLivros').val() : $('#hdnEditarVendaLivros').val();
-        form.totalVenda = $('#totalVenda').val().replace('.', '');
-        //form.ValorTotalEntrada = $('#ValorTotalEntrada').val().replace('.', '');
 
-        console.log(livroID);
-        console.log(caminho);
+
+    if (validForm.validate() && validarPesquisaLivro()) {
+        var estoqueID = $("#Estoque_estoqueID").val();
+        var quantidadeVendida = $("#txtQuantidade").val();;
+        var caminho = $("#vendaID").val() == "" ? $('#hdnInserirVendaLivros').val() : $('#hdnEditarVendaLivros').val();
+        form.totalVenda = $('#totalVenda').val().replace('.', ',');
+
         $.ajax({
             url: caminho,
             type: "POST",
-            data: JSON.stringify({ vendaLivro: form, idLivro: livroID }),
+            data: JSON.stringify({ vendaLivro: form, idEstoque: estoqueID, quantidadeVendida: quantidadeVendida }),
             contentType: 'application/json; charset=utf-8',
             success: function (data) {
                 if (!data.erro) {
@@ -76,24 +85,31 @@ function carregarEditar(id) {
 }
 
 function calcularQuantidadeValor() {
-    var unitario = $('#txtVlrUnitario').val();
+    var unitario = $('#txtVlrUnitario').val().replace('.', '').replace(',', '.');
     var quantidade = $('#txtQuantidade').val();
-    var desconto = $('#valorDesconto').val();
+    var desconto = $('#valorDesconto').val().replace('.', '').replace(',', '.');
     var total = $('#totalVenda');
 
     if (unitario == "")
         unitario = 0;
+    else
+        unitario = parseFloat(unitario).toFixed(2);
+
     if (quantidade == "")
         quantidade = 0;
+    else
+        parseInt(quantidade);
+
+    var calc = unitario * quantidade;
+
     if (desconto == "")
         desconto = 0;
-
-    var calc = parseFloat(parseFloat(unitario) * parseInt(quantidade));
-
-    if (desconto != 0)
-        desconto = (parseFloat(parseFloat(desconto) / 100)) * calc;
+    else
+        desconto = (parseFloat(desconto).toFixed(2) / 100.00) * calc;
 
     calc = calc - desconto;
 
     total.val(calc);
+
+    $('.numeric-places').mask("#.##0,00", { reverse: true });
 }

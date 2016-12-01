@@ -25,13 +25,13 @@
         </div>
 
     </div>
-    <div id="ConteudoListarEntradaLivro">
+    <div id="ConteudoListarVendaLivros">
         @Html.Partial("Inserir", Model)
     </div>
 </div>
 
-@Html.Hidden("hdnInserirEntradaLivro", @Url.Action("Inserir", "VendaLivros"))
-@Html.Hidden("hdnEditarEntradaLivro", @Url.Action("Editar", "VendaLivros"))
+@Html.Hidden("hdnInserirVendaLivros", @Url.Action("Inserir", "VendaLivros"))
+@Html.Hidden("hdnEditarVendaLivros", @Url.Action("Editar", "VendaLivros"))
 @Html.Hidden("hdnCaminhoEditarVendaLivros", @Url.Action("Editar", "VendaLivros"))
 @Html.Hidden("hdnCaminhoModalPesquisarLivros", @Url.Action("ModalPesquisarLivros", "VendaLivros"))
 @Html.Hidden("hdnCaminhoPesquisarLivros", @Url.Action("_PesquisarLivros", "VendaLivros"))

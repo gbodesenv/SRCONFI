@@ -31,6 +31,8 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
             LocalAtividade = new LocalAtividadeRepository(_context);
             PeriodoAtividade = new PeriodoAtividadeRepository(_context);
             VendaLivros = new VendaLivrosRepository(_context);
+            Pagamentos = new PagamentosRepository(_context);
+            Mes = new MesRepository(_context);
         }
 
         public IUsuarioRepository Usuario { get; private set; }
@@ -52,6 +54,8 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         public IAtividadesRepository Atividade { get; private set; }
         public ILocalAtividadeRepository LocalAtividade { get; private set; }
         public IPeriodoAtividadeRepository PeriodoAtividade { get; private set; }
+        public IPagamentosRepository Pagamentos { get; private set; }
+        public IMesRepository Mes { get; private set; }
 
 
         public int Complete()

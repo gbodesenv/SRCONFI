@@ -114,6 +114,10 @@
     <Compile Include="Migrations\201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.Designer.cs">
       <DependentUpon>201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612042045575_inclusaoTabelaPagamentos.cs" />
+    <Compile Include="Migrations\201612042045575_inclusaoTabelaPagamentos.Designer.cs">
+      <DependentUpon>201612042045575_inclusaoTabelaPagamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EntityRepository\AtividadesRepository.cs" />
@@ -128,6 +132,8 @@
     <Compile Include="Repositories\EntityRepository\LivrosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\LocalAtividadeRepository.cs" />
     <Compile Include="Repositories\EntityRepository\LogRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\MesRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\PagamentosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\PeriodoAtividadeRepository.cs" />
     <Compile Include="Repositories\EntityRepository\SociosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\TipoUsuarioRepository.cs" />
@@ -146,6 +152,8 @@
     <Compile Include="Repositories\Interfaces\ILivrosRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILocalAtividadeRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILogRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IPagamentosRepository.cs" />
     <Compile Include="Repositories\Interfaces\IPeriodoAtividadeRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISociosRepository.cs" />
     <Compile Include="Repositories\Interfaces\ITipoUsuarioRepository.cs" />
@@ -175,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.resx">
       <DependentUpon>201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612042045575_inclusaoTabelaPagamentos.resx">
+      <DependentUpon>201612042045575_inclusaoTabelaPagamentos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

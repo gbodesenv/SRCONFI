@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+
+@model SRCONFI.Projeto.Domain.Entity.Socios
+
+<script src="~/Scripts/Views/Pagamentos/_Socio.js"></script>
+
+@Html.HiddenFor(model => model.socioID)
+
+
+<div class="row top5">
+    <div class="col-xs-4">
+        @Html.Label("Matrícula", new { @class = "col-sm-4 control-label-sm" })
+        @Html.TextBoxFor(model => model.socioID, new { @class = "form-control input-sm", @readonly = "readonly" })
+    </div>
+    <div class="col-xs-1">
+        @*@Html.Label("Pesquisar", new { @class = "col-sm-2 control-label-sm" })*@
+        <div class="btn-group pull-right" style="margin-top:23px">
+            <button type="button" class="btn btn-primary" id="btnSearchSocios">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-7">
+        @Html.Label("Nome", new { @class = "col-sm-7 control-label-sm" })
+        @Html.TextBoxFor(model => model.nomeSocio, new { @class = "form-control input-sm", @readonly = "readonly" })
+    </div>
+</div>

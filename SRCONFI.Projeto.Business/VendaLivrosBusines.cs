@@ -17,6 +17,16 @@ namespace SRCONFI.Projeto.Business
             return listVendaLivros;
         }
 
+        public List<VendasLivros> ListVendaLivrosAndRelationEstoque()
+        {
+            List<VendasLivros> listVendaLivros = new List<VendasLivros>();
+            using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
+            {
+                listVendaLivros = unitOfWork.VendaLivros.GetAllAndRelationComplete().ToList();
+            }
+            return listVendaLivros;
+        }
+
         public void AddVendaLivros(VendasLivros vendaLivros, int idEstoque, int quantidadeVendida)
         {
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))

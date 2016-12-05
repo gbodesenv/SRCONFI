@@ -14,11 +14,11 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
 
             this.HasKey(p => p.pagamentoID);
 
-            this.HasOptional(p => p.Socios)
+            this.HasRequired(p => p.Socios)
                 .WithMany()
                 .HasForeignKey(p => p.socioID_FK);
 
-            this.HasOptional(p => p.Mes)
+            this.HasRequired(p => p.Mes)
                 .WithMany()
                 .HasForeignKey(p => p.mesID_FK);
 
@@ -28,10 +28,17 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
                 .HasColumnName("ID_PAGAMENTO")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
+            Property(p => p.socioID_FK)
+                .IsRequired()
+                .HasColumnName("ID_SOCIO");
+
+            Property(p => p.mesID_FK)
+                .IsRequired()
+                .HasColumnName("ID_MES");
+
             Property(p => p.dataPag)
                 .IsRequired()
-                .HasColumnName("DT_DATA_PAG")
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+                .HasColumnName("DT_DATA_PAG");
 
             Property(p => p.valorPag)
               .IsRequired()

@@ -236,15 +236,7 @@
 
                             <li>@Html.ActionLink("Autores", "Listar", "Autores", null, null)</li>
                             <li>@Html.ActionLink("Editoras", "Listar", "Editoras", null, null)</li>
-                            <li>@Html.ActionLink("Livros", "Listar", "Livros", null, null)</li>
-                            @*<li class="dropdown-submenu">
-                                    <a tabindex="-1" href="#">Livros</a>
-                                    <ul class="dropdown-menu">
-                                        <li>@Html.ActionLink("Autores", "Listar", "Autor", null, null)</li>
-                                        <li>@Html.ActionLink("Editoras", "Listar", "Editora", null, null)</li>
-                                        <li>@Html.ActionLink("Livros", "Listar", "Livro", null, null)</li>
-                                    </ul>
-                                </li>*@
+                            <li>@Html.ActionLink("Livros", "Listar", "Livros", null, null)</li>                            
                         </ul>
                     </li>
 
@@ -254,15 +246,17 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Estoque de Livros<b class="caret"></b></a>
 
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Entrada de Livro", "Listar", "EntradasLivros", null, null)</li>
+                            <li>@Html.ActionLink("Entrada", "Listar", "EntradasLivros", null, null)</li>
+                            <li>@Html.ActionLink("Venda", "Listar", "VendaLivros", null, null)</li>
                         </ul>
+
                     </li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vendas e Pagamentos<b class="caret"></b></a>
 
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Venda de Livros", "Listar", "VendaLivros", null, null)</li>
+                            <li>@Html.ActionLink("Pagamentos", "Listar", "Pagamentos", null, null)</li>
                         </ul>
                     </li>
 
@@ -270,8 +264,10 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consultas<b class="caret"></b></a>
 
+
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Estoque", "Listar", "Estoque", null, null)</li>
+                            <li>@Html.ActionLink("Estoque Entradas", "EstoqueEntradas", "Consultas", null, null)</li>
+                            <li>@Html.ActionLink("Estoque Vendas", "EstoqueVendas", "Consultas", null, null)</li>
                         </ul>
                     </li>
 

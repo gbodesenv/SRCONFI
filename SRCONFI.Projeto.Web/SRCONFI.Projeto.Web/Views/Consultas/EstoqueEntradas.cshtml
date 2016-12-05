@@ -1,0 +1,35 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<Estoque>
+@{
+    ViewBag.Title = "Listar";
+}
+
+
+<script src="~/Scripts/Views/Estoque/Entradas/Listar.js"></script>
+
+@*CABEÇALHO*@
+<ol class="breadcrumb">
+
+    <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
+    <li>Consultas</li>    
+    <li>@Html.ActionLink("Estoque Entradas", "EstoqueEntradas", "Consultas", null, null)</li>
+</ol>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <span><strong>Consulta de Estoque: Entrada de Livros</strong></span>
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" id="btnImprimirEstoque">Imprimir</button>
+        </div>
+
+    </div>
+    <div id="ConteudoTableListarEstoque">
+        @Html.Partial("_TableListarEstoqueEntradas", Model)
+
+    </div>
+
+
+</div>
+
+@Html.Hidden("hdnCaminhoAtualizarTableEstoque", @Url.Action("_TableListarEstoque", "Estoque"))

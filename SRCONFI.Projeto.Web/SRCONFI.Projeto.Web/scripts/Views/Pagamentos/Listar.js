@@ -18,7 +18,7 @@ function setarMascaras() {
 
 function validarPesquisaSocio() {
     var retorno = true;
-    if ($("#socioID_FK").val() == "" || parseInt($("#socioID_FK").val()) < 1) {
+    if ($("#socioID").val() == "" || parseInt($("#socioID").val()) < 1) {
         retorno = false;
         alertSistema(2, "Por Favor, selecionar um sócio para prosseguir no pagamento!");
     }

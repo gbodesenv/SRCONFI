@@ -36,40 +36,32 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
                 .IsRequired()
                 .HasColumnName("ID_MES");
 
-            Property(p => p.dataPag)
-                .IsRequired()
+            Property(p => p.dataPag)                
                 .HasColumnName("DT_DATA_PAG");
 
-            Property(p => p.valorPag)
-              .IsRequired()
+            Property(p => p.valorPag)              
               .HasColumnName("VL_VALOR_PAG");
 
-            Property(p => p.comentarioPag)
-               .IsRequired()
+            Property(p => p.comentarioPag)              
                .HasMaxLength(250)
                .HasColumnName("TX_COMENTARIO_PAG");
 
-            Property(p => p.justificativaCanc)
-               .IsRequired()
+            Property(p => p.justificativaCanc)              
                .HasMaxLength(250)
                .HasColumnName("TX_JUSTIFICATIVA_CANC");
 
-            Property(p => p.dataCanc)
-               .IsRequired()
+            Property(p => p.dataCanc)              
                .HasColumnName("DT_DATA_CANC");
 
-            Property(p => p.justificativaRetificacao)
-               .IsRequired()
+            Property(p => p.justificativaRetificacao)              
                .HasMaxLength(250)
                .HasColumnName("TX_JUSTIFICATIVA_RETIFICACAO");
 
-            Property(p => p.dataRetificacao)
-               .IsRequired()
+            Property(p => p.dataRetificacao)               
                .HasColumnName("DT_DATA_RETIFICACAO");
 
 
-            Property(p => p.inCancelado)
-            .IsRequired()
+            Property(p => p.inCancelado)            
             .HasColumnName("IN_CANCELADO");
 
         }

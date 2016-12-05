@@ -376,9 +376,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Fonts\bootstrap-material-design\" />
     <Folder Include="Content\Fonts\Bootstrap\" />
-    <Folder Include="Views\Editora\" />
-    <Folder Include="Views\LocalAtividade\" />
-    <Folder Include="Views\PeriodoAtividade\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SRCONFI.Projeto.Business\SRCONFI.Projeto.Business.csproj">

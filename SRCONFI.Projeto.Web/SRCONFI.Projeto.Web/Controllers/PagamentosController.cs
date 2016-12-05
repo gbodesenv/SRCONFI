@@ -40,14 +40,14 @@ namespace SRCONFI.Projeto.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Inserir(Pagamentos pagamento, int idLivro)
+        public ActionResult Inserir(Pagamentos pagamento)
         {
             try
             {
 
                 //if (ModelState.IsValid)
                 //{
-                //new Business.PagamentosBusiness().AddPagamentos(pagamento, idLivro);
+                new Business.PagamentosBusiness().AddPagamentos(pagamento);
 
                 //}
                 var retorno = new
@@ -78,17 +78,17 @@ namespace SRCONFI.Projeto.Web.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            var pagamento = new Business.PagamentosBusiness().GetPagamentos(id);                                   
+            var pagamento = new Business.PagamentosBusiness().GetAndRelation(id);                                   
             Combos();
             return View(pagamento);
         }
 
         [HttpPost]
-        public ActionResult Editar(Pagamentos pagamento, int idLivro)
+        public ActionResult Editar(Pagamentos pagamento)
         {
             try
             {
-                //new Business.PagamentosBusiness().EditPagamentos(pagamento, idLivro);
+                new Business.PagamentosBusiness().EditPagamentos(pagamento);
 
                 var retorno = new
                 {

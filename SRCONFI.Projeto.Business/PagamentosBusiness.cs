@@ -56,12 +56,12 @@ namespace SRCONFI.Projeto.Business
             return pagamentos;
         }
 
-        public Domain.Entity.Pagamentos GetAndRelation(int idLivro)
+        public Domain.Entity.Pagamentos GetAndRelation(int idPagamentos)
         {
             Domain.Entity.Pagamentos pagamento;
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {
-                pagamento = unitOfWork.Pagamentos.GetAndRelation(idLivro);
+                pagamento = unitOfWork.Pagamentos.GetAndRelation(idPagamentos);
                 unitOfWork.Dispose();
             }
 

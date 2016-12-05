@@ -118,6 +118,18 @@
     <Compile Include="Migrations\201612042045575_inclusaoTabelaPagamentos.Designer.cs">
       <DependentUpon>201612042045575_inclusaoTabelaPagamentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612051225163_inclusaoTabelaMes.cs" />
+    <Compile Include="Migrations\201612051225163_inclusaoTabelaMes.Designer.cs">
+      <DependentUpon>201612051225163_inclusaoTabelaMes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612051249412_alterTabelaPagamentosCamposNull.cs" />
+    <Compile Include="Migrations\201612051249412_alterTabelaPagamentosCamposNull.Designer.cs">
+      <DependentUpon>201612051249412_alterTabelaPagamentosCamposNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612051254243_alterTabelaPagamentosCamposNull2.cs" />
+    <Compile Include="Migrations\201612051254243_alterTabelaPagamentosCamposNull2.Designer.cs">
+      <DependentUpon>201612051254243_alterTabelaPagamentosCamposNull2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EntityRepository\AtividadesRepository.cs" />
@@ -186,6 +198,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612042045575_inclusaoTabelaPagamentos.resx">
       <DependentUpon>201612042045575_inclusaoTabelaPagamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612051225163_inclusaoTabelaMes.resx">
+      <DependentUpon>201612051225163_inclusaoTabelaMes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612051249412_alterTabelaPagamentosCamposNull.resx">
+      <DependentUpon>201612051249412_alterTabelaPagamentosCamposNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612051254243_alterTabelaPagamentosCamposNull2.resx">
+      <DependentUpon>201612051254243_alterTabelaPagamentosCamposNull2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

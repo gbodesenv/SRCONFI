@@ -7,15 +7,15 @@ namespace SRCONFI.Projeto.Domain.Entity
     {
         public int pagamentoID { get; set; }
         
-        public DateTime dataPag { get; set; }
+        public DateTime? dataPag { get; set; }
 
-        public decimal valorPag { get; set; }
+        public decimal? valorPag { get; set; }
 
         public string comentarioPag { get; set; }
 
         public string justificativaCanc { get; set; }
 
-        public DateTime dataCanc { get; set; }
+        public DateTime? dataCanc { get; set; }
 
         public string justificativaRetificacao { get; set; }
 

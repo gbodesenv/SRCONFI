@@ -1,4 +1,8 @@
-﻿@model SRCONFI.Projeto.Domain.Entity.Pagamentos
+﻿@{
+    Layout = null;
+}
+
+@model SRCONFI.Projeto.Domain.Entity.Pagamentos
 @using System.Web.Mvc;
 
 
@@ -18,7 +22,7 @@
     @Html.HiddenFor(model => model.justificativaCanc)
     @Html.HiddenFor(model => model.justificativaRetificacao)
     <div id="Socio_Pesquisa">
-        @Html.Partial("_Socio", new SRCONFI.Projeto.Domain.Entity.Socios())
+        @Html.Partial("_Socio", Model.Socios)
     </div>
 
 

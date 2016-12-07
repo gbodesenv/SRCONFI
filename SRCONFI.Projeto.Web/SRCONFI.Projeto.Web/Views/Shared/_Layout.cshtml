@@ -236,7 +236,7 @@
 
                             <li>@Html.ActionLink("Autores", "Listar", "Autores", null, null)</li>
                             <li>@Html.ActionLink("Editoras", "Listar", "Editoras", null, null)</li>
-                            <li>@Html.ActionLink("Livros", "Listar", "Livros", null, null)</li>                            
+                            <li>@Html.ActionLink("Livros", "Listar", "Livros", null, null)</li>
                         </ul>
                     </li>
 
@@ -253,10 +253,11 @@
                     </li>
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Vendas e Pagamentos<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mensalidades<b class="caret"></b></a>
 
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Pagamentos", "Listar", "Pagamentos", null, null)</li>
+                            <li>@Html.ActionLink("Pagamento", "Listar", "Pagamentos", null, null)</li>
+                            <li>@Html.ActionLink("Histórico de Pagamentos", "ConsultaPagamentos", "Pagamentos", null, null)</li>
                         </ul>
                     </li>
 

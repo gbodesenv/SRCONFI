@@ -258,9 +258,11 @@
     <Content Include="Scripts\Views\Livros\Inserir.js" />
     <Content Include="Scripts\Views\Livros\Listar.js" />
     <Content Include="Scripts\Views\Modal\Modal.js" />
+    <Content Include="Scripts\Views\Pagamentos\ConsultaPagamentos.js" />
     <Content Include="Scripts\Views\Pagamentos\Editar.js" />
     <Content Include="Scripts\Views\Pagamentos\Inserir.js" />
     <Content Include="Scripts\Views\Pagamentos\Listar.js" />
+    <Content Include="Scripts\Views\Pagamentos\Retificar.js" />
     <Content Include="Scripts\Views\Pagamentos\_PesquisaSocio.js" />
     <Content Include="Scripts\Views\Pagamentos\_Socio.js" />
     <Content Include="Scripts\Views\Socios\Editar.js" />
@@ -302,6 +304,7 @@
     </Compile>
     <Compile Include="Helpers\CamposHtmlHelper.cs" />
     <Compile Include="Models\SRCONFIProjetoWebContext.cs" />
+    <Compile Include="PdfConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\ModalViewModel.cs" />
@@ -365,6 +368,8 @@
     <Content Include="Views\Pagamentos\_TableListarPagamentos.cshtml" />
     <Content Include="Views\Pagamentos\_Socio.cshtml" />
     <Content Include="Views\Pagamentos\_PesquisaSocios.cshtml" />
+    <Content Include="Views\Pagamentos\ConsultaPagamentos.cshtml" />
+    <Content Include="Views\Pagamentos\RetificarPagamento.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

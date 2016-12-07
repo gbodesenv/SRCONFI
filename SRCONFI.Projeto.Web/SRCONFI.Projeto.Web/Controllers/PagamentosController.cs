@@ -78,7 +78,7 @@ namespace SRCONFI.Projeto.Web.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            var pagamento = new Business.PagamentosBusiness().GetAndRelation(id);                                   
+            var pagamento = new Business.PagamentosBusiness().GetAndRelation(id);
             Combos();
             return View(pagamento);
         }
@@ -163,6 +163,25 @@ namespace SRCONFI.Projeto.Web.Controllers
 
         #endregion Livros
 
+        #region ConsulaPagamentos
+
+        [HttpGet]
+        public ActionResult ConsultaPagamentos()
+        {
+            return View(new Business.PagamentosBusiness().ListPagamentos());
+        }
+
+
+        [HttpGet]
+        public ActionResult RetificarPagamento(int id)
+        {
+            Combos();
+            return View(new Business.PagamentosBusiness().GetAndRelation(id));
+        }
+
+        
+
+        #endregion ConsulaPagamentos
 
         #region Métodos Auxiliares 
 

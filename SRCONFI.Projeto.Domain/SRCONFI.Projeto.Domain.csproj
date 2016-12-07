@@ -134,6 +134,10 @@
     <Compile Include="Migrations\201612071226155_alteracaocampo_inAtivo.Designer.cs">
       <DependentUpon>201612071226155_alteracaocampo_inAtivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612071715504_updateTableMes.cs" />
+    <Compile Include="Migrations\201612071715504_updateTableMes.Designer.cs">
+      <DependentUpon>201612071715504_updateTableMes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EntityRepository\AtividadesRepository.cs" />
@@ -214,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612071226155_alteracaocampo_inAtivo.resx">
       <DependentUpon>201612071226155_alteracaocampo_inAtivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071715504_updateTableMes.resx">
+      <DependentUpon>201612071715504_updateTableMes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

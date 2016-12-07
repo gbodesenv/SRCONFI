@@ -1,0 +1,39 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<Atividades>
+
+<table class="table table-hover" id="tableAtividade">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Atividade</th>
+            <th>Descrição</th>
+            <th>Data Inicio</th>
+            <th>Data Término</th>
+            <th>Ativo</th>
+    </thead>
+    <tbody>
+
+        @foreach (Atividades atividades in Model)
+            {
+            <tr class="clickable-row" data-row-id="@atividades.atividadeID">
+                <td>@atividades.atividadeID</td>
+                <td>@atividades.nomeAtividade</td>
+                <td>@atividades.descricaoAtividade</td>
+                <td>@atividades.dataInicioAtividade</td>
+                <td>@atividades.dataTerminoAtividade</td>
+                <td>
+                    @if (atividades.inAtivo == 0)
+                    { @Html.Raw("Inativo") }
+                    else
+                    { @Html.Raw("Ativo") }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $("#tableAtividade").on("click", ".clickable-row", function (event) {
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+</script>

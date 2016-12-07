@@ -114,6 +114,10 @@
     <Compile Include="Migrations\201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.Designer.cs">
       <DependentUpon>201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612071226155_alteracaocampo_inAtivo.cs" />
+    <Compile Include="Migrations\201612071226155_alteracaocampo_inAtivo.Designer.cs">
+      <DependentUpon>201612071226155_alteracaocampo_inAtivo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EntityRepository\AtividadesRepository.cs" />
@@ -175,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.resx">
       <DependentUpon>201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612071226155_alteracaocampo_inAtivo.resx">
+      <DependentUpon>201612071226155_alteracaocampo_inAtivo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

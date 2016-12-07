@@ -241,6 +241,9 @@
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\Jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Views\Atividades\Editar.js" />
+    <Content Include="Scripts\Views\Atividades\Inserir.js" />
+    <Content Include="Scripts\Views\Atividades\Listar.js" />
     <Content Include="Scripts\Views\Autores\Editar.js" />
     <Content Include="Scripts\Views\Autores\Inserir.js" />
     <Content Include="Scripts\Views\Autores\Listar.js" />
@@ -346,6 +349,8 @@
     <Content Include="Views\VendaLivros\Editar.cshtml" />
     <Content Include="Views\VendaLivros\_Livro.cshtml" />
     <Content Include="Views\VendaLivros\_PesquisarLivros.cshtml" />
+    <Content Include="Views\Atividades\Editar.cshtml" />
+    <Content Include="Views\Atividades\_TableListarAtividades.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -355,11 +360,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Fonts\bootstrap-material-design\" />
+    <Folder Include="Content\Fonts\Bootstrap\" />
     <Folder Include="Views\Editora\" />
     <Folder Include="Views\LocalAtividade\" />
     <Folder Include="Views\PeriodoAtividade\" />
-    <Folder Include="Content\Fonts\bootstrap-material-design\" />
-    <Folder Include="Content\Fonts\Bootstrap\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SRCONFI.Projeto.Business\SRCONFI.Projeto.Business.csproj">

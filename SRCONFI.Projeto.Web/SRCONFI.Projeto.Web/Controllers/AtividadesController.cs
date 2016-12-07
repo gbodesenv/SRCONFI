@@ -95,7 +95,7 @@ namespace SRCONFI.Projeto.Web.Controllers
 
                 var retorno = new
                 {
-                    mensagem = "Sócios Atualizado com Sucesso!",
+                    mensagem = "Atividade Atualizado com Sucesso!",
                     erro = false,
                     id = atividades.atividadeID
                 };
@@ -127,7 +127,7 @@ namespace SRCONFI.Projeto.Web.Controllers
 
                 var retorno = new
                 {
-                    mensagem = "Atividades Excluída com Sucesso!",
+                    mensagem = "Atividade Excluída com Sucesso!",
                     erro = false
                 };
 
@@ -282,7 +282,7 @@ namespace SRCONFI.Projeto.Web.Controllers
             ViewModel.ModalViewModel modal = new ViewModel.ModalViewModel();
             modal.IdModal = "Atividades";
             modal.TipoBotao = (int)Enum.ModalEnum.TipoBotaoEnum.Incluir;
-            modal.TituloModal = "Inserir Sócios";
+            modal.TituloModal = "Inserir Atividades";
             modal.CaminhoBodyModal = Url.Action("Inserir", "Atividades");
 
             return PartialView("~/Views/Modal/Modal.cshtml", modal);
@@ -293,7 +293,7 @@ namespace SRCONFI.Projeto.Web.Controllers
             ViewModel.ModalViewModel modal = new ViewModel.ModalViewModel();
             modal.IdModal = "Atividades";
             modal.TipoBotao = (int)Enum.ModalEnum.TipoBotaoEnum.Editar;
-            modal.TituloModal = "Editar Sócios";
+            modal.TituloModal = "Editar Atividades";
             modal.CaminhoBodyModal = Url.Action("Editar", "Atividades");
 
             return PartialView("~/Views/Modal/Modal.cshtml", modal);

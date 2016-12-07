@@ -23,7 +23,7 @@ namespace SRCONFI.Projeto.Domain.Entity
 
         public DateTime dataTerminoAtividade { get; set; }
 
-        public bool inAtivo { get; set; }
+        public byte? inAtivo { get; set; }
 
         public virtual LocalAtividade LocalAtividade { get; set; }
 

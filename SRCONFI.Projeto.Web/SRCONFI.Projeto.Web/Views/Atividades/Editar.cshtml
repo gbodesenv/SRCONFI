@@ -7,12 +7,12 @@
 @using System.Web.Mvc;
 
 
-<script src="~/Scripts/Views/Atividades/Inserir.js"></script>
+<script src="~/Scripts/Views/Atividades/Editar.js"></script>
 
 
-@Html.Hidden("hdnCaminhoInserirAtividades", @Url.Action("Inserir", "Atividades"))
+@Html.Hidden("hdnCaminhoEditarAtividades", @Url.Action("Editar", "Atividades"))
 
-@using (Html.BeginForm("Inserir", "Atividades", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formInserirAtividades" }))
+@using (Html.BeginForm("Editar", "Atividades", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formEditarAtividades" }))
 {
 
     @Html.HiddenFor(model => model.localID_FK)

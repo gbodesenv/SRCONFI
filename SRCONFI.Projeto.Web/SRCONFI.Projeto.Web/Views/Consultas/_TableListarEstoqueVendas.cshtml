@@ -1,0 +1,36 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<VendasLivros>
+
+<table class="table table-hover" id="tableEstoque">
+    <thead>
+        <tr>
+            <th>Data de Venda</th>
+            <th>Nome do Livro</th>
+            <th>Autor</th>
+            <th>Quantidade Vendida</th>
+            <th>Valor Unitário(R$)</th>
+            <th>Desconto(%)</th>
+            <th>Total da Venda(R$)</th>
+    </thead>
+    <tbody>
+
+        @foreach (VendasLivros vendas in Model)
+            {
+            <tr class="clickable-row" data-row-id="@vendas.vendaID">
+                <td>@vendas.dataVenda.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)</td>
+                <td>@vendas.Estoque.Livros.nomeAutor</td>
+                <td>@vendas.Estoque.Livros.Autores.nomeAutor</td>
+                <td>@vendas.Estoque.nrQuantidade</td>
+                <td>@vendas.Estoque.vlUnitarioLivro.ToString("C")</td>                
+                <td>@vendas.valorDesconto</td>
+                <td>@vendas.totalVenda.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $("#tableEstoque").on("click", ".clickable-row", function (event) {
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+</script>

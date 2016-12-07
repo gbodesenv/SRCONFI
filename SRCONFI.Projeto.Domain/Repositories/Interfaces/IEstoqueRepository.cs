@@ -9,5 +9,6 @@ namespace SRCONFI.Projeto.Domain.Repositories.Interfaces
         Estoque GetAndRelation(int id);
         Estoque GetEstoqueByEntradaID(int idEntrada);
         Estoque GetEstoqueByLivroLastDate(int idLivro);
+        IEnumerable<Estoque> GetAllAndRelationComplete();
     }
 }

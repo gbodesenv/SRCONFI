@@ -103,7 +103,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Sócios</div>
                     <div class="panel-body">
-                        Quantidade cadastrado no sisitema <strong>8</strong>.
+                        Quantidade cadastrado no sisitema <strong> @Html.Raw((int)ViewBag.Socios)</strong>.
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Entrada de Livros</div>
                     <div class="panel-body">
-                        Foram adquiridos <strong>30</strong> ao total.
+                        Foram adquiridos <strong>@Html.Raw((int)ViewBag.EntradaLivros)</strong> ao total.
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Venda de Livros</div>
                     <div class="panel-body">
-                        Foram vendidos <strong>3</strong> esse mês.
+                        Foram vendidos <strong>@Html.Raw((int)ViewBag.VendaLivros)</strong> esse mês.
                     </div>
                 </div>
             </div>

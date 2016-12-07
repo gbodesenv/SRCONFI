@@ -109,7 +109,7 @@ function calcularQuantidadeValor() {
 
     calc = calc - desconto;
 
-    total.val(calc);
+    total.val(calc.toFixed(2));
 
     $('.numeric-places').mask("#.##0,00", { reverse: true });
 }

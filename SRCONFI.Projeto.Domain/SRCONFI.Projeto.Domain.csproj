@@ -114,6 +114,22 @@
     <Compile Include="Migrations\201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.Designer.cs">
       <DependentUpon>201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612042045575_inclusaoTabelaPagamentos.cs" />
+    <Compile Include="Migrations\201612042045575_inclusaoTabelaPagamentos.Designer.cs">
+      <DependentUpon>201612042045575_inclusaoTabelaPagamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612051225163_inclusaoTabelaMes.cs" />
+    <Compile Include="Migrations\201612051225163_inclusaoTabelaMes.Designer.cs">
+      <DependentUpon>201612051225163_inclusaoTabelaMes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612051249412_alterTabelaPagamentosCamposNull.cs" />
+    <Compile Include="Migrations\201612051249412_alterTabelaPagamentosCamposNull.Designer.cs">
+      <DependentUpon>201612051249412_alterTabelaPagamentosCamposNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612051254243_alterTabelaPagamentosCamposNull2.cs" />
+    <Compile Include="Migrations\201612051254243_alterTabelaPagamentosCamposNull2.Designer.cs">
+      <DependentUpon>201612051254243_alterTabelaPagamentosCamposNull2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201612071226155_alteracaocampo_inAtivo.cs" />
     <Compile Include="Migrations\201612071226155_alteracaocampo_inAtivo.Designer.cs">
       <DependentUpon>201612071226155_alteracaocampo_inAtivo.cs</DependentUpon>
@@ -132,6 +148,8 @@
     <Compile Include="Repositories\EntityRepository\LivrosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\LocalAtividadeRepository.cs" />
     <Compile Include="Repositories\EntityRepository\LogRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\MesRepository.cs" />
+    <Compile Include="Repositories\EntityRepository\PagamentosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\PeriodoAtividadeRepository.cs" />
     <Compile Include="Repositories\EntityRepository\SociosRepository.cs" />
     <Compile Include="Repositories\EntityRepository\TipoUsuarioRepository.cs" />
@@ -150,6 +168,8 @@
     <Compile Include="Repositories\Interfaces\ILivrosRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILocalAtividadeRepository.cs" />
     <Compile Include="Repositories\Interfaces\ILogRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IPagamentosRepository.cs" />
     <Compile Include="Repositories\Interfaces\IPeriodoAtividadeRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISociosRepository.cs" />
     <Compile Include="Repositories\Interfaces\ITipoUsuarioRepository.cs" />
@@ -179,6 +199,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.resx">
       <DependentUpon>201611271945475_CriacaoTabelas_EntradaLivros_VendaLivros_Estoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612042045575_inclusaoTabelaPagamentos.resx">
+      <DependentUpon>201612042045575_inclusaoTabelaPagamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612051225163_inclusaoTabelaMes.resx">
+      <DependentUpon>201612051225163_inclusaoTabelaMes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612051249412_alterTabelaPagamentosCamposNull.resx">
+      <DependentUpon>201612051249412_alterTabelaPagamentosCamposNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612051254243_alterTabelaPagamentosCamposNull2.resx">
+      <DependentUpon>201612051254243_alterTabelaPagamentosCamposNull2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612071226155_alteracaocampo_inAtivo.resx">
       <DependentUpon>201612071226155_alteracaocampo_inAtivo.cs</DependentUpon>

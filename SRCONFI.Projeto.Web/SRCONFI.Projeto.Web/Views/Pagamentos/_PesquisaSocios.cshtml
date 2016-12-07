@@ -1,0 +1,14 @@
+﻿
+@{
+    Layout = null;
+}
+
+<script src="~/Scripts/Views/Pagamentos/_PesquisaSocio.js"></script>
+
+<div id="pesquisarSociosDIV">
+    <div class="alert alert-info" role="alert">
+        Carregando! Por favor, aguarde.
+    </div>
+</div>
+
+@Html.Hidden("hdnCaminhoTableSocios", @Url.Action("_TableListarSocios", "Socios"))

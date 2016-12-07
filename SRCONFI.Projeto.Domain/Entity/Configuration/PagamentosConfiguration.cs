@@ -14,11 +14,11 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
 
             this.HasKey(p => p.pagamentoID);
 
-            this.HasOptional(p => p.Socios)
+            this.HasRequired(p => p.Socios)
                 .WithMany()
                 .HasForeignKey(p => p.socioID_FK);
 
-            this.HasOptional(p => p.Mes)
+            this.HasRequired(p => p.Mes)
                 .WithMany()
                 .HasForeignKey(p => p.mesID_FK);
 
@@ -28,41 +28,40 @@ namespace SRCONFI.Projeto.Domain.Entity.Configuration
                 .HasColumnName("ID_PAGAMENTO")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(p => p.dataPag)
+            Property(p => p.socioID_FK)
                 .IsRequired()
-                .HasColumnName("DT_DATA_PAG")
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+                .HasColumnName("ID_SOCIO");
 
-            Property(p => p.valorPag)
-              .IsRequired()
+            Property(p => p.mesID_FK)
+                .IsRequired()
+                .HasColumnName("ID_MES");
+
+            Property(p => p.dataPag)                
+                .HasColumnName("DT_DATA_PAG");
+
+            Property(p => p.valorPag)              
               .HasColumnName("VL_VALOR_PAG");
 
-            Property(p => p.comentarioPag)
-               .IsRequired()
+            Property(p => p.comentarioPag)              
                .HasMaxLength(250)
                .HasColumnName("TX_COMENTARIO_PAG");
 
-            Property(p => p.justificativaCanc)
-               .IsRequired()
+            Property(p => p.justificativaCanc)              
                .HasMaxLength(250)
                .HasColumnName("TX_JUSTIFICATIVA_CANC");
 
-            Property(p => p.dataCanc)
-               .IsRequired()
+            Property(p => p.dataCanc)              
                .HasColumnName("DT_DATA_CANC");
 
-            Property(p => p.justificativaRetificacao)
-               .IsRequired()
+            Property(p => p.justificativaRetificacao)              
                .HasMaxLength(250)
                .HasColumnName("TX_JUSTIFICATIVA_RETIFICACAO");
 
-            Property(p => p.dataRetificacao)
-               .IsRequired()
+            Property(p => p.dataRetificacao)               
                .HasColumnName("DT_DATA_RETIFICACAO");
 
 
-            Property(p => p.inCancelado)
-            .IsRequired()
+            Property(p => p.inCancelado)            
             .HasColumnName("IN_CANCELADO");
 
         }

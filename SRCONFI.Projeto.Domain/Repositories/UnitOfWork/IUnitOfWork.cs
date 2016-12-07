@@ -29,6 +29,8 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         IAtividadesRepository Atividade { get; }
         ILocalAtividadeRepository LocalAtividade { get; }
         IPeriodoAtividadeRepository PeriodoAtividade { get; }
+        IPagamentosRepository Pagamentos { get; }
+        IMesRepository Mes { get; }
 
         int Complete();
     }

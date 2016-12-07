@@ -1,0 +1,40 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model Pagamentos
+@{
+    ViewBag.Title = "Listar";
+}
+
+
+<script src="~/Scripts/Views/Pagamentos/Listar.js"></script>
+
+@*CABEÇALHO*@
+<ol class="breadcrumb">
+
+    <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
+    <li>Mensalidades</li>
+    <li>@Html.ActionLink("Pagamento", "Listar", "Pagamentos", null, null)</li>
+
+</ol>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <span><strong>Registro de Pagamento</strong></span>
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" id="btnGravarPagamento">Gravar</button>
+        </div>
+
+    </div>
+    <div class="row top10 left15 right15 bottom20">
+        <div id="ConteudoListarPagamento">
+            @Html.Partial("Inserir", Model)
+        </div>
+    </div>
+</div>
+
+@Html.Hidden("hdnInserirPagamento", @Url.Action("Inserir", "Pagamentos"))
+@Html.Hidden("hdnEditarPagamento", @Url.Action("Editar", "Pagamentos"))
+@Html.Hidden("hdnCaminhoEditarPagamentos", @Url.Action("Editar", "Pagamentos"))
+@Html.Hidden("hdnCaminhoModalPesquisarSocios", @Url.Action("ModalPesquisarSocios", "Pagamentos"))
+@Html.Hidden("hdnCaminhoPesquisarSocios", @Url.Action("_PesquisaSocios", "Pagamentos"))
+@Html.Hidden("hdnCaminhoBuscarSocio", @Url.Action("_Socio", "Pagamentos"))

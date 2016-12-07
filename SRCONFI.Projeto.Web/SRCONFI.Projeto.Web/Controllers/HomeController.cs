@@ -42,12 +42,15 @@ namespace SRCONFI.Projeto.Web.Controllers
                     ViewBag.SenhaVazio = true;
             }
 
-            //if true
+
             return View("Index");
         }
 
         public ActionResult Home()
         {
+            ViewBag.Socios = new Business.SociosBusiness().ListSocios().Count();
+            ViewBag.EntradaLivros = new Business.EntradasLivrosBusiness().ListEntradasLivros().Count();
+            ViewBag.VendaLivros = new Business.VendaLivrosBusiness().ListVendaLivros().Count();
             return View();
         }
 

@@ -16,6 +16,16 @@ namespace SRCONFI.Projeto.Business
             return listEstoque;
         }
 
+        public List<Domain.Entity.Estoque> ListEstoqueCompleteRelation()
+        {
+            List<Domain.Entity.Estoque> listEstoque = new List<Domain.Entity.Estoque>();
+            using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
+            {
+                listEstoque = unitOfWork.Estoque.GetAllAndRelationComplete().ToList();
+            }
+            return listEstoque;
+        }
+
         public void AddEstoque(Domain.Entity.Estoque estoque)
         {
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))

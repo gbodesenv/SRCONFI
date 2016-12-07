@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+
+@model SRCONFI.Projeto.Domain.Entity.Pagamentos
+@using System.Web.Mvc;
+
+
+<script src="~/Scripts/Views/Pagamentos/Editar.js"></script>
+
+
+
+@Html.Hidden("hdnCaminhoEditarPagamentos", @Url.Action("Editar", "Pagamentos"))
+
+@using (Html.BeginForm("Editar", "Pagamentos", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formPagamentos" }))
+{
+    @Html.HiddenFor(model => model.pagamentoID)
+    @Html.HiddenFor(model => model.socioID_FK)
+    @Html.HiddenFor(model => model.dataCanc)
+    @Html.HiddenFor(model => model.dataRetificacao)
+    @Html.HiddenFor(model => model.inCancelado)
+    @Html.HiddenFor(model => model.justificativaCanc)
+    @Html.HiddenFor(model => model.justificativaRetificacao)
+    <div id="Socio_Pesquisa">
+        @Html.Partial("_Socio", Model.Socios)
+    </div>
+
+
+    <div class="row top10">
+        <div class="col-xs-4">
+            @Html.Label("Data", new { @class = "col-sm-4 control-label-sm" })
+            @Html.TextBoxFor(model => model.dataPag, new { @class = "form-control input-sm date-mask", @placeholder = "Data de Pagamento", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Data de Pagamento' é obrigatório" })
+        </div>
+
+        <div class="col-xs-3">
+            @Html.Label("Valor", new { @class = "col-sm-3 control-label-sm" })
+            @Html.TextBoxFor(model => model.valorPag, new { @class = "form-control input-sm numeric-places", @placeholder = "Valor", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Valor' é obrigatório" })
+        </div>
+
+        <div class="col-xs-5">
+            @Html.Label("Mês Ref", new { @class = "col-sm-4 control-label-sm" })
+            @Html.DropDownListFor(model => model.mesID_FK, (List<SelectListItem>)ViewBag.listMes, new { @class = "form-control", @placeholder = "Mês/Ano Referente", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Mês/Ano Referente' é obrigatório" })
+        </div>
+    </div>
+
+    <div class="row top10">
+        <div class="col-xs-12">
+            @Html.Label("Comentário", new { @class = "col-sm-3 control-label-sm" })
+            @Html.TextBoxFor(model => model.comentarioPag, new { @class = "form-control input-sm", @placeholder = "Comentário", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Comentário' é obrigatório" })
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+

@@ -22,6 +22,17 @@ namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
         }
 
 
+        public IEnumerable<Estoque> GetAllAndRelationComplete()
+        {
+            return BancoContext.Estoque.Include("EntradasLivros")
+                                   .Include("Livros")
+                                   .Include("Livros.Autores")
+                                   .Include("Livros.Editoras")
+                                   .OrderByDescending(e => e.EntradasLivros.dataEntrada)
+                                   .ThenByDescending(i => i.entradaID_FK);
+        }
+
+
         public Estoque GetEstoqueByVendaID(int idVenda)
         {
             return (from e in BancoContext.Estoque.Include("Livros").Include("EntradasLivros").ToList()
@@ -35,7 +46,9 @@ namespace SRCONFI.Projeto.Domain.Repositories.EntityRepository
         {
             return BancoContext.Estoque.Include("EntradasLivros").ToList()
                                        .Where(e => e.livroID_FK == idLivro)
-                                       .OrderByDescending(es => es.EntradasLivros.dataEntrada).FirstOrDefault();
+                                       .OrderByDescending(es => es.EntradasLivros.dataEntrada)
+                                       .ThenByDescending(i=>i.entradaID_FK)
+                                       .FirstOrDefault();
         }
 
         public Estoque GetAndRelation(int id)

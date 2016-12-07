@@ -1,0 +1,41 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<Pagamentos>
+
+<table class="table table-hover" id="tablePagamentos">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Data Pag.</th>
+            <th>Mês</th>
+            <th>Valor Pag.</th>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Cancelado</th>
+</thead>
+    <tbody>
+
+        @foreach (Pagamentos pagamentos in Model)
+            {
+            <tr class="clickable-row" data-row-id="@pagamentos.pagamentoID">
+                <td>@pagamentos.pagamentoID</td>
+                <td>@pagamentos.dataPag</td>
+                <td>@pagamentos.Mes.nomeMes</td>
+                <td>@pagamentos.valorPag.Value.ToString("C")</td>
+                <td>@pagamentos.Socios.socioID</td>
+                <td>@pagamentos.Socios.nomeSocio</td>
+                <td>
+                    @if (pagamentos.inCancelado == 1 || pagamentos.inCancelado.HasValue)
+                    { @Html.Raw("Sim") }
+                    else
+                    { @Html.Raw("Não") }
+                </td>                
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    $("#tablePagamentos").on("click", ".clickable-row", function (event) {
+        $(this).addClass('active').siblings().removeClass('active');
+    });
+</script>

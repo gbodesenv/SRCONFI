@@ -1,0 +1,48 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<Pagamentos>
+@{
+    ViewBag.Title = "Consulta";
+}
+
+
+<script src="~/Scripts/Views/Pagamentos/ConsultaPagamentos.js"></script>
+
+@*CABEÇALHO*@
+<ol class="breadcrumb">
+
+    <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>    
+    <li>Mensalidades</li>    
+    <li>@Html.ActionLink("Histórico de Pagamentos", "ConsultaPagamentos", "Pagamentos", null, null)</li>
+
+</ol>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <span><strong>Histórico de Pagamentos</strong></span>
+        <div class="btn-group pull-right">
+                <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("Listar", "Pagamentos")'">Incluir</button>                
+                <button type="button" class="btn btn-primary" id="btnRetificarPagamento">Retificar</button>
+                @*<button type="button" class="btn btn-primary" id="btnCancelarPagamento">Cancelar</button>*@
+                <button type="button" class="btn btn-primary" id="btnImprimirPagamentos">Imprimir</button>
+
+</div>
+
+    </div>
+    <div id="ConteudoTableConsultaPagamentos">
+        @Html.Partial("_TableListarPagamentos", Model)
+
+    </div>
+
+
+</div>
+
+@Html.Hidden("hdnCaminhoAtualizarTablePagamento", @Url.Action("_TableConsultaPagamentos", "Pagamentos"))
+
+@Html.Hidden("hdnCaminhoInserirPagamento", @Url.Action("Inserir", "Pagamentos"))
+@Html.Hidden("hdnCaminhoModalInserirPagamento", @Url.Action("ModalInserir", "Pagamentos"))
+
+@Html.Hidden("hdnCaminhoRetificarPagamento", @Url.Action("RetificarPagamento", "Pagamentos"))
+@Html.Hidden("hdnCaminhoModalEditarPagamento", @Url.Action("ModalEditar", "Pagamentos"))
+
+@Html.Hidden("hdnCaminhoExcluirPagamento", @Url.Action("Excluir", "Pagamentos"))

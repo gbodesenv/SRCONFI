@@ -247,6 +247,8 @@
     <Content Include="Scripts\Views\Autores\Editar.js" />
     <Content Include="Scripts\Views\Autores\Inserir.js" />
     <Content Include="Scripts\Views\Autores\Listar.js" />
+    <Content Include="Scripts\Views\Consultas\Estoque\Entradas\Listar.js" />
+    <Content Include="Scripts\Views\Consultas\Estoque\Vendsas\Listar.js" />
     <Content Include="Scripts\Views\Editoras\Editar.js" />
     <Content Include="Scripts\Views\Editoras\Inserir.js" />
     <Content Include="Scripts\Views\Editoras\Listar.js" />
@@ -259,6 +261,13 @@
     <Content Include="Scripts\Views\Livros\Inserir.js" />
     <Content Include="Scripts\Views\Livros\Listar.js" />
     <Content Include="Scripts\Views\Modal\Modal.js" />
+    <Content Include="Scripts\Views\Pagamentos\ConsultaPagamentos.js" />
+    <Content Include="Scripts\Views\Pagamentos\Editar.js" />
+    <Content Include="Scripts\Views\Pagamentos\Inserir.js" />
+    <Content Include="Scripts\Views\Pagamentos\Listar.js" />
+    <Content Include="Scripts\Views\Pagamentos\Retificar.js" />
+    <Content Include="Scripts\Views\Pagamentos\_PesquisaSocio.js" />
+    <Content Include="Scripts\Views\Pagamentos\_Socio.js" />
     <Content Include="Scripts\Views\Socios\Editar.js" />
     <Content Include="Scripts\Views\Socios\Inserir.js" />
     <Content Include="Scripts\Views\Socios\Listar.js" />
@@ -280,11 +289,13 @@
     <Compile Include="Bundles\BundleConfig.cs" />
     <Compile Include="Controllers\AtividadesController.cs" />
     <Compile Include="Controllers\AutoresController.cs" />
+    <Compile Include="Controllers\ConsultasController.cs" />
     <Compile Include="Controllers\EditoraController.cs" />
     <Compile Include="Controllers\EntradasLivrosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LivrosController.cs" />
     <Compile Include="Controllers\LocalAtividadeController.cs" />
+    <Compile Include="Controllers\PagamentosController.cs" />
     <Compile Include="Controllers\PeriodoAtividadeController.cs" />
     <Compile Include="Controllers\SociosController.cs" />
     <Compile Include="Controllers\TipoUsuarioController.cs" />
@@ -296,6 +307,7 @@
     </Compile>
     <Compile Include="Helpers\CamposHtmlHelper.cs" />
     <Compile Include="Models\SRCONFIProjetoWebContext.cs" />
+    <Compile Include="PdfConvert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\ModalViewModel.cs" />
@@ -351,6 +363,18 @@
     <Content Include="Views\VendaLivros\_PesquisarLivros.cshtml" />
     <Content Include="Views\Atividades\Editar.cshtml" />
     <Content Include="Views\Atividades\_TableListarAtividades.cshtml" />
+    <Content Include="Views\Consultas\EstoqueEntradas.cshtml" />
+    <Content Include="Views\Consultas\_TableListarEstoqueEntradas.cshtml" />
+    <Content Include="Views\Consultas\EstoqueVendas.cshtml" />
+    <Content Include="Views\Consultas\_TableListarEstoqueVendas.cshtml" />
+    <Content Include="Views\Pagamentos\Listar.cshtml" />
+    <Content Include="Views\Pagamentos\Inserir.cshtml" />
+    <Content Include="Views\Pagamentos\Editar.cshtml" />
+    <Content Include="Views\Pagamentos\_TableListarPagamentos.cshtml" />
+    <Content Include="Views\Pagamentos\_Socio.cshtml" />
+    <Content Include="Views\Pagamentos\_PesquisaSocios.cshtml" />
+    <Content Include="Views\Pagamentos\ConsultaPagamentos.cshtml" />
+    <Content Include="Views\Pagamentos\RetificarPagamento.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -360,6 +384,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Fonts\bootstrap-material-design\" />
+    <Folder Include="Content\Fonts\Bootstrap\" />
     <Folder Include="Content\Fonts\bootstrap-material-design\" />
     <Folder Include="Content\Fonts\Bootstrap\" />
     <Folder Include="Views\Editora\" />

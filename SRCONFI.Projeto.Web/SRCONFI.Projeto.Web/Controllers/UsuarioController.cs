@@ -146,6 +146,15 @@ namespace SRCONFI.Projeto.Web.Controllers
         #endregion Fim Excluir 
 
         #region Imprimir 
+
+        public ActionResult _UsuariosPDF()
+        {
+            var listaDeUsuarios = new Business.UsuarioBusiness().ListUsuarios();
+            var pdf = new RazorPDF.PdfResult(listaDeUsuarios, "_UsuariosPDF");
+            return pdf;
+        }
+
+
         #endregion Fim Imprimir 
 
         #region Métodos Auxiliares 

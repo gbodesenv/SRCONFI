@@ -15,7 +15,9 @@
 @using (Html.BeginForm("Inserir", "Atividades", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formInserirAtividades" }))
 {
 
-    @Html.HiddenFor(model => model.localID_FK)
+    @*@Html.HiddenFor(model => model.localID_FK)*@
+    @Html.Hidden("inAtivo", 1)
+    @*@Html.HiddenFor(model => model.)*@
 
 
     <div class="row">
@@ -37,11 +39,11 @@
         </div>
         <div class="col-xs-3">
             @Html.Label("Data Início", new { @class = "col-sm-12 control-label-sm" })
-            @Html.TextBoxFor(model => model.dataInicioAtividade, new { @class = "form-control input-sm date-mask", @placeholder = "Data de Inico", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Data de Inicio' é obrigatório" })
+            @Html.TextBoxFor(model => model.dataInicioAtividade, new { @class = "form-control input-sm mask-date", @placeholder = "Data de Inico", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Data de Inicio' é obrigatório" })
         </div>
         <div class="col-xs-3">
             @Html.Label("Data Término", new { @class = "col-sm-12 control-label-sm" })
-            @Html.TextBoxFor(model => model.dataTerminoAtividade, new { @class = "form-control input-sm date-mask", @placeholder = "Data de Término", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Data de Término' é obrigatório" })
+            @Html.TextBoxFor(model => model.dataTerminoAtividade, new { @class = "form-control input-sm mask-date", @placeholder = "Data de Término", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Data de Término' é obrigatório" })
         </div>
     </div>
 

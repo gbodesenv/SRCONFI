@@ -1,5 +1,7 @@
-﻿using SRCONFI.Projeto.Domain.Entity;
+﻿using Codaxy.WkHtmlToPdf;
+using SRCONFI.Projeto.Domain.Entity;
 using System.Collections.Generic;
+using System.IO;
 using System.Web.Mvc;
 
 namespace SRCONFI.Projeto.Web.Controllers
@@ -149,9 +151,33 @@ namespace SRCONFI.Projeto.Web.Controllers
 
         public ActionResult _UsuariosPDF()
         {
-            var listaDeUsuarios = new Business.UsuarioBusiness().ListUsuarios();
-            var pdf = new RazorPDF.PdfResult(listaDeUsuarios, "_UsuariosPDF");
-            return pdf;
+            //Html = RenderPartialToString(this, "_UsuariosPDF", new Business.UsuarioBusiness().ListUsuarios()),
+            PdfConvert.ConvertHtmlToPdf(new PdfDocument
+            {
+                Url = "http://www.google.com",//Url.Action("_UsuariosPDF","Usuario", new Business.UsuarioBusiness().ListUsuarios()),
+                HeaderLeft = "[title]",
+                HeaderRight = "[date] [time]",
+                FooterCenter = "Page [page] of [topage]"
+
+            }, new PdfOutput
+            {                
+                OutputFilePath = "wkhtmltopdf-page.pdf"
+            });
+            return View();
+        }
+
+        public static string RenderPartialToString(Controller controller, string viewName, object model)
+        {
+            controller.ViewData.Model = model;
+
+            using (StringWriter sw = new StringWriter())
+            {
+                ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(controller.ControllerContext, viewName);
+                ViewContext viewContext = new ViewContext(controller.ControllerContext, viewResult.View, controller.ViewData, controller.TempData, sw);
+                viewResult.View.Render(viewContext, sw);
+
+                return sw.GetStringBuilder().ToString();
+            }
         }
 
 
@@ -234,3 +260,47 @@ namespace SRCONFI.Projeto.Web.Controllers
 
     }
 }
+
+//using System;
+//using System.Collections.Generic;
+//using System.Text;
+//using System.IO;
+
+//namespace Codaxy.WkHtmlToPdf.Tests
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Console.InputEncoding = Encoding.UTF8;
+
+//            PdfConvert.Environment.Debug = false;
+//            PdfConvert.ConvertHtmlToPdf(new PdfDocument { Url = "http://www.codaxy.com" }, new PdfOutput
+//            {
+//                OutputFilePath = "codaxy.pdf"
+//            });
+//            PdfConvert.ConvertHtmlToPdf(new PdfDocument
+//            {
+//                Url = "http://www.codaxy.com",
+//                HeaderLeft = "[title]",
+//                HeaderRight = "[date] [time]",
+//                FooterCenter = "Page [page] of [topage]"
+
+//            }, new PdfOutput
+//            {
+//                OutputFilePath = "codaxy_hf.pdf"
+//            });
+//            PdfConvert.ConvertHtmlToPdf(new PdfDocument { Url = "-", Html = "<html><h1>test</h1></html>" }, new PdfOutput
+//            {
+//                OutputFilePath = "inline.pdf"
+//            });
+//            PdfConvert.ConvertHtmlToPdf(new PdfDocument { Url = "-", Html = "<html><h1>測試</h1></html>" }, new PdfOutput
+//            {
+//                OutputFilePath = "inline_cht.pdf"
+//            });
+
+
+//            //PdfConvert.ConvertHtmlToPdf("http://tweakers.net", "tweakers.pdf");
+//        }
+//    }
+//}

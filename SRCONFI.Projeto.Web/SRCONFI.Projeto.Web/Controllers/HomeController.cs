@@ -17,33 +17,45 @@ namespace SRCONFI.Projeto.Web.Controllers
         [HttpPost]
         public ActionResult Login(ViewModel.LoginViewModel loginViewModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                Domain.Entity.Usuario usuario = new Domain.Entity.Usuario();
-                usuario.login = loginViewModel.Usuario;
-                usuario.senha = loginViewModel.Senha;
-                bool passTrue = new Business.LoginBusiness().AutenticarUsuario(usuario);
+                if (ModelState.IsValid)
+                {
+                    Domain.Entity.Usuario usuario = new Domain.Entity.Usuario();
+                    usuario.login = loginViewModel.Usuario;
+                    usuario.senha = loginViewModel.Senha;
+                    bool passTrue = new Business.LoginBusiness().AutenticarUsuario(usuario);
 
-                if (passTrue)
-                    return RedirectToAction("Home", "Home");
+                    if (passTrue)
+                        return RedirectToAction("Home", "Home");
+                    else
+                    {
+                        ViewBag.UsuarioInvalido = true;
+                        return View("Index");
+                    }
+                }
                 else
                 {
-                    ViewBag.UsuarioInvalido = true;
-                    return View("Index");
+                    if (string.IsNullOrEmpty(loginViewModel.Usuario))
+                        ViewBag.UsuarioVazio = true;
+                    if (string.IsNullOrEmpty(loginViewModel.Senha))
+                        ViewBag.SenhaVazio = true;
                 }
 
 
+                return View("Index");
             }
-            else
+            catch (System.Exception e)
             {
-                if (string.IsNullOrEmpty(loginViewModel.Usuario))
-                    ViewBag.UsuarioVazio = true;
-                if (string.IsNullOrEmpty(loginViewModel.Senha))
-                    ViewBag.SenhaVazio = true;
+                var retorno = new
+                {
+                    mensagem = e.Message.ToString(),//"Ocorreu algum erro ao inserir Usuário!",
+                    erro = true
+                };
+
+                return Json(retorno, JsonRequestBehavior.AllowGet);
             }
-
-
-            return View("Index");
+           
         }
 
         public ActionResult Home()

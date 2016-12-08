@@ -5,12 +5,20 @@ namespace SRCONFI.Projeto.Business
     {
         public bool AutenticarUsuario(Domain.Entity.Usuario usu)
         {
-            bool logado = false;
+            Domain.Entity.Usuario usuarioBD;
             using (var unitOfWork = new UnitOfWork(new Domain.BancoContext()))
             {
-                logado = unitOfWork.Usuario.ValidLoginUsuario(usu.login, usu.senha);
+                usuarioBD = unitOfWork.Usuario.ValidLoginUsuario(usu.login, usu.senha);
+                unitOfWork.Dispose();
             }
-            return logado;
+
+            if (usuarioBD == null)
+                return false;
+
+            if (usuarioBD != null && usuarioBD.inStatus == 0)
+                throw new System.Exception("Usuário Inativo no sistama!");
+
+            return usuarioBD != null && usuarioBD.usuarioID > 0;
         }
     }
 }

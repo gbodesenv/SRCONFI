@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace SRCONFI.Projeto.Web.Controllers
 {
@@ -19,6 +20,8 @@ namespace SRCONFI.Projeto.Web.Controllers
         {
             try
             {
+                ViewBag.UsuarioInativo = false;
+
                 if (ModelState.IsValid)
                 {
                     Domain.Entity.Usuario usuario = new Domain.Entity.Usuario();
@@ -53,9 +56,12 @@ namespace SRCONFI.Projeto.Web.Controllers
                     erro = true
                 };
 
-                return Json(retorno, JsonRequestBehavior.AllowGet);
+                if (e.Message.ToString().Contains("Inativo"))
+                    ViewBag.UsuarioInativo = true;
+
+                return View("Index");
             }
-           
+
         }
 
         public ActionResult Home()

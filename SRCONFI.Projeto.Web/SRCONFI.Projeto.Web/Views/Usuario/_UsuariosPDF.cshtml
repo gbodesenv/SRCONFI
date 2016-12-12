@@ -1,35 +1,58 @@
 ﻿@using SRCONFI.Projeto.Domain.Entity
 @model List<Usuario>
 
-<table class="table table-hover" id="tableUsuarios">
-    <thead>
-        <tr>
-            <th>Código</th>
-            <th>Nome</th>
-            <th>Login</th>
-            <th>Tipo de Usuário</th>
-            <th>E-mail</th>
-            <th>Status</th>
-    </thead>
-    <tbody>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-        @foreach (Usuario usu in Model)
-            {
+<style>
+    <style > table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #337ab7;
+        color: white;
+    }
+</style>
+
+<div style="margin-top:150px">
+    <table class="table table-hover" id="tableUsuarios">
+        <thead>
             <tr>
-                <td>@usu.usuarioID</td>
-                <td>@usu.nome</td>
-                <td>@usu.login</td>
-                <td>@usu.TipoUsuario.descricaoTipoUsuario</td>
-                <td>@usu.email</td>
-                <td>
-                    @if (usu.inStatus == 0)
-                    { @Html.Raw("Inativo") }
-                    else
-                    { @Html.Raw("Ativo") }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Login</th>
+                <th>Tipo de Usuário</th>
+                <th>E-mail</th>
+                <th>Status</th>
+        </thead>
+        <tbody>
 
-
+            @foreach (Usuario usu in Model)
+            {
+                <tr>
+                    <td>@usu.usuarioID</td>
+                    <td>@usu.nome</td>
+                    <td>@usu.login</td>
+                    <td>@usu.TipoUsuario.descricaoTipoUsuario</td>
+                    <td>@usu.email</td>
+                    <td>
+                        @if (usu.inStatus == 0)
+                        { @Html.Raw("Inativo") }
+                        else
+                        { @Html.Raw("Ativo") }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

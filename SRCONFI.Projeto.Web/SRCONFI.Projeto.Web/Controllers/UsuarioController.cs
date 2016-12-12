@@ -47,7 +47,7 @@ namespace SRCONFI.Projeto.Web.Controllers
 
                 //if (ModelState.IsValid)
                 //{
-                    new Business.UsuarioBusiness().AddUsuario(usu);
+                new Business.UsuarioBusiness().AddUsuario(usu);
 
                 //}
                 var retorno = new
@@ -151,19 +151,35 @@ namespace SRCONFI.Projeto.Web.Controllers
 
         public ActionResult _UsuariosPDF()
         {
-            //Html = RenderPartialToString(this, "_UsuariosPDF", new Business.UsuarioBusiness().ListUsuarios()),
+            var HTML = "<!DOCTYPE html>" +
+    "< html lang = 'pt-br' > " +
+       "< head > " +
+     "< title > Título da página</ title >    " +
+        "< meta charset = 'utf-8' >     " +
+       "</ head >     " +
+       "< body >" +
+         "Aqui vai o código HTML que fará seu site aparecer.     " +
+       "</ body >" +
+     "</ html > ";
+
+            //var users = new Business.UsuarioBusiness().ListUsuarios();
+            var Html = RenderPartialToString(this, "_UsuariosPDF", new Business.UsuarioBusiness().ListUsuarios());
+            PdfConvert.Environment.Debug = true;
             PdfConvert.ConvertHtmlToPdf(new PdfDocument
             {
-                Url = "http://www.google.com",//Url.Action("_UsuariosPDF","Usuario", new Business.UsuarioBusiness().ListUsuarios()),
-                HeaderLeft = "[title]",
+                Url = "-",
+                Html = Html,
+                HeaderLeft = "SRCONFI - Relatório de Usuários ",
                 HeaderRight = "[date] [time]",
                 FooterCenter = "Page [page] of [topage]"
+               
 
             }, new PdfOutput
-            {                
-                OutputFilePath = "wkhtmltopdf-page.pdf"
+            {
+                OutputFilePath = "C:/Users/gabri/GitHub/SRCONFI.Projeto/SRCONFI.Projeto.Web/SRCONFI.Projeto.Web/Wkhtmltopdf/wkhtmltopdf-page.pdf"
             });
-            return View();
+
+            return View("Listar");
         }
 
         public static string RenderPartialToString(Controller controller, string viewName, object model)

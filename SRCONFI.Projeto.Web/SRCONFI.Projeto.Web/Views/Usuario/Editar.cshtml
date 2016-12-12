@@ -19,7 +19,6 @@
             @Html.TextBoxFor(model => model.usuarioID, new { @class = "form-control", @readonly = "readonly", required = "true" })
         </div>
     </div>
-
     <div class="form-group">
         @Html.Label("Tipo Usuário", new { @class = "col-sm-2 control-label" })
 
@@ -64,7 +63,7 @@
         @Html.Label("Telefone", new { @class = "col-sm-2 control-label" })
 
         <div class="col-sm-10">
-            @Html.TextBoxFor(model => model.numeroTelefone, new { @class = "form-control", @placeholder = "Telefone", @type = "number", @data_parsley_type = "integer", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Telefone' é obrigatório" })
+            @Html.TextBoxFor(model => model.numeroTelefone, new { @class = "form-control phone-mask", @placeholder = "Telefone", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Telefone' é obrigatório" })
         </div>
     </div>
 

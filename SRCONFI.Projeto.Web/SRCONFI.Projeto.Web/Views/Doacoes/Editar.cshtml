@@ -1,0 +1,62 @@
+﻿@{
+    Layout = null;
+}
+
+@model SRCONFI.Projeto.Domain.Entity.Doacoes
+@using System.Collections.Generic;
+@using System.Web.Mvc;
+
+
+<script src="~/Scripts/Views/Doacoes/Editar.js"></script>
+
+@Html.Hidden("hdnCaminhoEditarDoacoes", @Url.Action("Editar", "Doacoes"))
+
+@using (Html.BeginForm("Editar", "Doacoes", FormMethod.Post, new { @class = "form-horizontal", @role = "form", id = "formEditarDoacoes" }))
+{
+
+    <div class="form-group">
+        @Html.Label("Código", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-3">
+            @Html.TextBoxFor(model => model.doacaoID, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Nome Doador", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.nomeDoador, new { @class = "form-control", @placeholder = "Nome", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Nome Doador' é obrigatório" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Valor", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.valorDoacao, new { @class = "form-control", @placeholder = "Valor", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Valor' é obrigatório" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Data", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.dataDoacao, new { @class = "form-control input-sm date-mask", @placeholder = "Data", @data_parsley_required = "", @data_parsley_error_message = "O campo 'Data' é obrigatório" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Comentário", new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-10">
+            @Html.TextBoxFor(model => model.comentarioDoacao, new { @class = "form-control", @placeholder = "Comentário' é obrigatório" })
+        </div>
+    </div>
+
+}
+
+
+
+
+

@@ -1,0 +1,49 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<Doacoes>
+@{
+    ViewBag.Title = "Listar";
+}
+
+
+<script src="~/Scripts/Views/Doacoes/Listar.js"></script>
+
+@*CABEÇALHO*@
+<ol class="breadcrumb">
+
+    <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
+    <li>Cadastros</li>
+    <li>Livros</li>
+    <li>@Html.ActionLink("Doacoes", "Listar", "Doacoes", null, null)</li>
+
+</ol>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <span><strong>Listagem de Doacoes</strong></span>
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-primary" id="btnAbrirModalIncluir">Incluir</button>
+            <button type="button" class="btn btn-primary" id="btnAbrirModalEditar">Editar</button>
+            <button type="button" class="btn btn-primary" id="btnExcluirDoacoes">Excluir</button>
+            @*<button type="button" class="btn btn-primary" id="btnImprimirDoacoes">Imprimir</button>*@
+
+        </div>
+
+    </div>
+    <div id="ConteudoTableListarDoacoes">
+        @Html.Partial("_TableListarDoacoes", Model)
+
+    </div>
+
+
+</div>
+
+@Html.Hidden("hdnCaminhoAtualizarTableDoacoes", @Url.Action("_TableListarDoacoes", "Doacoes"))
+
+@Html.Hidden("hdnCaminhoInserirDoacoes", @Url.Action("Inserir", "Doacoes"))
+@Html.Hidden("hdnCaminhoModalInserirDoacoes", @Url.Action("ModalInserir", "Doacoes"))
+
+@Html.Hidden("hdnCaminhoEditarDoacoes", @Url.Action("Editar", "Doacoes"))
+@Html.Hidden("hdnCaminhoModalEditarDoacoes", @Url.Action("ModalEditar", "Doacoes"))
+
+@Html.Hidden("hdnCaminhoExcluirDoacoes", @Url.Action("Excluir", "Doacoes"))

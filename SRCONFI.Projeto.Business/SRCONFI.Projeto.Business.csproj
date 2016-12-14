@@ -44,6 +44,7 @@
     <Compile Include="AutoresBusiness.cs" />
     <Compile Include="CategoriaBusiness.cs" />
     <Compile Include="DadosComplementaresBusiness.cs" />
+    <Compile Include="DoacoesBusiness.cs" />
     <Compile Include="EditorasBusiness.cs" />
     <Compile Include="EntradasLivrosBusiness.cs" />
     <Compile Include="EscolaridadeBusiness.cs" />

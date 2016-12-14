@@ -31,6 +31,7 @@ namespace SRCONFI.Projeto.Domain.UnitOfWork
         IPeriodoAtividadeRepository PeriodoAtividade { get; }
         IPagamentosRepository Pagamentos { get; }
         IMesRepository Mes { get; }
+        IDoacoesRepository Doacoes { get; }
 
         int Complete();
     }

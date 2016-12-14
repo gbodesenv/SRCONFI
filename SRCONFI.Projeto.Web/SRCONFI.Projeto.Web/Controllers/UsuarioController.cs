@@ -151,26 +151,16 @@ namespace SRCONFI.Projeto.Web.Controllers
 
         public ActionResult _UsuariosPDF()
         {
-            var HTML = "<!DOCTYPE html>" +
-    "< html lang = 'pt-br' > " +
-       "< head > " +
-     "< title > Título da página</ title >    " +
-        "< meta charset = 'utf-8' >     " +
-       "</ head >     " +
-       "< body >" +
-         "Aqui vai o código HTML que fará seu site aparecer.     " +
-       "</ body >" +
-     "</ html > ";
-
-            //var users = new Business.UsuarioBusiness().ListUsuarios();
+            
             var Html = RenderPartialToString(this, "_UsuariosPDF", new Business.UsuarioBusiness().ListUsuarios());
+
             PdfConvert.Environment.Debug = true;
             PdfConvert.ConvertHtmlToPdf(new PdfDocument
             {
                 Url = "-",
                 Html = Html,
                 HeaderLeft = "SRCONFI - Relatório de Usuários ",
-                HeaderRight = "[date] [time]",
+                HeaderRight = " Data: [date] <br> Hora: [time]",
                 FooterCenter = "Page [page] of [topage]"
                
 

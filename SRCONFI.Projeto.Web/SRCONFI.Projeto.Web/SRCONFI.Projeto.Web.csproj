@@ -225,6 +225,9 @@
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Css\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Wkhtmltopdf\wkhtmltoimage.exe" />
+    <Content Include="Wkhtmltopdf\wkhtmltopdf.exe" />
+    <Content Include="Wkhtmltopdf\wkhtmltox.dll" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
@@ -287,6 +290,7 @@
     <Content Include="Scripts\Views\VendaLivros\_Livro.js" />
     <Content Include="Scripts\Views\VendaLivros\_PesquisarLivros.js" />
     <Content Include="Web.config" />
+    <Content Include="Wkhtmltopdf\wkhtmltopdf-page.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />

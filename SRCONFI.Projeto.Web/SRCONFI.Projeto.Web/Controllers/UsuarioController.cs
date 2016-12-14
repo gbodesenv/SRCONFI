@@ -1,5 +1,7 @@
-﻿using SRCONFI.Projeto.Domain.Entity;
+﻿using Codaxy.WkHtmlToPdf;
+using SRCONFI.Projeto.Domain.Entity;
 using System.Collections.Generic;
+using System.IO;
 using System.Web.Mvc;
 
 namespace SRCONFI.Projeto.Web.Controllers
@@ -45,7 +47,7 @@ namespace SRCONFI.Projeto.Web.Controllers
 
                 //if (ModelState.IsValid)
                 //{
-                    new Business.UsuarioBusiness().AddUsuario(usu);
+                new Business.UsuarioBusiness().AddUsuario(usu);
 
                 //}
                 var retorno = new
@@ -146,6 +148,55 @@ namespace SRCONFI.Projeto.Web.Controllers
         #endregion Fim Excluir 
 
         #region Imprimir 
+
+        public ActionResult _UsuariosPDF()
+        {
+            var HTML = "<!DOCTYPE html>" +
+    "< html lang = 'pt-br' > " +
+       "< head > " +
+     "< title > Título da página</ title >    " +
+        "< meta charset = 'utf-8' >     " +
+       "</ head >     " +
+       "< body >" +
+         "Aqui vai o código HTML que fará seu site aparecer.     " +
+       "</ body >" +
+     "</ html > ";
+
+            //var users = new Business.UsuarioBusiness().ListUsuarios();
+            var Html = RenderPartialToString(this, "_UsuariosPDF", new Business.UsuarioBusiness().ListUsuarios());
+            PdfConvert.Environment.Debug = true;
+            PdfConvert.ConvertHtmlToPdf(new PdfDocument
+            {
+                Url = "-",
+                Html = Html,
+                HeaderLeft = "SRCONFI - Relatório de Usuários ",
+                HeaderRight = "[date] [time]",
+                FooterCenter = "Page [page] of [topage]"
+               
+
+            }, new PdfOutput
+            {
+                OutputFilePath = "C:/Users/gabri/GitHub/SRCONFI.Projeto/SRCONFI.Projeto.Web/SRCONFI.Projeto.Web/Wkhtmltopdf/wkhtmltopdf-page.pdf"
+            });
+
+            return View("Listar");
+        }
+
+        public static string RenderPartialToString(Controller controller, string viewName, object model)
+        {
+            controller.ViewData.Model = model;
+
+            using (StringWriter sw = new StringWriter())
+            {
+                ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(controller.ControllerContext, viewName);
+                ViewContext viewContext = new ViewContext(controller.ControllerContext, viewResult.View, controller.ViewData, controller.TempData, sw);
+                viewResult.View.Render(viewContext, sw);
+
+                return sw.GetStringBuilder().ToString();
+            }
+        }
+
+
         #endregion Fim Imprimir 
 
         #region Métodos Auxiliares 
@@ -225,3 +276,47 @@ namespace SRCONFI.Projeto.Web.Controllers
 
     }
 }
+
+//using System;
+//using System.Collections.Generic;
+//using System.Text;
+//using System.IO;
+
+//namespace Codaxy.WkHtmlToPdf.Tests
+//{
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Console.InputEncoding = Encoding.UTF8;
+
+//            PdfConvert.Environment.Debug = false;
+//            PdfConvert.ConvertHtmlToPdf(new PdfDocument { Url = "http://www.codaxy.com" }, new PdfOutput
+//            {
+//                OutputFilePath = "codaxy.pdf"
+//            });
+//            PdfConvert.ConvertHtmlToPdf(new PdfDocument
+//            {
+//                Url = "http://www.codaxy.com",
+//                HeaderLeft = "[title]",
+//                HeaderRight = "[date] [time]",
+//                FooterCenter = "Page [page] of [topage]"
+
+//            }, new PdfOutput
+//            {
+//                OutputFilePath = "codaxy_hf.pdf"
+//            });
+//            PdfConvert.ConvertHtmlToPdf(new PdfDocument { Url = "-", Html = "<html><h1>test</h1></html>" }, new PdfOutput
+//            {
+//                OutputFilePath = "inline.pdf"
+//            });
+//            PdfConvert.ConvertHtmlToPdf(new PdfDocument { Url = "-", Html = "<html><h1>測試</h1></html>" }, new PdfOutput
+//            {
+//                OutputFilePath = "inline_cht.pdf"
+//            });
+
+
+//            //PdfConvert.ConvertHtmlToPdf("http://tweakers.net", "tweakers.pdf");
+//        }
+//    }
+//}

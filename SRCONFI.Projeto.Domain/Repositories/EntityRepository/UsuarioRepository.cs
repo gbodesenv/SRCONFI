@@ -17,11 +17,10 @@ namespace SRCONFI.Projeto.Domain.Repositories
             return BancoContext.Usuario.Include("TipoUsuario");
         }
 
-        public bool ValidLoginUsuario(string login, string senha)
+        public Usuario ValidLoginUsuario(string login, string senha)
         {
-            return BancoContext.Usuario.Where(u => u.login.Equals(login) && u.senha.Equals(senha)).Any();
+            return BancoContext.Usuario.Where(u => (u.login.Equals(login) && u.senha.Equals(senha))).FirstOrDefault();
         }
-
 
         public BancoContext BancoContext
         {

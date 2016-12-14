@@ -2,6 +2,8 @@
     $("#btnEditarUsuario").click(function () {
         editarUsuario();
     });
+
+    maskFormat();
 });
 
 
@@ -10,6 +12,10 @@ function editarUsuario() {
     var form = $('#formEditarUsuario').serializeObject();
 
     if (validForm.validate()) {
+        console.log(form);
+        form.numeroTelefone = $("#numeroTelefone").unmask().val();
+        console.log($("#numeroTelefone").unmask().val());
+
         $.ajax({
             url: $('#hdnCaminhoSalvarEditarUsuario').val(),
             type: "POST",

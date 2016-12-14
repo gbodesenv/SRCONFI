@@ -122,9 +122,11 @@ namespace Codaxy.WkHtmlToPdf
 				throw new PdfConvertException(String.Format("File '{0}' not found. Check if wkhtmltopdf application is installed.", environment.WkHtmlToPdfPath));
             
             StringBuilder paramsBuilder = new StringBuilder();
-            paramsBuilder.Append("--page-size A4 ");
-            
-			if (!string.IsNullOrEmpty(document.HeaderUrl))
+            paramsBuilder.Append("--page-size A4 "); 
+            paramsBuilder.Append("--load-error-handling ignore ");
+
+
+            if (!string.IsNullOrEmpty(document.HeaderUrl))
             {
 				paramsBuilder.AppendFormat("--header-html {0} ", document.HeaderUrl);
                 paramsBuilder.Append("--margin-top 25 ");

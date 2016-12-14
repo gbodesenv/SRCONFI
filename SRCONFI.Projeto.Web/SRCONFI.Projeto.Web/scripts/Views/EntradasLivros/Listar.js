@@ -20,9 +20,11 @@
 function setarMascaras() {
     $('.numeric-places').mask("#.##0,00", { reverse: true });
 
-    $('mask-date').mask('00/00/0000');
+    $('.mask-date').mask('00/00/0000');
 
-    maskFormat();
+    setTimeout(maskFormat,
+        100);
+    //maskFormat();
 
 }
 

@@ -3,7 +3,7 @@
         inserirUsuario();
     });
 
-
+    maskFormat();
 });
 
 
@@ -20,6 +20,8 @@ function inserirUsuario() {
     var form = $('#formInserirUsuario').serializeObject();
 
     if (validForm.validate()) {
+        console.log(form);
+        form.numeroTelefone = $("#numeroTelefone").unmask().val();
         $.ajax({
             url: $('#hdnCaminhoInserirUsuario').val(),
             type: "POST",

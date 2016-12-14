@@ -6,6 +6,7 @@ namespace SRCONFI.Projeto.Business
 {
     public class UsuarioBusiness
     {
+        #region CRUD
         public List<Domain.Entity.Usuario> ListUsuarios()
         {
             List<Domain.Entity.Usuario> lstUsuarios = new List<Domain.Entity.Usuario>();
@@ -55,7 +56,17 @@ namespace SRCONFI.Projeto.Business
 
             return usuario;
         }
+        #endregion CRUD
 
+        #region RN
+
+        private void RN_LoginExistente(UnitOfWork unitOfWork, string login)
+        {
+            if(unitOfWork.Usuario.GetAll().Any(u=>u.login.Equals(login)))
+                throw new System.ArgumentException("Usuário com mesmo login no sistema!", "loginJaExistente");
+        }
+
+        #endregion RN
 
     }
 }

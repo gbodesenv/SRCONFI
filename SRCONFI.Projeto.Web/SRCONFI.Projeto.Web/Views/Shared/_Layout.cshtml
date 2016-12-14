@@ -20,7 +20,7 @@
     <script src="~/Scripts/Bootstrap/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
     <script src="~/Scripts/parsley-2.6.0.js"></script>
-    <script src="~/Scripts/Formatter/jquery.formatter-0.1.5.js"></script>
+    @*<script src="~/Scripts/Formatter/jquery.formatter-0.1.5.js"></script>*@
     <script src="~/Scripts/Jquery/jquery.mask-1.14.3.js"></script>
     @*<script src="~/Scripts/Bootcards/js/bootcards.js"></script>*@
 
@@ -346,32 +346,17 @@
         //});
 
         function maskFormat() {
-            $("input.date-mask").datepicker();
+            $("input.mask-date").datepicker();
 
-            $("input.cep-mask").formatter({
-                'pattern': '{{99999}}-{{999}}',
-                'persistent': true
-            });
+            $("input.cep-mask").mask('99999-999');
 
-            $("input.cpf-mask").formatter({
-                'pattern': '{{999}}.{{999}}.{{999}}-{{99}}',
-                'persistent': true
-            });
+            $("input.cpf-mask").mask('999.999.999-99');
 
-            $("input.rg-mask").formatter({
-                'pattern': '{{9999999999}}',
-                'persistent': true
-            });
+            $("input.rg-mask").mask('9999999999');
 
-            $("input.cellphone-mask").formatter({
-                'pattern': '({{999}}) {{99999}}-{{9999}}',
-                'persistent': true
-            });
+            $("input.cellphone-mask").mask('(999) 99999-9999');
 
-            $("input.phone-mask").formatter({
-                'pattern': '({{999}}) {{9999}}-{{9999}}',
-                'persistent': true
-            });
+            $("input.phone-mask").mask('(999) 9999-9999');
         }
 
 

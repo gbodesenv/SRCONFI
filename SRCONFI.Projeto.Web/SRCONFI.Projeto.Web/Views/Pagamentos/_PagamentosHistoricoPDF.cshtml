@@ -1,0 +1,59 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<Pagamentos>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style>
+    <style > table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #337ab7;
+        color: white;
+    }
+</style>
+
+
+<table class="table table-hover" id="tablePagamentos">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Data Pag.</th>
+            <th>Mês</th>
+            <th>Valor Pag.</th>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Cancelado</th>
+    </thead>
+    <tbody>
+
+        @foreach (Pagamentos pagamentos in Model)
+            {
+            <tr class="clickable-row" data-row-id="@pagamentos.pagamentoID">
+                <td>@pagamentos.pagamentoID</td>
+                <td>@pagamentos.dataPag</td>
+                <td>@pagamentos.Mes.nomeMes</td>
+                <td>@pagamentos.valorPag.Value.ToString("C")</td>
+                <td>@pagamentos.Socios.socioID</td>
+                <td>@pagamentos.Socios.nomeSocio</td>
+                <td>
+                    @if (pagamentos.inCancelado == 1 || pagamentos.inCancelado.HasValue)
+                    { @Html.Raw("Sim") }
+                    else
+                    { @Html.Raw("Não") }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

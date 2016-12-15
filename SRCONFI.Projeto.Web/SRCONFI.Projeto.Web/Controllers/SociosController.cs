@@ -1,4 +1,5 @@
 using SRCONFI.Projeto.Domain.Entity;
+using SRCONFI.Projeto.Web.Generico;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -149,6 +150,16 @@ namespace SRCONFI.Projeto.Web.Controllers
         #endregion Fim Excluir 
 
         #region Imprimir 
+
+        public FileResult _SociosPDF()
+        {
+            var Html = Generico.Generico.RenderPartialToString(this, "_SociosPDF", new Business.SociosBusiness().ListSocios());
+            string caminho = Relatorio.GerarRelatorio("Socios", Html, "SRCONFI - Relatório de Usuários");
+            byte[] fileBytes = System.IO.File.ReadAllBytes(caminho);
+            string fileName = "Socios.pdf";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
         #endregion Fim Imprimir 
 
         #region Métodos Auxiliares 

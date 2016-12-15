@@ -40,6 +40,7 @@ namespace SRCONFI.Projeto.Domain
         public DbSet<Estoque> Estoque { get; set; }
         public DbSet<Pagamentos> Pagamentos { get; set; }
         public DbSet<Mes> Mes { get; set; }
+        public DbSet<Doacoes> Doacoes { get; set; }
 
         #endregion Inclusão
 
@@ -71,7 +72,8 @@ namespace SRCONFI.Projeto.Domain
                 .Add(new EstoqueConfiguration())
                 .Add(new VendasLivrosConfiguration())
                 .Add(new PagamentosConfiguration())
-                .Add(new MesConfiguration());
+                .Add(new MesConfiguration())
+                .Add(new DoacoesConfiguration());
 
             modelBuilder.Entity<Usuario>().ToTable("TB_USUARIOS");
             modelBuilder.Entity<TipoUsuario>().ToTable("TB_TIPO_USUARIOS");
@@ -96,6 +98,7 @@ namespace SRCONFI.Projeto.Domain
             modelBuilder.Entity<Estoque>().ToTable("TB_ESTOQUE_LIVROS");
             modelBuilder.Entity<Pagamentos>().ToTable("TB_PAGAMENTOS");
             modelBuilder.Entity<Mes>().ToTable("TB_MES");
+            modelBuilder.Entity<Doacoes>().ToTable("TB_DOACOES");
         }
 
         #endregion Configurações 

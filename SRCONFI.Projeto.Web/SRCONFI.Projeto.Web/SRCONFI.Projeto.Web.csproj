@@ -253,6 +253,9 @@
     <Content Include="Scripts\Views\Autores\Listar.js" />
     <Content Include="Scripts\Views\Consultas\Estoque\Entradas\Listar.js" />
     <Content Include="Scripts\Views\Consultas\Estoque\Vendsas\Listar.js" />
+    <Content Include="Scripts\Views\Doacoes\Editar.js" />
+    <Content Include="Scripts\Views\Doacoes\Inserir.js" />
+    <Content Include="Scripts\Views\Doacoes\Listar.js" />
     <Content Include="Scripts\Views\Editoras\Editar.js" />
     <Content Include="Scripts\Views\Editoras\Inserir.js" />
     <Content Include="Scripts\Views\Editoras\Listar.js" />
@@ -294,6 +297,7 @@
     <Compile Include="Controllers\AtividadesController.cs" />
     <Compile Include="Controllers\AutoresController.cs" />
     <Compile Include="Controllers\ConsultasController.cs" />
+    <Compile Include="Controllers\DoacoesController.cs" />
     <Compile Include="Controllers\EditoraController.cs" />
     <Compile Include="Controllers\EntradasLivrosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -382,6 +386,10 @@
     <Content Include="Views\Pagamentos\_PesquisaSocios.cshtml" />
     <Content Include="Views\Pagamentos\ConsultaPagamentos.cshtml" />
     <Content Include="Views\Pagamentos\RetificarPagamento.cshtml" />
+    <Content Include="Views\Doacoes\Inserir.cshtml" />
+    <Content Include="Views\Doacoes\Editar.cshtml" />
+    <Content Include="Views\Doacoes\Listar.cshtml" />
+    <Content Include="Views\Doacoes\_TableListarDoacoes.cshtml" />
     <Content Include="Views\Usuario\_UsuariosPDF.cshtml" />
     <Content Include="Views\Consultas\_EstoqueEntradasPDF.cshtml" />
     <Content Include="Views\Consultas\_EstoqueVendasPDF.cshtml" />
@@ -399,6 +407,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\Fonts\bootstrap-material-design\" />
     <Folder Include="Content\Fonts\Bootstrap\" />
+    <Folder Include="Views\Editora\" />
+    <Folder Include="Views\LocalAtividade\" />
+    <Folder Include="Views\PeriodoAtividade\" />
     <Folder Include="PDF\" />
   </ItemGroup>
   <ItemGroup>

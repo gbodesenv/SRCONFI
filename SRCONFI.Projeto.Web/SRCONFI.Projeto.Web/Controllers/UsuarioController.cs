@@ -1,5 +1,5 @@
-﻿using Codaxy.WkHtmlToPdf;
-using SRCONFI.Projeto.Domain.Entity;
+﻿using SRCONFI.Projeto.Domain.Entity;
+using SRCONFI.Projeto.Web.Generico;
 using System.Collections.Generic;
 using System.IO;
 using System.Web.Mvc;
@@ -149,43 +149,14 @@ namespace SRCONFI.Projeto.Web.Controllers
 
         #region Imprimir 
 
-        public ActionResult _UsuariosPDF()
-        {
-            
-            var Html = RenderPartialToString(this, "_UsuariosPDF", new Business.UsuarioBusiness().ListUsuarios());
-
-            PdfConvert.Environment.Debug = true;
-            PdfConvert.ConvertHtmlToPdf(new PdfDocument
-            {
-                Url = "-",
-                Html = Html,
-                HeaderLeft = "SRCONFI - Relatório de Usuários ",
-                HeaderRight = " Data: [date] <br> Hora: [time]",
-                FooterCenter = "Page [page] of [topage]"
-               
-
-            }, new PdfOutput
-            {
-                OutputFilePath = "C:/Users/gabri/GitHub/SRCONFI.Projeto/SRCONFI.Projeto.Web/SRCONFI.Projeto.Web/Wkhtmltopdf/wkhtmltopdf-page.pdf"
-            });
-
-            return View("Listar");
+        public FileResult _UsuariosPDF()
+        {            
+            var Html = Generico.Generico.RenderPartialToString(this, "_UsuariosPDF", new Business.UsuarioBusiness().ListUsuarios());
+            string caminho = Relatorio.GerarRelatorio("Usuarios", Html, "SRCONFI - Relatório de Usuários");
+            byte[] fileBytes = System.IO.File.ReadAllBytes(caminho);
+            string fileName = "usuarios.pdf";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
         }
-
-        public static string RenderPartialToString(Controller controller, string viewName, object model)
-        {
-            controller.ViewData.Model = model;
-
-            using (StringWriter sw = new StringWriter())
-            {
-                ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(controller.ControllerContext, viewName);
-                ViewContext viewContext = new ViewContext(controller.ControllerContext, viewResult.View, controller.ViewData, controller.TempData, sw);
-                viewResult.View.Render(viewContext, sw);
-
-                return sw.GetStringBuilder().ToString();
-            }
-        }
-
 
         #endregion Fim Imprimir 
 

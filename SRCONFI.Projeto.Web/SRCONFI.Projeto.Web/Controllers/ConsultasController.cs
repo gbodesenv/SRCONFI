@@ -1,4 +1,5 @@
 ﻿using SRCONFI.Projeto.Domain.Entity;
+using SRCONFI.Projeto.Web.Generico;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,17 @@ namespace SRCONFI.Projeto.Web.Controllers
 
             return PartialView(listaDeEstoques);
         }
+
+        public FileResult _EstoqueEntradasPDF()
+        {
+            var Html = Generico.Generico.RenderPartialToString(this, "_EstoqueEntradasPDF", new Business.EstoqueBusiness().ListEstoqueCompleteRelation());
+            string caminho = Relatorio.GerarRelatorio("EstoqueEntradas", Html, "SRCONFI - Relatório de Entrada de Livros");
+            byte[] fileBytes = System.IO.File.ReadAllBytes(caminho);
+            string fileName = "Entradas_Livros.pdf";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
+
         #endregion ESTOQUE ENTRADAS
 
         #region ESTOQUE VENDAS
@@ -45,6 +57,18 @@ namespace SRCONFI.Projeto.Web.Controllers
 
             return PartialView(listaDeEstoques);
         }
+
+
+        public FileResult _EstoqueVendasPDF()
+        {
+            var Html = Generico.Generico.RenderPartialToString(this, "_EstoqueVendasPDF", new Business.VendaLivrosBusiness().ListVendaLivrosAndRelationEstoque());
+            string caminho = Relatorio.GerarRelatorio("EstoqueVendas", Html, "SRCONFI - Relatório de Entrada de Livros");
+            byte[] fileBytes = System.IO.File.ReadAllBytes(caminho);
+            string fileName = "Entradas_Livros.pdf";
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+        }
+
+
         #endregion ESTOQUE ENTRADAS
     }
 }

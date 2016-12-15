@@ -1,0 +1,51 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<Estoque>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style>
+    <style > table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #337ab7;
+        color: white;
+    }
+</style>
+
+<table class="table table-hover" id="tableEstoque">
+    <thead>
+        <tr>
+            <th>Data de Entrada</th>
+            <th>Nome do Livro</th>
+            <th>Autor</th>
+            <th>Quantidade</th>
+            <th>Valor Unitário(R$)</th>
+            <th>Total(R$)</th>
+    </thead>
+    <tbody>
+
+        @foreach (Estoque estoque in Model)
+            {
+            <tr class="clickable-row" data-row-id="@estoque.estoqueID">
+                <td>@estoque.EntradasLivros.dataEntrada.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)</td>
+                <td>@estoque.Livros.nomeAutor</td>
+                <td>@estoque.Livros.Autores.nomeAutor</td>
+                <td>@estoque.nrQuantidade</td>
+                <td> @estoque.vlUnitarioLivro.ToString("C")</td>
+                <td>@estoque.EntradasLivros.ValorTotalEntrada.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

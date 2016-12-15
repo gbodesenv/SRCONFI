@@ -1,0 +1,53 @@
+﻿@using SRCONFI.Projeto.Domain.Entity
+@model List<VendasLivros>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style>
+    <style > table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #337ab7;
+        color: white;
+    }
+</style>
+
+<table class="table table-hover" id="tableEstoque">
+    <thead>
+        <tr>
+            <th>Data de Venda</th>
+            <th>Nome do Livro</th>
+            <th>Autor</th>
+            <th>Quantidade Vendida</th>
+            <th>Valor Unitário(R$)</th>
+            <th>Desconto(%)</th>
+            <th>Total da Venda(R$)</th>
+    </thead>
+    <tbody>
+
+        @foreach (VendasLivros vendas in Model)
+            {
+            <tr class="clickable-row" data-row-id="@vendas.vendaID">
+                <td>@vendas.dataVenda.ToString("dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)</td>
+                <td>@vendas.Estoque.Livros.nomeAutor</td>
+                <td>@vendas.Estoque.Livros.Autores.nomeAutor</td>
+                <td>@vendas.Estoque.nrQuantidade</td>
+                <td>@vendas.Estoque.vlUnitarioLivro.ToString("C")</td>
+                <td>@vendas.valorDesconto</td>
+                <td>@vendas.totalVenda.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -314,6 +314,9 @@
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\VendaLivrosController.cs" />
     <Compile Include="Enum\ModalEnum.cs" />
+    <Compile Include="Generico\Arquivo.cs" />
+    <Compile Include="Generico\Generico.cs" />
+    <Compile Include="Generico\Relatorio.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -392,6 +395,11 @@
     <Content Include="Views\Doacoes\Listar.cshtml" />
     <Content Include="Views\Doacoes\_TableListarDoacoes.cshtml" />
     <Content Include="Views\Usuario\_UsuariosPDF.cshtml" />
+    <Content Include="Views\Consultas\_EstoqueEntradasPDF.cshtml" />
+    <Content Include="Views\Consultas\_EstoqueVendasPDF.cshtml" />
+    <Content Include="Views\Socios\_SociosPDF.cshtml" />
+    <Content Include="Views\Livros\_LivrosPDF.cshtml" />
+    <Content Include="Views\Pagamentos\_PagamentosHistoricoPDF.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -406,6 +414,7 @@
     <Folder Include="Views\Editora\" />
     <Folder Include="Views\LocalAtividade\" />
     <Folder Include="Views\PeriodoAtividade\" />
+    <Folder Include="PDF\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SRCONFI.Projeto.Business\SRCONFI.Projeto.Business.csproj">

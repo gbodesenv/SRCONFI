@@ -21,7 +21,8 @@ function inserirUsuario() {
 
     if (validForm.validate()) {
         console.log(form);
-        form.numeroTelefone = $("#numeroTelefone").unmask().val();
+        //form.numeroTelefone = $("#numeroTelefone").unmask().val();
+        form.numeroTelefone = $("#numeroTelefone").val().replace("(","").replace(")","").replace("-","").trim();
         $.ajax({
             url: $('#hdnCaminhoInserirUsuario').val(),
             type: "POST",

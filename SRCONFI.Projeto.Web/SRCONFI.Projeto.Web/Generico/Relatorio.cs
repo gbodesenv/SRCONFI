@@ -9,7 +9,7 @@ namespace SRCONFI.Projeto.Web.Generico
 
         public static string GerarRelatorio(string pasta, string html, string nomeRelatorio)
         {
-            var caminho = String.Format("C:/Users/gabriel.oliveira/Source/Repos/SRCONFI/SRCONFI.Projeto.Web/SRCONFI.Projeto.Web/PDF/{0}", pasta);
+            var caminho = String.Format("C:/Users/gabri/GitHub/SRCONFI.Projeto/SRCONFI.Projeto.Web/SRCONFI.Projeto.Web/PDF/{0}", pasta);
 
             if (!Arquivo.VerificarPasta(caminho))
                 Arquivo.CriarPasta(caminho);

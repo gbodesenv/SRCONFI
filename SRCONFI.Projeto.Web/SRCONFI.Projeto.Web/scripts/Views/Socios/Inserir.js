@@ -3,11 +3,6 @@
         inserirSocio();
     });
 
-    $("#Endereco_numero").formatter({
-        'pattern': '{{9999}}',
-        'persistent': true
-    });
-
     $('#DadosComplementares_dataNascSocio').change(function () {
         var data = $(this).datepicker("getDate");
         if (data != "" && data != undefined)

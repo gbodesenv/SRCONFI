@@ -20,6 +20,7 @@ namespace SRCONFI.Projeto.Web.Bundles
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/css/index").Include("~/Content/Css/Layout/index.css"));
 
         }
     }

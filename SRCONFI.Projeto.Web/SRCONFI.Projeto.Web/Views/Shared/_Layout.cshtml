@@ -1,18 +1,25 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization;
+<!DOCTYPE html>
 <html>
 <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@ViewBag.Title - SRCONFI</title>
+    
+    @Styles.Render("~/Content/css/Layout")
+    @Styles.Render("~/Content")
 
-
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    
+    
     @*CSS*@
     @*<link href="~/Content/Css/Layout/layout.css" rel="stylesheet" />*@
-    <link href="~/Content/Css/Bootstrap/bootstrap.min.css" rel="stylesheet" />
+    @*<link href="~/Content/Css/Bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
-    <link href="~/Content/Css/Parsley/parsley.css" rel="stylesheet" />
+    <link href="~/Content/Css/Parsley/parsley.css" rel="stylesheet" />*@
     @*<link href="~/Content/Css/Bootcards/bootcards-desktop.css" rel="stylesheet" />*@
 
     @*JAVASCRIPT*@

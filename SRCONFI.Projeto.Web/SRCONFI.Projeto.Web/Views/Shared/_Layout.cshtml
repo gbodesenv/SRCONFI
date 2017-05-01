@@ -6,31 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@ViewBag.Title - SRCONFI</title>
-    
-    @Styles.Render("~/Content/css/Layout")
-    @Styles.Render("~/Content")
+        
+    @Styles.Render("~/Content/css/required")
+    @Styles.Render("~/Content/css/parsley")
 
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/scripts/required")    
+    @Scripts.Render("~/bundles/parsley")
+    @Scripts.Render("~/bundles/inputmask")
     
-    
-    @*CSS*@
-    @*<link href="~/Content/Css/Layout/layout.css" rel="stylesheet" />*@
-    @*<link href="~/Content/Css/Bootstrap/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
-    <link href="~/Content/Css/Parsley/parsley.css" rel="stylesheet" />*@
-    @*<link href="~/Content/Css/Bootcards/bootcards-desktop.css" rel="stylesheet" />*@
-
-    @*JAVASCRIPT*@
-    <script src="~/Scripts/Jquery/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/Bootstrap/bootstrap.min.js"></script>
-    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
-    <script src="~/Scripts/parsley-2.6.0.js"></script>
-    @*<script src="~/Scripts/Formatter/jquery.formatter-0.1.5.js"></script>*@
-    <script src="~/Scripts/Jquery/jquery.mask-1.14.3.js"></script>
-    @*<script src="~/Scripts/Bootcards/js/bootcards.js"></script>*@
-
     <style>
         html, body {
             height: 100%;

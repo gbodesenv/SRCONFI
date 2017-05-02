@@ -156,6 +156,7 @@
     <Content Include="Content\Css\Bootcards\bootcards-desktop.min.css" />
     <Content Include="Content\Css\Bootcards\bootcards-ios.css" />
     <Content Include="Content\Css\Bootcards\bootcards-ios.min.css" />
+    <Content Include="Content\Css\Layout\forms.css" />
     <Content Include="Content\Css\Layout\index.css" />
     <Content Include="Content\Css\Layout\layout.css" />
     <Content Include="Content\Css\Parsley\parsley.css" />
@@ -234,11 +235,13 @@
     <Content Include="Scripts\jquery.inputmask\jquery.inputmask.bundle.js" />
     <Content Include="Scripts\jquery.inputmask\jquery.inputmask.js" />
     <Content Include="Scripts\jquery.inputmask\jquery.inputmask.min.js" />
+    <Content Include="Scripts\Generico\Layout.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.bootstrap.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js" />
+    <Content Include="Scripts\parallax.js" />
     <Content Include="Wkhtmltopdf\wkhtmltoimage.exe" />
     <Content Include="Wkhtmltopdf\wkhtmltopdf.exe" />
     <Content Include="Wkhtmltopdf\wkhtmltox.dll" />

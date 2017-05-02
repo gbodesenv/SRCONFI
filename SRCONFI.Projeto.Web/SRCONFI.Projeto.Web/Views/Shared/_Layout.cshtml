@@ -6,10 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@ViewBag.Title - SRCONFI</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/Css/Layout/layout.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <h1>Estrutura One Page</h1>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+    <section>
+        <div id="topo" class="section_info">
+            <div class="row container">
+                <h2 class="header">Topo Fixo</h2>
+                <p>O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressсo. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.</p>
+            </div>
+        </div>
+
+        <div class="parallax-container">
+            <div class="parallax"><img src="img/imagem1.jpg"></div>
+        </div>
+    </section>
+
+    <section>
+        <div id="botao" class="section_info">
+            <div class="row container">
+                <h2 class="header">Botões de navegação</h2>
+                <p>É um facto estabelecido de que um leitor é distraído pelo conteúdo legível de uma página quando analisa a sua mancha gráfica. Logo, o uso de Lorem Ipsum leva a uma distribuição mais ou menos normal de letras, ao contrário do uso de "Conteúdo aqui, conteúdo aqui", tornando-o texto legível. Muitas ferramentas de publicação electrónica e editores de páginas web usam actualmente o Lorem Ipsum como o modelo de texto usado por omissсo, e uma pesquisa por "lorem ipsum" irá encontrar muitos websites ainda na sua infáncia. Várias versões tem evoluído ao longo dos anos, por vezes por acidente, por vezes propositadamente (como no caso do humor).</p>
+            </div>
+        </div>
+
+        <div class="parallax-container">
+            <div class="parallax"><img src="img/imagem2.jpg"></div>
+        </div>
+    </section>
+
+    <section>
+        <div id="tolltips" class="section_info">
+            <div class="row container">
+                <h2 class="header">Tooltips</h2>
+                <p>Existem muitas variações das passagens modelo da indústria tipográfica e de impressсo. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.</p>
+            </div>
+        </div>
+
+        <div class="parallax-container">
+            <div class="parallax"><img src="img/imagem3.jpg"></div>
+        </div>
+    </section>
         
     @Styles.Render("~/Content/css/required")
     @Styles.Render("~/Content/css/parsley")
 
+    <section>
+        <div id="parallax" class="section_info">
+            <div class="row container">
+                <h2 class="header">Parallax</h2>
+                <p>Existem muitas variações das passagens do Lorem Ipsum disponíveis, mas a maior parte sofreu alterações de alguma forma, pela injecção de humor, ou de palavras aleatórias que nem sequer parecem suficientemente credíveis. Se vai usar uma passagem do Lorem Ipsum, deve ter a certeza que não contém nada de embaraуoso escondido no meio do texto. Todos os geradores de Lorem Ipsum na Internet acabam por repetir texto pré-definido, como necessário, fazendo com que este seja o primeiro verdadeiro gerador na Internet. Usa um dicionário de 200 palavras em Latim, combinado com uma dúzia de modelos de frases, para gerar Lorem Ipsum que pareуam razoáveis. Desta forma, o Lorem Ipsum gerado é sempre livre de repetição, ou de injecção humorística, etc.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>CURSO DEVMEDIA</p>
+    </footer>
+
+    @*_____PLUGINS_____*@
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/parallax.js"></script>
+    @*_____PLUGINS_____*@
+
+    @*______GENERICOS_____*@
+    <script src="~/Scripts/Generico/Layout.js"></script>
+    @*______GENERICOS_____*@
+</body>
+</html>
+
+
+@*<style>
     @Scripts.Render("~/bundles/scripts/required")    
     @Scripts.Render("~/bundles/parsley")
     @Scripts.Render("~/bundles/inputmask")
@@ -184,12 +262,9 @@
             /* inline-block space fix */
             margin-right: -4px;
         }
-    </style>
-    
-</head>
+    </style>*@
 
-<body>
-    <nav class="navbar navbar-default" role="navigation">
+@*<nav class="navbar navbar-default" role="navigation">
         <div class="container-full">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -208,7 +283,6 @@
 
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Home", "Home", null, null)</li>
-                    @*DROP DOWN*@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastros<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -232,14 +306,6 @@
                             <li class="divider"></li>
 
                             <li>@Html.ActionLink("Atividades", "Listar", "Atividades", null, null)</li>
-                            @*<li class="dropdown-submenu">
-                                    <a tabindex="-1" href="#">Livros</a>
-                                    <ul class="dropdown-menu">
-                                        <li>@Html.ActionLink("Autores", "Listar", "Autor", null, null)</li>
-                                        <li>@Html.ActionLink("Editoras", "Listar", "Editora", null, null)</li>
-                                        <li>@Html.ActionLink("Livros", "Listar", "Livro", null, null)</li>
-                                    </ul>
-                                </li>*@
                         </ul>
                     </li>
 
@@ -277,36 +343,27 @@
                     </li>
 
                 </ul>
-
-                @*<form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Pesquisar">
-                        </div>
-                        <button type="submit" class="btn btn-default">Pesquisar</button>
-                    </form>*@
             </div>
         </div>
-    </nav> <!-- final do navbar -->
+    </nav>*@
 
 
 
-    <div class="wrapper" role="main" style="">
+<!-- final do navbar -->
+@*<div class="wrapper" role="main" style="">
         <div class="container">
             <div class="row">
-                @* <div ui-view style="height: calc(100% - 152px);">*@
                 <div id="conteudo" class="col-md-12">
-                    @RenderBody()
-                    @* </div> *@
                 </div><!-- div conteudo -->
                 <!-- Sidebar -->
 
             </div><!-- div row container -->
         </div><!-- div container -->
-    </div><!-- div wrapper -->
+    </div><!-- div wrapper -->*@
 
+<!-- Aqui e a area do footer -->
+@*<footer class="navbar-fixed-bottom">
 
-    <footer class="navbar-fixed-bottom">
-        @*<!-- Aqui e a area do footer -->*@
         <div class="copyright">
             <div class="container">
                 <div class="row">
@@ -322,144 +379,142 @@
     </footer>
 
     <div class="modal fade first autoModal" role="dialog" id="modal">
-    </div>
+    </div>*@
 
-    <script>
+@*<script>
 
-        //bootcards.init({
-        //    offCanvasBackdrop: true,
-        //    offCanvasHideOnMainClick: true,
-        //    enableTabletPortraitMode: true,
-        //    disableRubberBanding: true,
-        //    disableBreakoutSelector: 'a.no-break-out'
-        //});
+            //bootcards.init({
+            //    offCanvasBackdrop: true,
+            //    offCanvasHideOnMainClick: true,
+            //    enableTabletPortraitMode: true,
+            //    disableRubberBanding: true,
+            //    disableBreakoutSelector: 'a.no-break-out'
+            //});
 
-        function maskFormat() {
-            $("input.mask-date").datepicker();
+            function maskFormat() {
+                $("input.mask-date").datepicker();
 
-            $("input.cep-mask").mask('99999-999');
+                $("input.cep-mask").mask('99999-999');
 
-            $("input.cpf-mask").mask('999.999.999-99');
+                $("input.cpf-mask").mask('999.999.999-99');
 
-            $("input.rg-mask").mask('9999999999');
+                $("input.rg-mask").mask('9999999999');
 
-            $("input.cellphone-mask").mask('(999) 99999-9999');
+                $("input.cellphone-mask").mask('(999) 99999-9999');
 
-            $("input.phone-mask").mask('(999) 9999-9999');
-        }
-
-
-        /* Brazilian initialisation for the jQuery UI date picker plugin. */
-        /* Written by Leonildo Costa Silva (leocsilva@gmail.com). */
-        jQuery(function ($) {
-            $.datepicker.regional['pt-BR'] = {
-                closeText: 'Fechar',
-                prevText: '&#x3c;Anterior',
-                nextText: 'Pr&oacute;ximo&#x3e;',
-                currentText: 'Hoje',
-                monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho',
-                'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
-                'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                dayNames: ['Domingo', 'Segunda-feira', 'Ter&ccedil;a-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sabado'],
-                dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
-                dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
-                weekHeader: 'Sm',
-                dateFormat: 'dd/mm/yy',
-                firstDay: 0,
-                isRTL: false,
-                showMonthAfterYear: false,
-                yearSuffix: ''
-            };
-            $.datepicker.setDefaults($.datepicker.regional['pt-BR']);
-        });
-
-        $.fn.serializeObject = function () {
-            var o = {};
-            var a = this.serializeArray();
-            $.each(a, function () {
-                if (o[this.name] !== undefined) {
-                    if (!o[this.name].push) {
-                        o[this.name] = [o[this.name]];
-                    }
-                    o[this.name].push(this.value || '');
-                } else {
-                    o[this.name] = this.value || '';
-                }
-            });
-            return o;
-        };
-
-        function confirmDialog(titulo, mensagem, callback, parametro) {
-            var element = ' <div id="dialog-confirm" title="' + titulo + '">' +
-                          '<p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>' + mensagem + '</p>' +
-                          '</div>';
-
-            $(element).dialog({
-                resizable: false,
-                height: "auto",
-                width: 400,
-                modal: true,
-                buttons: {
-                    "Sim": function () {
-                        callback(parametro);
-                        $(this).dialog("close");
-                    },
-                    "Não": function () {
-                        $(this).dialog("close");
-                    }
-                }
-            });
-        }
-        //1 - sucesso
-        //2 - erro
-        //3 - alerta
-        function alertSistema(tipo, mensagem, callback, parametro) {
-            var titulo = '';
-            var icon = '';
-
-            if (tipo == 1) {
-                titulo = "Sucesso!!";
-                mensagem = (mensagem == "") ? "Operação efetuada com sucesso!" : mensagem;
-                icon = "glyphicon glyphicon-thumbs-up";
-            } else if (tipo == 2) {
-                titulo = "Erro";
-                mensagem = (mensagem == "") ? "A operação gerou um erro!" : mensagem;
-                icon = "glyphicon glyphicon-thumbs-down";
-            } else if (tipo == 3) {
-                titulo = "Alerta";
-                mensagem = (mensagem == "") ? "Essa operação gerou um alerta" : mensagem;
-                icon = "glyphicon glyphicon-thumbs-down";
+                $("input.phone-mask").mask('(999) 9999-9999');
             }
 
 
-            var element = ' <div id="dialog-confirm" title="' + titulo + '">' +
-                          '<p><span class="' + icon + '" style="float:left; margin:12px 12px 20px 0;"></span>' + mensagem + '</p>' +
-                          '</div>';
+            /* Brazilian initialisation for the jQuery UI date picker plugin. */
+            /* Written by Leonildo Costa Silva (leocsilva@gmail.com). */
+            jQuery(function ($) {
+                $.datepicker.regional['pt-BR'] = {
+                    closeText: 'Fechar',
+                    prevText: '&#x3c;Anterior',
+                    nextText: 'Pr&oacute;ximo&#x3e;',
+                    currentText: 'Hoje',
+                    monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho',
+                    'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+                    'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    dayNames: ['Domingo', 'Segunda-feira', 'Ter&ccedil;a-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sabado'],
+                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                    dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                    weekHeader: 'Sm',
+                    dateFormat: 'dd/mm/yy',
+                    firstDay: 0,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: ''
+                };
+                $.datepicker.setDefaults($.datepicker.regional['pt-BR']);
+            });
 
-            $(element).dialog({
-                resizable: false,
-                height: "auto",
-                width: 400,
-                modal: true,
-                buttons: {
-                    "Ok": function () {
-                        if (callback != undefined && callback != null)
-                            callback(parametro);
-                        $(this).dialog("close");
+            $.fn.serializeObject = function () {
+                var o = {};
+                var a = this.serializeArray();
+                $.each(a, function () {
+                    if (o[this.name] !== undefined) {
+                        if (!o[this.name].push) {
+                            o[this.name] = [o[this.name]];
+                        }
+                        o[this.name].push(this.value || '');
+                    } else {
+                        o[this.name] = this.value || '';
                     }
-                }
-            });
-        }
-
-        function abrirModal(urlModal, urlBodyModal) {
-            $("#modal.first").load(urlModal, function () {
-                $("#modal .modal-body.first").load(urlBodyModal, function () {
-                    $("#modal.first").modal();
                 });
-            });
-        }
+                return o;
+            };
 
-    </script>
-</body>
-</html>
+            function confirmDialog(titulo, mensagem, callback, parametro) {
+                var element = ' <div id="dialog-confirm" title="' + titulo + '">' +
+                              '<p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>' + mensagem + '</p>' +
+                              '</div>';
+
+                $(element).dialog({
+                    resizable: false,
+                    height: "auto",
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Sim": function () {
+                            callback(parametro);
+                            $(this).dialog("close");
+                        },
+                        "Não": function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+            }
+            //1 - sucesso
+            //2 - erro
+            //3 - alerta
+            function alertSistema(tipo, mensagem, callback, parametro) {
+                var titulo = '';
+                var icon = '';
+
+                if (tipo == 1) {
+                    titulo = "Sucesso!!";
+                    mensagem = (mensagem == "") ? "Operação efetuada com sucesso!" : mensagem;
+                    icon = "glyphicon glyphicon-thumbs-up";
+                } else if (tipo == 2) {
+                    titulo = "Erro";
+                    mensagem = (mensagem == "") ? "A operação gerou um erro!" : mensagem;
+                    icon = "glyphicon glyphicon-thumbs-down";
+                } else if (tipo == 3) {
+                    titulo = "Alerta";
+                    mensagem = (mensagem == "") ? "Essa operação gerou um alerta" : mensagem;
+                    icon = "glyphicon glyphicon-thumbs-down";
+                }
+
+
+                var element = ' <div id="dialog-confirm" title="' + titulo + '">' +
+                              '<p><span class="' + icon + '" style="float:left; margin:12px 12px 20px 0;"></span>' + mensagem + '</p>' +
+                              '</div>';
+
+                $(element).dialog({
+                    resizable: false,
+                    height: "auto",
+                    width: 400,
+                    modal: true,
+                    buttons: {
+                        "Ok": function () {
+                            if (callback != undefined && callback != null)
+                                callback(parametro);
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+            }
+
+            function abrirModal(urlModal, urlBodyModal) {
+                $("#modal.first").load(urlModal, function () {
+                    $("#modal .modal-body.first").load(urlBodyModal, function () {
+                        $("#modal.first").modal();
+                    });
+                });
+            }
+
+    </script>*@
